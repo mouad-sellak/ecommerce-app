@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace LocationVoiture.Controllers
 {
+    //mouadBranch comment
     [Authorize(Roles = "Admin")] 
     public class AdminDashboardController : BaseController
     {
