@@ -12,7 +12,7 @@ using LocationVoiture.Models;
 
 namespace LocationVoiture.Controllers
 {
-    [Authorize]
+    [Authorize] 
     public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
