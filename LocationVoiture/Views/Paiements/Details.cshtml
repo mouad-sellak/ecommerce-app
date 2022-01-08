@@ -1,0 +1,27 @@
+﻿@model LocationVoiture.Models.Paiement
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Paiement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.libele)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.libele)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_paiement }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

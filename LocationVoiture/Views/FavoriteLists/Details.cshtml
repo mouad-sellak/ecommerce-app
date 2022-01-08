@@ -1,0 +1,27 @@
+﻿@model LocationVoiture.Models.FavoriteList
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FavoriteList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUser.UserType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.UserType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_favorite }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

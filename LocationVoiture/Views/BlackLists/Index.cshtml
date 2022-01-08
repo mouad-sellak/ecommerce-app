@@ -1,0 +1,73 @@
+﻿@model IEnumerable<LocationVoiture.Models.BlackList>
+
+@{
+    //ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+}
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @LocationVoiture.Resources.Views.Account.Register.type
+            </th>
+            <th>
+                @LocationVoiture.Resources.Views.Account.Register.name
+            </th>
+            <th>
+                @LocationVoiture.Resources.Views.Account.Register.date_join
+            </th>
+            <th>
+                @LocationVoiture.Resources.Views.Account.Register.email
+            </th>
+            <th>
+                @LocationVoiture.Resources.Views.Account.Register.number
+            </th>
+            <th>
+                @LocationVoiture.Resources.Views.Account.Register.adress
+            </th>
+
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.UserType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
+                </td>
+                <td>
+                    @Convert.ToDateTime(item.ApplicationUser.date_join).ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.UserAdress)
+                </td>
+                <td>
+                    <a href="@Url.Action("Details", "ApplicationUsers", new { id = item.UserId })" class="text-success">
+                        <i class="material-icons icon">
+                            visibility
+                        </i>
+                    </a>
+                    <a data-delete-id="@item.id_black" class="text-danger delete-link-black pointer">
+                        <i class="material-icons icon " style="color:grey">
+                            delete
+                        </i>
+                    </a>
+                    @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

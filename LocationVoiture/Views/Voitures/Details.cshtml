@@ -1,0 +1,187 @@
+﻿@model LocationVoiture.Models.Voiture
+@if (User.IsInRole("Tenant"))
+{
+    Layout = "~/Views/Shared/_TenantDashboard.cshtml";
+}
+else if (User.IsInRole("Owner"))
+{
+    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+}
+else if (User.IsInRole("Admin"))
+{
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+}
+<div class="m-5">
+    <h2>Details</h2>
+
+    <div>
+        <h4>@LocationVoiture.Resources.Views.Voitures.Create.car</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <dl class="dl-horizontal row">
+                    <dt class="col-md-4">
+                        @LocationVoiture.Resources.Models.ReservationModel.matricule
+                    </dt>
+
+                    <dd class="col-md-8">
+                        @Html.DisplayFor(model => model.matricul)
+                    </dd>
+                    <dt class="col-md-4">
+                        @LocationVoiture.Resources.most.owner
+                    </dt>
+
+                    <dd class="col-md-8">
+                        <a href="#" data-toggle="modal" data-target="#owner">
+                            @Html.DisplayFor(model => model.ApplicationUser.UserName)
+                        </a>
+                    </dd>
+
+
+                    <dt class="col-md-4">
+                        @Html.DisplayNameFor(model => model.Marque.libele)
+                    </dt>
+
+                    <dd class="col-md-8">
+                        @Html.DisplayFor(model => model.Marque.libele)
+                    </dd>
+
+                    @if (Model.Offre != null && Model.Offre.date_expiration > DateTime.Now)
+                    {
+                        <dt class="col-md-4">
+                            @Html.LabelFor(model => model.Offre.libele)
+                        </dt>
+
+                        <dd class="col-md-8">
+                            <span class="font-weight-bold text-success"> - @Html.DisplayFor(model => model.Offre.taux_remise) %</span>
+                        </dd>
+                    }
+
+                    <dt class="col-md-4">
+                        @Html.DisplayNameFor(model => model.nb_passagers)
+                    </dt>
+                    <dd class="col-md-8">
+                        @Html.DisplayFor(model => model.nb_passagers)
+                    </dd>
+
+                    <dt class="col-md-4">
+                        @Html.DisplayNameFor(model => model.couleur)
+                    </dt>
+
+                    <dd class="col-md-8">
+                        @Html.DisplayFor(model => model.couleur)
+                    </dd>
+
+                    <dt class="col-md-4">
+                        @Html.DisplayNameFor(model => model.prix)
+                    </dt>
+
+                    <dd class="col-md-8">
+                        <span class="font-weight-bold"> @Model.Prix_total() DHs </span>
+                    </dd>
+
+
+                    <dt class="col-md-4">
+                        @Html.DisplayNameFor(model => model.anne)
+                    </dt>
+
+                    <dd class="col-md-8">
+                        @Html.DisplayFor(model => model.anne)
+                    </dd>
+
+                    <dt class="col-md-4">
+                        @Html.DisplayNameFor(model => model.km)
+                    </dt>
+
+                    <dd class="col-md-8">
+                        @Html.DisplayFor(model => model.km)
+                    </dd>
+
+                    <dt class="col-md-4">
+                        @Html.DisplayNameFor(model => model.date_ajout)
+                    </dt>
+
+                    <dd class="col-md-8">
+                        @Html.DisplayFor(model => model.date_ajout)
+                    </dd>
+
+                </dl>
+            </div>
+            <div class="col-md-4">
+                <img src="~/Uploads/cars/@Html.DisplayFor(model => model.photo)" class="img-thumbnail h-75 w-100" />
+
+            </div>
+        </div>
+
+    </div>
+    @if (User.IsInRole("Owner"))
+    {
+        <p>
+
+            @Html.ActionLink(LocationVoiture.Resources.Views.Voitures.Edit.edit, "Edit", new { id = Model.id_voiture }) |
+            @Html.ActionLink(LocationVoiture.Resources.most.back, "OwnerCars")
+        </p>
+
+    }
+    else
+    {
+        <p>
+            @Html.ActionLink(LocationVoiture.Resources.most.back, "Index")
+
+        </p>
+    }
+
+</div>
+
+
+<div class="modal fade" id="owner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    @Model.ApplicationUser.UserName
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <dl class="dl-horizontal row">
+                    <dt class="col-md-4">
+                        @LocationVoiture.Resources.Models.ReservationModel.owner
+                    </dt>
+
+                    <dd class="col-md-8">
+                        @Html.DisplayFor(model => model.ApplicationUser.UserName)
+                    </dd>
+
+                    <dt class="col-md-4">
+                        Email
+                    </dt>
+
+                    <dd class="col-md-8">
+                        @Html.DisplayFor(model => model.ApplicationUser.Email)
+                    </dd>
+
+                    <dt class="col-md-4">
+                        @LocationVoiture.Resources.Models.Locataire.phone
+                    </dt>
+
+                    <dd class="col-md-8">
+                        @Html.DisplayFor(model => model.ApplicationUser.PhoneNumber)
+                    </dd>
+                    <dt class="col-md-4">
+                        @LocationVoiture.Resources.Models.Locataire.address
+                    </dt>
+
+                    <dd class="col-md-8">
+                        @Html.DisplayFor(model => model.ApplicationUser.UserAdress)
+                    </dd>
+                </dl>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

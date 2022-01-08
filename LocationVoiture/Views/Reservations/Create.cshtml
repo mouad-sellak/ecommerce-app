@@ -1,0 +1,100 @@
+﻿@model LocationVoiture.Models.Reservation
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_TenantDashboard.cshtml";
+}
+
+<div class="ml-5">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Reservation</h4>
+
+            <hr />
+            @if (ViewBag.err != null)
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.err
+                </div>
+            }
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @ViewBag.voiture_id
+
+            @if (ViewBag.voiture == null)
+            {
+                <div class="form-group">
+                    @LocationVoiture.Resources.Models.ReservationModel.matricule
+                    <div class="col-md-10">
+                        @Html.DropDownList("id_voiture", null, "--- Voiture ---", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.id_voiture, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            }
+            else
+            {
+
+                <div class="form-group">
+                    <h4>Voiture: <em>@ViewBag.voiture.matricul</em></h4>
+                </div>
+
+                <input type="hidden" value="@ViewBag.voiture.id_voiture" name="id_voiture" />
+            }
+
+
+            <div class="form-group">
+                @LocationVoiture.Resources.Models.ReservationModel.paiement
+                <div class="col-md-10">
+                    @Html.DropDownList("id_paiement", null, "--- Paiement ---", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.id_paiement, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.date_prise_en_charge, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.date_prise_en_charge, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                    @Html.ValidationMessageFor(model => model.date_prise_en_charge, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.date_retour, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.date_retour, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                    @Html.ValidationMessageFor(model => model.date_retour, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.lieu_prise_en_charge, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.lieu_prise_en_charge, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.lieu_prise_en_charge, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.remarque, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.remarque, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.remarque, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value=@LocationVoiture.Resources.most.save class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink(LocationVoiture.Resources.most.back, "Index")
+    </div>
+
+</div>

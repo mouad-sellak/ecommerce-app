@@ -1,0 +1,57 @@
+﻿@model IEnumerable<LocationVoiture.Models.Locataire>
+
+@{
+    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+}
+
+
+
+<div class="m-5">
+  
+    <hr />
+    <table class="table table-striped" id="locataires">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.user_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date_ajout)
+                </th>
+                           </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.date_ajout)
+                </td>
+            </tr>
+            }
+        </tbody>
+
+    </table>
+
+    </div>

@@ -1,0 +1,153 @@
+﻿@model LocationVoiture.Models.HistoryOwner
+@{
+    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+}
+
+<div class="container">
+    <div class="title ml-5">
+        <h1>@LocationVoiture.Resources.Views.Shared._OwnerDashboard.history</h1>
+    </div>
+    <hr />
+    <h4>@LocationVoiture.Resources.Views.Offres.Index.voitureDispo</h4>
+    @if (Model.reservations.Any())
+    {
+
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <ul id="listPage" class="text-center" style="list-style-type:none;">
+
+                    @foreach (var item in Model.reservations)
+                    {
+                        if (item != null)
+                        {
+                            <li style="min-height:200px;">
+
+
+                                <div class="card row flex-row flex-wrap m-3 h-100">
+                                    <div class="card-header border-0" style="min-height: 200px; width: 250px;background-color:white;
+">
+                                        <img src="~/Uploads/cars/@Html.DisplayFor(model => item.Voiture.photo)" alt="" class="h-100" style=" width:200px;">
+                                    </div>
+                                    <div class="card-block my-3" style="        margin-left: 100px;">
+                                        <center style="margin-top: 50px;margin-bottom:50px;">
+                                            <p class="card-text" style="width: 400px;">
+                                                @LocationVoiture.Resources.Views.Shared._OwnerDashboard.notification<span class="font-weight-bold"> @Html.DisplayFor(modelItem => item.Voiture.ApplicationUser.UserName)</span>,  @LocationVoiture.Resources.Views.Shared._OwnerDashboard.le <span class="font-weight-bold"> @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")</span>
+                                            </p>
+                                            <a href="@Url.Action("Details", "Reservations", new { id = item.id_reservation })" class="text-success">
+                                                @LocationVoiture.Resources.Views.Shared._TenantDashboard.details
+                                            </a>
+                                        </center>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    }
+
+                </ul>
+
+            </div>
+
+        </div>
+    }
+
+    else
+    {
+        <center><span class="font-weight-bold;"> @LocationVoiture.Resources.Views.Shared._OwnerDashboard.nothing</span></center>
+
+    }
+    <hr />
+    <h4>@LocationVoiture.Resources.Views.Offres.Index.offreDispo</h4>
+    @if (Model.offresDisponibles.Any())
+    {
+
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <ul class="text-center" style="list-style-type:none;">
+
+                    @foreach (var item in Model.offresDisponibles)
+                    {
+                        if (item != null)
+                        {
+                            <li>
+                                <div class="card row flex-row flex-wrap m-3 h-100">
+                                    <div class="card-block my-3">
+                                        <p class="card-text" style="width: 350px;">
+                                            @LocationVoiture.Resources.Views.Offres.Index.tauxDeRemise :
+                                            <span class="text-success font-weight-bold">
+                                                @Html.DisplayFor(modelItem => item.taux_remise)%
+                                            </span><br />
+                                            <span>
+                                                @LocationVoiture.Resources.Views.Offres.Index.dateDexpiration:
+                                                @Convert.ToDateTime(item.date_expiration).ToString("dd/MM/yyyy")
+                                            </span>
+                                        </p>
+                                        <a href="@Url.Action("Details", "Offres", new { id = item.id_offre })" class="text-success">
+                                            @LocationVoiture.Resources.Views.Shared._TenantDashboard.details
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    }
+
+                </ul>
+
+            </div>
+
+        </div>
+    }
+
+    else
+    {
+        <center><span class="font-weight-bold;"> @LocationVoiture.Resources.Views.Shared._OwnerDashboard.nothing</span></center>
+
+    }
+    <hr />
+    <h4>@LocationVoiture.Resources.Views.Offres.Index.offreExpire</h4>
+    @if (Model.offresExpires.Any())
+    {
+
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <ul class="text-center" style="list-style-type:none;">
+
+                    @foreach (var item in Model.offresExpires)
+                    {
+                        if (item != null)
+                        {
+                            <li>
+                                <div class="card row flex-row flex-wrap m-3 h-100">
+                                    <div class="card-block my-3">
+                                        <p class="card-text" style="width: 350px;">
+                                            @LocationVoiture.Resources.Views.Offres.Index.tauxDeRemise :
+                                            <span class="text-success font-weight-bold">
+                                                @Html.DisplayFor(modelItem => item.taux_remise)%
+                                            </span><br />
+                                            <span>
+                                                @LocationVoiture.Resources.Views.Offres.Index.dateDexpiration:
+                                                @Convert.ToDateTime(item.date_expiration).ToString("dd/MM/yyyy")
+                                            </span>
+                                        </p>
+                                        <a href="@Url.Action("Details", "Offres", new { id = item.id_offre })" class="text-success">
+                                            @LocationVoiture.Resources.Views.Shared._TenantDashboard.details
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    }
+
+                </ul>
+
+            </div>
+
+        </div>
+    }
+
+    else
+    {
+        <center><span class="font-weight-bold;"> @LocationVoiture.Resources.Views.Shared._OwnerDashboard.nothing</span></center>
+
+    }
+    <hr />
+</div>

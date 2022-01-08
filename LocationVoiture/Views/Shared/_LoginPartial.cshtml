@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+<ul class="nav navbar-nav navbar-right">
+
+    @if (User.IsInRole("Admin"))
+    {
+        <li>
+            @Html.ActionLink(LocationVoiture.Resources.Views.Shared._LoginPartial.hello+" " + User.Identity.GetUserName(), "Index", "AdminDashboard", routeValues: null, htmlAttributes: new { @class = "nav-link", title = "Manage" })
+        </li>
+    }
+
+    else if (User.IsInRole("Tenant"))
+    {
+        <li>
+            @Html.ActionLink(LocationVoiture.Resources.Views.Shared._LoginPartial.hello + " "+ User.Identity.GetUserName() , "Index", "TenantDashboard", routeValues: null, htmlAttributes: new { @class = "nav-link", title = "Manage" })
+        </li>
+    }
+    else if (User.IsInRole("Owner"))
+    {
+        @Html.ActionLink(LocationVoiture.Resources.Views.Shared._LoginPartial.hello + " " + User.Identity.GetUserName() , "Index", "OwnerDashboard", routeValues: null, htmlAttributes: new { @class = "nav-link", title = "Manage" })
+
+    }
+@*
+    <li>
+        @Html.ActionLink(User.Identity.GetUserName() + "!", "Index", "AdminDashboard", routeValues: null, htmlAttributes: new { @class = "nav-link", title = "Manage" })
+    </li>
+*@
+
+    <li><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">@LocationVoiture.Resources.Views.Shared._Layout.logoff</a></li>
+
+
+</ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink(LocationVoiture.Resources.Views.Shared._Layout.register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
+        <li>@Html.ActionLink(LocationVoiture.Resources.Views.Shared._Layout.login, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+    </ul>
+}

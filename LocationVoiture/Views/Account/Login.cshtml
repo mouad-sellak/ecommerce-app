@@ -1,0 +1,88 @@
+﻿@using LocationVoiture.Models
+@model LoginViewModel
+@{
+    //ViewBag.Title = "Log in";
+}
+
+<h2>@ViewBag.Title</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <section id="loginForm">
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="row">
+                                    <div class="col">
+                                        <center>
+                                            <p style="color:#3692EB;font-size:x-large;font-weight:bold">@LocationVoiture.Resources.Views.Account.Login.welcomeDear</p>
+                                        </center>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <center>
+                                            <span>@LocationVoiture.Resources.Views.Account.Login.msg</span>
+                                        </center>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        @Html.LabelFor(m => m.Email)
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        @Html.LabelFor(m => m.Password)
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="checkbox">
+                                            <center>
+                                                @Html.CheckBoxFor(m => m.RememberMe)
+                                                @Html.LabelFor(m => m.RememberMe)
+                                            </center>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 mx-auto">
+                                        <center>
+                                            <div class="form-group">
+                                                <input type="submit" value="@LocationVoiture.Resources.Views.Account.Login.login" class="btn btn-primary" style="background-color: #3692EB" />
+                                            </div>
+                                        </center>
+                                    </div>
+                                </div>
+                                <center>
+                                    @Html.ActionLink(LocationVoiture.Resources.Views.Account.Login.register, "Register")
+                                </center>
+                                @* Enable this once you have account confirmation enabled for password reset functionality
+            <p>
+                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+            </p>*@
+                            }
+                        </section>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

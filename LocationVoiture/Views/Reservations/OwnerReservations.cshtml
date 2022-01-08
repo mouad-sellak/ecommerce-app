@@ -1,0 +1,78 @@
+﻿
+@model IEnumerable<LocationVoiture.Models.Reservation>
+
+@{
+    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+}
+
+<div class="mt-2">
+    <h2>Reservations</h2>
+    <hr />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.id_reservation)
+                </th>
+                <th>
+                    @LocationVoiture.Resources.Models.ReservationModel.matricule
+                </th>
+
+                <th>
+                    @LocationVoiture.Resources.Models.ReservationModel.price
+                </th>
+                <th>
+                    @LocationVoiture.Resources.Models.ReservationModel.tenant
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date_prise_en_charge)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date_retour)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id_reservation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Voiture.matricul)
+                    </td>
+                    <td class="font-weight-bold">
+                        @Html.DisplayFor(modelItem => item.prix) DHs
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
+                    </td>
+                    <td>
+                        @Convert.ToDateTime(item.date_prise_en_charge).ToString("dd/MM/yyyy")
+
+                    </td>
+                    <td>
+                        @Convert.ToDateTime(item.date_retour).ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Details", "Reservations", new { id = item.id_reservation })" class="text-success">
+                            <i class="material-icons icon ">
+                                visibility
+                            </i>
+                        </a>
+                        <a data-delete-id="@item.id_reservation" class="text-danger delete-link-reserve pointer">
+                            <i class="material-icons icon ">
+                                delete
+                            </i>
+                        </a>
+                        @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

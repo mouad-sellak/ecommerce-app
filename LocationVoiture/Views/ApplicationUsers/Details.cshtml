@@ -1,0 +1,94 @@
+﻿@model LocationVoiture.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <center>
+                                @LocationVoiture.Resources.Views.Account.Register.type
+                                @Html.EditorFor(model => model.UserType, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                            </center>
+                        </div>
+                    </div>
+                    @if (Model.UserType == "Owner")
+                    {
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    Type @LocationVoiture.Resources.Views.Account.Register.owner
+                                    @Html.EditorFor(model => model.TypeOwner, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </center>
+                            </div>
+                        </div>
+                    }
+                    <div class="row">
+                        <div class="col">
+                            <center>
+                                @LocationVoiture.Resources.Views.Account.Register.name
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                            </center>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <center>
+                                @LocationVoiture.Resources.Views.Account.Register.email
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                            </center>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <center>
+                                @LocationVoiture.Resources.Views.Account.Register.adress<br />
+                                @Html.TextAreaFor(m => m.UserAdress, new { @class = "form-control", @readonly = "readonly" })
+                            </center>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <center>
+                                @LocationVoiture.Resources.Views.Account.Register.number
+                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                            </center>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <center>
+                                @LocationVoiture.Resources.Views.Account.Register.date_join
+                                @Html.EditorFor(model => model.date_join, new { htmlAttributes = new { @Value = @Model.date_join.ToString("yyyy-MM-dd"), @class = "form-control", @type = "date", @readonly = "readonly" } })
+                            </center>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 mx-auto">
+                            <center>
+                                <div class="form-group">
+                                    <a href="~/ApplicationUsers/Index" class="text-success">
+                                        @LocationVoiture.Resources.Views.Offres.Index.backToList
+                                    </a>
+                                </div>
+                            </center>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<LocationVoiture.Models.Reservation>
+
+@{
+    ViewBag.Title = "Index";
+    if (User.IsInRole("Tenant"))
+    {
+        Layout = "~/Views/Shared/_TenantDashboard.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+    }
+
+}
+
+<div class="mt-2">
+    <h2>Reservations</h2>
+    @if (User.IsInRole("Tenant"))
+    {
+        <p>
+            @Html.ActionLink(LocationVoiture.Resources.most.create, "Create")
+        </p>
+        <hr />
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.id_reservation)
+                </th>
+                <th>
+                    @*            @Html.DisplayNameFor(model => model.Paiement.libele)
+                    *@
+                    @LocationVoiture.Resources.Models.ReservationModel.matricule
+                </th>
+                <th>
+                    @LocationVoiture.Resources.Models.ReservationModel.price
+                </th>
+                <th>
+                    @*            @Html.DisplayNameFor(model => model.Voiture.UserId)
+                    *@
+                    @LocationVoiture.Resources.Models.ReservationModel.owner
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.date_prise_en_charge)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date_retour)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id_reservation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Voiture.matricul)
+                    </td>
+                    <td class="font-weight-bold">
+                        @Html.DisplayFor(modelItem => item.prix) DHs
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Voiture.ApplicationUser.UserName)
+                    </td>
+
+                    <td>
+                        @Convert.ToDateTime(item.date_prise_en_charge).ToString("dd/MM/yyyy")
+
+                    </td>
+                    <td>
+                        @Convert.ToDateTime(item.date_retour).ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Details", "Reservations", new { id = item.id_reservation })" class="text-success">
+                            <i class="material-icons icon ">
+                                visibility
+                            </i>
+                        </a>
+
+                        @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

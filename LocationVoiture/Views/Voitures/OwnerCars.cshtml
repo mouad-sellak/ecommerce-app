@@ -1,0 +1,99 @@
+﻿@model IEnumerable<LocationVoiture.Models.Voiture>
+
+@{
+    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+}
+
+
+<div class="m-5">
+    <p>
+        @Html.ActionLink(LocationVoiture.Resources.most.create, "Create")
+    </p>
+    <hr />
+
+    <table class="table table-striped" id="cars">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.matricul)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Marque.libele)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.prix)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.photo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date_ajout)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id_voiture)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.matricul)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Marque.libele)
+                    </td>
+                    <td>
+                        <p class="font-weight-bold">
+                            @if (item.Offre != null && item.Offre.date_expiration >= DateTime.Now)
+                            {
+                                <span class="line-through"> @item.prix DHs</span> <span> (-@item.Offre.taux_remise%)</span> <br />
+                            }
+                            <span class="text-success">@item.Prix_total() DHs</span>
+                        </p>
+                    </td>
+                    <td>
+                        <img src="~/Uploads/cars/@Html.DisplayFor(model => item.photo)" class="img-thumbnail" style="width:48px; height:48px;" />
+                    </td>
+                    <td>
+                        @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Details", "Voitures", new { id = item.id_voiture })" class="text-success">
+                            <i class="material-icons icon ">
+                                visibility
+                            </i>
+                        </a>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Owner"))
+                        {
+                            <a href="@Url.Action("Edit", "Voitures", new { id = item.id_voiture })" class="text-warning">
+                                <i class="material-icons icon ">
+                                    edit
+                                </i>
+                            </a>
+                            <a data-delete-id="@item.id_voiture" class="text-danger delete-link-voiture pointer">
+                                <i class="material-icons icon ">
+                                    delete
+                                </i>
+                            </a>
+                            @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
+                        }
+                        @if (User.IsInRole("Tenant"))
+                        {
+                            <a href="~/Reservations/Create/@item.id_voiture">Réserver</a>
+                        }
+
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>
