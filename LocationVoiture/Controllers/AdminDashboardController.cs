@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace LocationVoiture.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")] 
     public class AdminDashboardController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
