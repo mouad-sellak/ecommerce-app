@@ -16,7 +16,7 @@ namespace LocationVoiture.Controllers
         {
             if (year == null)
             {
-                year = DateTime.Now.Year;
+                year = DateTime.Now.Year; 
             }
             ViewBag.year = year; 
 
