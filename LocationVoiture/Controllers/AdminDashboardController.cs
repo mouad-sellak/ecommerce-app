@@ -18,9 +18,9 @@ namespace LocationVoiture.Controllers
             {
                 year = DateTime.Now.Year;
             }
-            ViewBag.year = year;
+            ViewBag.year = year; 
 
-            List<ApplicationUser> users = db.Users.ToList();
+            List<ApplicationUser> users = db.Users.ToList();  
             List<Voiture> cars = db.Voitures.ToList();
             List<Reservation> res = db.Reservations.ToList();
             List<int> owners = new List<int>();
