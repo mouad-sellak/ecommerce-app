@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LocationVoiture.Models.Reservation>
+﻿@model IEnumerable<EcommerceApp.Models.Reservation>
 
 @{
     ViewBag.Title = "Index";
@@ -18,7 +18,7 @@
     @if (User.IsInRole("Tenant"))
     {
         <p>
-            @Html.ActionLink(LocationVoiture.Resources.most.create, "Create")
+            @Html.ActionLink(EcommerceApp.Resources.most.create, "Create")
         </p>
         <hr />
     }
@@ -32,15 +32,15 @@
                 <th>
                     @*            @Html.DisplayNameFor(model => model.Paiement.libele)
                     *@
-                    @LocationVoiture.Resources.Models.ReservationModel.matricule
+                    @EcommerceApp.Resources.Models.ReservationModel.matricule
                 </th>
                 <th>
-                    @LocationVoiture.Resources.Models.ReservationModel.price
+                    @EcommerceApp.Resources.Models.ReservationModel.price
                 </th>
                 <th>
                     @*            @Html.DisplayNameFor(model => model.Voiture.UserId)
                     *@
-                    @LocationVoiture.Resources.Models.ReservationModel.owner
+                    @EcommerceApp.Resources.Models.ReservationModel.owner
                 </th>
 
                 <th>

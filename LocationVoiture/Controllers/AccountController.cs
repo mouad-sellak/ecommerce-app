@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using LocationVoiture.Models;
+using EcommerceApp.Models;
 
-namespace LocationVoiture.Controllers
+namespace EcommerceApp.Controllers
 {
     [Authorize] 
     public class AccountController : BaseController
@@ -180,16 +180,16 @@ namespace LocationVoiture.Controllers
                 {
                     case PasswordVerificationResult.Success:
                         db.SaveChanges();
-                        ViewBag.info = LocationVoiture.Resources.Views.Account.Edit.Modification;
+                        ViewBag.info = EcommerceApp.Resources.Views.Account.Edit.Modification;
                         model.Password = "";
                         return View(model);
                     default:
-                        ViewBag.info = LocationVoiture.Resources.Views.Account.Edit.errorPassword;
+                        ViewBag.info = EcommerceApp.Resources.Views.Account.Edit.errorPassword;
                         model.Password = "";
                         return View(model);
                 }
             }
-            ViewBag.info = LocationVoiture.Resources.Views.Account.Edit.errorModification;
+            ViewBag.info = EcommerceApp.Resources.Views.Account.Edit.errorModification;
             return View(model);
         }
         //
@@ -197,8 +197,8 @@ namespace LocationVoiture.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.UserType = new SelectList(new[] { LocationVoiture.Resources.Views.Account.Register.tenant, LocationVoiture.Resources.Views.Account.Register.owner });
-            ViewBag.TypeOwner = new SelectList(new[] { LocationVoiture.Resources.Views.Account.Register.agence, LocationVoiture.Resources.Views.Account.Register.particulier });
+            ViewBag.UserType = new SelectList(new[] { EcommerceApp.Resources.Views.Account.Register.tenant, EcommerceApp.Resources.Views.Account.Register.owner });
+            ViewBag.TypeOwner = new SelectList(new[] { EcommerceApp.Resources.Views.Account.Register.agence, EcommerceApp.Resources.Views.Account.Register.particulier });
             return View();
         }
 
@@ -213,14 +213,14 @@ namespace LocationVoiture.Controllers
             {
                 String type;
                 String typeOwner = "None";
-                ViewBag.UserType = new SelectList(new[] { LocationVoiture.Resources.Views.Account.Register.tenant, LocationVoiture.Resources.Views.Account.Register.owner });
-                ViewBag.TypeOwner = new SelectList(new[] { LocationVoiture.Resources.Views.Account.Register.agence, LocationVoiture.Resources.Views.Account.Register.particulier });
-                if (model.UserType == LocationVoiture.Resources.Views.Account.Register.tenant)
+                ViewBag.UserType = new SelectList(new[] { EcommerceApp.Resources.Views.Account.Register.tenant, EcommerceApp.Resources.Views.Account.Register.owner });
+                ViewBag.TypeOwner = new SelectList(new[] { EcommerceApp.Resources.Views.Account.Register.agence, EcommerceApp.Resources.Views.Account.Register.particulier });
+                if (model.UserType == EcommerceApp.Resources.Views.Account.Register.tenant)
                     type = "Tenant";
                 else
                 {
                     type = "Owner";
-                    if (model.TypeOwner == LocationVoiture.Resources.Views.Account.Register.agence)
+                    if (model.TypeOwner == EcommerceApp.Resources.Views.Account.Register.agence)
                         typeOwner = "Agency";
                     else
                         typeOwner = "Particular";

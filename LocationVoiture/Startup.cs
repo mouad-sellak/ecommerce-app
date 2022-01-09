@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(LocationVoiture.Startup))]
-namespace LocationVoiture
+[assembly: OwinStartupAttribute(typeof(EcommerceApp.Startup))]
+namespace EcommerceApp
 {
     public partial class Startup
     {

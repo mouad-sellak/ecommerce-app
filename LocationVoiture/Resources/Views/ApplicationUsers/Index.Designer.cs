@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LocationVoiture.Resources.Views.ApplicationUsers {
+namespace EcommerceApp.Resources.Views.ApplicationUsers {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace LocationVoiture.Resources.Views.ApplicationUsers {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LocationVoiture.Resources.Views.ApplicationUsers.Index", typeof(Index).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EcommerceApp.Resources.Views.ApplicationUsers.Index", typeof(Index).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

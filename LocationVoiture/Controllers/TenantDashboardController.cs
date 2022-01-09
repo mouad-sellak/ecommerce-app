@@ -1,4 +1,4 @@
-﻿using LocationVoiture.Models;
+﻿using EcommerceApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
-namespace LocationVoiture.Controllers
+namespace EcommerceApp.Controllers
 {
     
     [Authorize(Roles = "Tenant")]

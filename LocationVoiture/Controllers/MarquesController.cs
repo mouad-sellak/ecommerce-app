@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using LocationVoiture.Models;
+using EcommerceApp.Models;
 
-namespace LocationVoiture.Controllers
+namespace EcommerceApp.Controllers
 {
     [Authorize(Roles = "Ownern,Admin")]
     public class MarquesController : BaseController

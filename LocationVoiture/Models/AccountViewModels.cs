@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace LocationVoiture.Models
+namespace EcommerceApp.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
@@ -55,46 +55,46 @@ namespace LocationVoiture.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "password", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Login))]
+        [Display(Name = "password", ResourceType = typeof(EcommerceApp.Resources.Views.Account.Login))]
         public string Password { get; set; }
 
-        [Display(Name = "remember", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Login))]
+        [Display(Name = "remember", ResourceType = typeof(EcommerceApp.Resources.Views.Account.Login))]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "name", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
+        [Display(Name = "name", ResourceType = typeof(EcommerceApp.Resources.Views.Account.Register))]
         public string UserName { get; set; }
         [Required]
-        [Display(Name = "adress", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
+        [Display(Name = "adress", ResourceType = typeof(EcommerceApp.Resources.Views.Account.Register))]
         public string UserAdress { get; set; }
 
         [Required]
-        [Display(Name = "type", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
+        [Display(Name = "type", ResourceType = typeof(EcommerceApp.Resources.Views.Account.Register))]
         public string UserType { get; set; }
 
         [Display(Name = "typeOwner")]
         public string TypeOwner { get; set; }
 
         [Required]
-        [Display(Name = "number", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
+        [Display(Name = "number", ResourceType = typeof(EcommerceApp.Resources.Views.Account.Register))]
         public string UserPhone { get; set; }
 
         [Required]
         [EmailAddress]
-        [Display(Name = "email", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
+        [Display(Name = "email", ResourceType = typeof(EcommerceApp.Resources.Views.Account.Register))]
         public string Email { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
+        [Display(Name = "Password", ResourceType = typeof(EcommerceApp.Resources.Views.Account.Register))]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "confirmPassword", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
+        [Display(Name = "confirmPassword", ResourceType = typeof(EcommerceApp.Resources.Views.Account.Register))]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
@@ -102,20 +102,20 @@ namespace LocationVoiture.Models
     public class EditViewModel
     {
         [Required]
-        [Display(Name = "name", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Edit))]
+        [Display(Name = "name", ResourceType = typeof(EcommerceApp.Resources.Views.Account.Edit))]
         public string UserName { get; set; }
         [Required]
-        [Display(Name = "adress",ResourceType = typeof(LocationVoiture.Resources.Views.Account.Edit))]
+        [Display(Name = "adress",ResourceType = typeof(EcommerceApp.Resources.Views.Account.Edit))]
         public string UserAdress { get; set; }
 
         [Required]
-        [Display(Name = "number", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Edit))]
+        [Display(Name = "number", ResourceType = typeof(EcommerceApp.Resources.Views.Account.Edit))]
         public string UserPhone { get; set; }
 
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password",ResourceType = typeof(LocationVoiture.Resources.Views.Account.Edit))]
+        [Display(Name = "Password",ResourceType = typeof(EcommerceApp.Resources.Views.Account.Edit))]
         public string Password { get; set; }
 
     }

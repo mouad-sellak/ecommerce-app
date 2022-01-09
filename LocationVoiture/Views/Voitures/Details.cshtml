@@ -1,4 +1,4 @@
-﻿@model LocationVoiture.Models.Voiture
+﻿@model EcommerceApp.Models.Voiture
 @if (User.IsInRole("Tenant"))
 {
     Layout = "~/Views/Shared/_TenantDashboard.cshtml";
@@ -15,20 +15,20 @@ else if (User.IsInRole("Admin"))
     <h2>Details</h2>
 
     <div>
-        <h4>@LocationVoiture.Resources.Views.Voitures.Create.car</h4>
+        <h4>@EcommerceApp.Resources.Views.Voitures.Create.car</h4>
         <hr />
         <div class="row">
             <div class="col-md-8">
                 <dl class="dl-horizontal row">
                     <dt class="col-md-4">
-                        @LocationVoiture.Resources.Models.ReservationModel.matricule
+                        @EcommerceApp.Resources.Models.ReservationModel.matricule
                     </dt>
 
                     <dd class="col-md-8">
                         @Html.DisplayFor(model => model.matricul)
                     </dd>
                     <dt class="col-md-4">
-                        @LocationVoiture.Resources.most.owner
+                        @EcommerceApp.Resources.most.owner
                     </dt>
 
                     <dd class="col-md-8">
@@ -118,15 +118,15 @@ else if (User.IsInRole("Admin"))
     {
         <p>
 
-            @Html.ActionLink(LocationVoiture.Resources.Views.Voitures.Edit.edit, "Edit", new { id = Model.id_voiture }) |
-            @Html.ActionLink(LocationVoiture.Resources.most.back, "OwnerCars")
+            @Html.ActionLink(EcommerceApp.Resources.Views.Voitures.Edit.edit, "Edit", new { id = Model.id_voiture }) |
+            @Html.ActionLink(EcommerceApp.Resources.most.back, "OwnerCars")
         </p>
 
     }
     else
     {
         <p>
-            @Html.ActionLink(LocationVoiture.Resources.most.back, "Index")
+            @Html.ActionLink(EcommerceApp.Resources.most.back, "Index")
 
         </p>
     }
@@ -148,7 +148,7 @@ else if (User.IsInRole("Admin"))
             <div class="modal-body">
                 <dl class="dl-horizontal row">
                     <dt class="col-md-4">
-                        @LocationVoiture.Resources.Models.ReservationModel.owner
+                        @EcommerceApp.Resources.Models.ReservationModel.owner
                     </dt>
 
                     <dd class="col-md-8">
@@ -164,14 +164,14 @@ else if (User.IsInRole("Admin"))
                     </dd>
 
                     <dt class="col-md-4">
-                        @LocationVoiture.Resources.Models.Locataire.phone
+                        @EcommerceApp.Resources.Models.Locataire.phone
                     </dt>
 
                     <dd class="col-md-8">
                         @Html.DisplayFor(model => model.ApplicationUser.PhoneNumber)
                     </dd>
                     <dt class="col-md-4">
-                        @LocationVoiture.Resources.Models.Locataire.address
+                        @EcommerceApp.Resources.Models.Locataire.address
                     </dt>
 
                     <dd class="col-md-8">

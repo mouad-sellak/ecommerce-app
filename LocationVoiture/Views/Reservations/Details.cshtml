@@ -1,4 +1,4 @@
-﻿@model LocationVoiture.Models.Reservation
+﻿@model EcommerceApp.Models.Reservation
 
 @if (User.IsInRole("Tenant"))
 {
@@ -22,7 +22,7 @@ else if (User.IsInRole("Admin"))
         <hr />
         <dl class="dl-horizontal row">
             <dt class="col-md-3">
-                @LocationVoiture.Resources.Models.ReservationModel.tenant
+                @EcommerceApp.Resources.Models.ReservationModel.tenant
             </dt>
 
             <dd class="col-md-9">
@@ -32,7 +32,7 @@ else if (User.IsInRole("Admin"))
             </dd>
 
             <dt class="col-md-3">
-                @LocationVoiture.Resources.Models.ReservationModel.owner
+                @EcommerceApp.Resources.Models.ReservationModel.owner
             </dt>
 
             <dd class="col-md-9">
@@ -42,7 +42,7 @@ else if (User.IsInRole("Admin"))
             </dd>
 
             <dt class="col-md-3">
-                @LocationVoiture.Resources.Models.ReservationModel.matricule
+                @EcommerceApp.Resources.Models.ReservationModel.matricule
             </dt>
 
             <dd class="col-md-9">
@@ -52,7 +52,7 @@ else if (User.IsInRole("Admin"))
             </dd>
 
             <dt class="col-md-3">
-                @LocationVoiture.Resources.Models.ReservationModel.paiement
+                @EcommerceApp.Resources.Models.ReservationModel.paiement
             </dt>
 
             <dd class="col-md-9">
@@ -125,7 +125,7 @@ else if (User.IsInRole("Admin"))
             <div class="modal-body">
                 <dl class="dl-horizontal row">
                     <dt class="col-md-4">
-                        @LocationVoiture.Resources.Models.ReservationModel.tenant
+                        @EcommerceApp.Resources.Models.ReservationModel.tenant
                     </dt>
 
                     <dd class="col-md-8">
@@ -141,14 +141,14 @@ else if (User.IsInRole("Admin"))
                     </dd>
 
                     <dt class="col-md-4">
-                        @LocationVoiture.Resources.Models.Locataire.phone
+                        @EcommerceApp.Resources.Models.Locataire.phone
                     </dt>
 
                     <dd class="col-md-8">
                         @Html.DisplayFor(model => model.ApplicationUser.PhoneNumber)
                     </dd>
                     <dt class="col-md-4">
-                        @LocationVoiture.Resources.Models.Locataire.address
+                        @EcommerceApp.Resources.Models.Locataire.address
                     </dt>
 
                     <dd class="col-md-8">
@@ -177,7 +177,7 @@ else if (User.IsInRole("Admin"))
             <div class="modal-body">
                 <dl class="dl-horizontal row">
                     <dt class="col-md-4">
-                        @LocationVoiture.Resources.Models.ReservationModel.owner
+                        @EcommerceApp.Resources.Models.ReservationModel.owner
                     </dt>
 
                     <dd class="col-md-8">
@@ -193,14 +193,14 @@ else if (User.IsInRole("Admin"))
                     </dd>
 
                     <dt class="col-md-4">
-                        @LocationVoiture.Resources.Models.Locataire.phone
+                        @EcommerceApp.Resources.Models.Locataire.phone
                     </dt>
 
                     <dd class="col-md-8">
                         @Html.DisplayFor(model => model.Voiture.ApplicationUser.PhoneNumber)
                     </dd>
                     <dt class="col-md-4">
-                        @LocationVoiture.Resources.Models.Locataire.address
+                        @EcommerceApp.Resources.Models.Locataire.address
                     </dt>
 
                     <dd class="col-md-8">

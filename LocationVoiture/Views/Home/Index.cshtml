@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LocationVoiture.Models.Voiture>
+﻿@model IEnumerable<EcommerceApp.Models.Voiture>
 
 @{
     ViewBag.Title = "Home Page";
@@ -9,12 +9,12 @@
 <section>
     <div class="jumbotron text-center">
         <h1 class="">
-            @LocationVoiture.Resources.Views.Home.index.title
+            @EcommerceApp.Resources.Views.Home.index.title
         </h1>
-        <h3>@LocationVoiture.Resources.Views.Home.index.best_offre</h3>
+        <h3>@EcommerceApp.Resources.Views.Home.index.best_offre</h3>
         @if (ViewBag.name == "")
         {
-            <a href="~/Account/Login" class="btn bg-white font-weight-bold w-20 login-btn pointer">@LocationVoiture.Resources.Views.Home.index.login</a>
+            <a href="~/Account/Login" class="btn bg-white font-weight-bold w-20 login-btn pointer">@EcommerceApp.Resources.Views.Home.index.login</a>
 
         }
     </div>
@@ -22,7 +22,7 @@
 
 <div class="container">
     <div class="title ml-5">
-        <h1>@LocationVoiture.Resources.Views.Home.index.best_offre</h1>
+        <h1>@EcommerceApp.Resources.Views.Home.index.best_offre</h1>
     </div>
     <hr />
     <div class="row justify-content-center">
@@ -64,12 +64,12 @@
                                     </p>
                                     @if (User.IsInRole("Tenant"))
                                     {
-                                        <a href="~/Reservations/Create/@item.id_voiture" class="btn btn-primary">@LocationVoiture.Resources.Views.Home.index.reserve</a>
+                                        <a href="~/Reservations/Create/@item.id_voiture" class="btn btn-primary">@EcommerceApp.Resources.Views.Home.index.reserve</a>
 
                                     }
                                     else if (ViewBag.name == "")
                                     {
-                                        <a href="~/Account/Login" class="btn bg-white font-weight-bold w-20 login-btn pointer w-100">@LocationVoiture.Resources.Views.Home.index.not_connect </a>
+                                        <a href="~/Account/Login" class="btn bg-white font-weight-bold w-20 login-btn pointer w-100">@EcommerceApp.Resources.Views.Home.index.not_connect </a>
 
                                     }
 

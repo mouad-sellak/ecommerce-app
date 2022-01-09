@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace LocationVoiture.Models
+namespace EcommerceApp.Models
 {
     public class IndexViewModel
     {
@@ -43,17 +43,17 @@ namespace LocationVoiture.Models
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "currentPassword" ,ResourceType = typeof(LocationVoiture.Resources.Views.Manage.ChangePassword))]
+        [Display(Name = "currentPassword" ,ResourceType = typeof(EcommerceApp.Resources.Views.Manage.ChangePassword))]
         public string OldPassword { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "newPassword", ResourceType = typeof(LocationVoiture.Resources.Views.Manage.ChangePassword))]
+        [Display(Name = "newPassword", ResourceType = typeof(EcommerceApp.Resources.Views.Manage.ChangePassword))]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "confirmNewPassword", ResourceType = typeof(LocationVoiture.Resources.Views.Manage.ChangePassword))]
+        [Display(Name = "confirmNewPassword", ResourceType = typeof(EcommerceApp.Resources.Views.Manage.ChangePassword))]
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }

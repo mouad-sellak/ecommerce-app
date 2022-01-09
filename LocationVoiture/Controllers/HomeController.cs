@@ -5,9 +5,9 @@ using System.Web.Mvc;
 using System.Globalization;
 using System.Threading;
 using System.Web;
-using LocationVoiture.Models;
+using EcommerceApp.Models;
 
-namespace LocationVoiture.Controllers
+namespace EcommerceApp.Controllers
 {
     public class HomeController : BaseController
     {

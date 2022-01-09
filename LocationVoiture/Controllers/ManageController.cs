@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using LocationVoiture.Models;
+using EcommerceApp.Models;
 
-namespace LocationVoiture.Controllers
+namespace EcommerceApp.Controllers
 {
     [Authorize]
     public class ManageController : BaseController
@@ -238,7 +238,7 @@ namespace LocationVoiture.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                ViewBag.info =LocationVoiture.Resources.Views.Manage.ChangePassword.info;
+                ViewBag.info =EcommerceApp.Resources.Views.Manage.ChangePassword.info;
                 model.ConfirmPassword = "";
                 model.ConfirmPassword = "";
                 model.ConfirmPassword = "";

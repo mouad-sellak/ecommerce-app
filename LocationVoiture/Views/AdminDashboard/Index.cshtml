@@ -3,13 +3,13 @@
 }
 
 <div class="container mt-3">
-    <h2 class="px-5 py-2 text-center"> @LocationVoiture.Resources.Views.Shared.Dashboard.statitics</h2>
+    <h2 class="px-5 py-2 text-center"> @EcommerceApp.Resources.Views.Shared.Dashboard.statitics</h2>
 
     @using (Html.BeginForm("Index", "AdminDashboard", FormMethod.Get))
     {
         <div class="d-flex  justify-content-center">
             <input type="text" name="year" value="@ViewBag.year" class="form-control" />
-            <input type="submit" value=@LocationVoiture.Resources.most.search class="btn btn-primary ml-2" />
+            <input type="submit" value=@EcommerceApp.Resources.most.search class="btn btn-primary ml-2" />
         </div>
     }
     <hr />
@@ -19,7 +19,7 @@
             <div class="card card_info h-100">
                 <div class="card-header d-flex justify-content-between">
                     <div>
-                        @LocationVoiture.Resources.Views.Shared.Dashboard.nb_client (@ViewBag.year)
+                        @EcommerceApp.Resources.Views.Shared.Dashboard.nb_client (@ViewBag.year)
                     </div>
                 </div>
                 <div class="card-body">
@@ -39,7 +39,7 @@
             <div class="card card_info h-100">
                 <div class="card-header d-flex justify-content-between">
                     <div>
-                        @LocationVoiture.Resources.Views.Shared.Dashboard.nb_res (@ViewBag.year)
+                        @EcommerceApp.Resources.Views.Shared.Dashboard.nb_res (@ViewBag.year)
                     </div>
                 </div>
                 <div class="card-body">
@@ -63,7 +63,7 @@
             <div class="card card_info h-100">
                 <div class="card-header d-flex justify-content-between">
                     <div>
-                        @LocationVoiture.Resources.Views.Shared.Dashboard.nb_voi (@ViewBag.year)
+                        @EcommerceApp.Resources.Views.Shared.Dashboard.nb_voi (@ViewBag.year)
                     </div>
                 </div>
                 <div class="card-body">
@@ -102,11 +102,11 @@
                     labels: months,
                     datasets: [
                         {
-                            label: "@LocationVoiture.Resources.Views.Shared.Dashboard.loc",
+                            label: "@EcommerceApp.Resources.Views.Shared.Dashboard.loc",
                             data: tenants,
                             backgroundColor: 'rgb(40, 62, 118)'
                         }, {
-                            label: "@LocationVoiture.Resources.Views.Shared.Dashboard.pro",
+                            label: "@EcommerceApp.Resources.Views.Shared.Dashboard.pro",
                             data: owners,
                         }]
                 },
@@ -118,13 +118,13 @@
                             },
                             scaleLabel: {
                                 display: true,
-                                labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.nb"
+                                labelString: "@EcommerceApp.Resources.Views.Shared.Dashboard.nb"
                             }
                         }],
                         xAxes: [{
                             scaleLabel: {
                                 display: true,
-                                labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.month"
+                                labelString: "@EcommerceApp.Resources.Views.Shared.Dashboard.month"
                             }
                         }]
                     }
@@ -141,7 +141,7 @@
                 data: {
                     labels: months,
                     datasets: [{
-                        label: "@LocationVoiture.Resources.Views.Shared.Dashboard.car",
+                        label: "@EcommerceApp.Resources.Views.Shared.Dashboard.car",
                         data: cars,
                         backgroundColor: 'rgb(40, 62, 118)'
                     },]
@@ -154,13 +154,13 @@
                             },
                             scaleLabel: {
                                 display: true,
-                                labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.nb"
+                                labelString: "@EcommerceApp.Resources.Views.Shared.Dashboard.nb"
                             }
                         }],
                         xAxes: [{
                             scaleLabel: {
                                 display: true,
-                                labelString:"@LocationVoiture.Resources.Views.Shared.Dashboard.month"
+                                labelString:"@EcommerceApp.Resources.Views.Shared.Dashboard.month"
                             }
                         }]
                     }
@@ -189,13 +189,13 @@
                             },
                             scaleLabel: {
                                 display: true,
-                                labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.nb"
+                                labelString: "@EcommerceApp.Resources.Views.Shared.Dashboard.nb"
                             }
                         }],
                         xAxes: [{
                             scaleLabel: {
                                 display: true,
-                                labelString:"@LocationVoiture.Resources.Views.Shared.Dashboard.month"
+                                labelString:"@EcommerceApp.Resources.Views.Shared.Dashboard.month"
                             }
                         }]
                     }

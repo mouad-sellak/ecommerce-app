@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LocationVoiture.Resources.Views.Shared {
+namespace EcommerceApp.Resources.Views.Shared {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace LocationVoiture.Resources.Views.Shared {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LocationVoiture.Resources.Views.Shared.Dashboard", typeof(Dashboard).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EcommerceApp.Resources.Views.Shared.Dashboard", typeof(Dashboard).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

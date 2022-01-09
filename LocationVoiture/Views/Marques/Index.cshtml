@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LocationVoiture.Models.Marque>
+﻿@model IEnumerable<EcommerceApp.Models.Marque>
     @if (User.IsInRole("Owner"))
     {
         Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
@@ -14,7 +14,7 @@
     @if (!User.IsInRole("Admin"))
     {
         <p>
-            @Html.ActionLink(LocationVoiture.Resources.most.create, "Create")
+            @Html.ActionLink(EcommerceApp.Resources.most.create, "Create")
         </p>
         <hr />
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace LocationVoiture.Controllers
+namespace EcommerceApp.Controllers
 {
     public class BaseController : Controller
     {

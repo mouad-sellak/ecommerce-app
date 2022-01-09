@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LocationVoiture.Resources.Views.Manage {
+namespace EcommerceApp.Resources.Views.Manage {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace LocationVoiture.Resources.Views.Manage {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LocationVoiture.Resources.Views.Manage.ChangePassword", typeof(ChangePassword).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EcommerceApp.Resources.Views.Manage.ChangePassword", typeof(ChangePassword).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -1,13 +1,13 @@
-﻿@model LocationVoiture.Models.Marque
+﻿@model EcommerceApp.Models.Marque
 @{
     Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
 }
 
 <div class="m-5">
-    <h2>@LocationVoiture.Resources.most.details</h2>
+    <h2>@EcommerceApp.Resources.most.details</h2>
 
     <div>
-        <h4>@LocationVoiture.Resources.Models.MarqueModel.libele</h4>
+        <h4>@EcommerceApp.Resources.Models.MarqueModel.libele</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -31,9 +31,9 @@
     <p>
         @if (User.IsInRole("Owner"))
         {
-            @Html.ActionLink(@LocationVoiture.Resources.most.edit, "Edit", new { id = Model.id_marque })
+            @Html.ActionLink(@EcommerceApp.Resources.most.edit, "Edit", new { id = Model.id_marque })
 
         }
-        | @Html.ActionLink(@LocationVoiture.Resources.most.back, "Index")
+        | @Html.ActionLink(@EcommerceApp.Resources.most.back, "Index")
     </p>
 </div>

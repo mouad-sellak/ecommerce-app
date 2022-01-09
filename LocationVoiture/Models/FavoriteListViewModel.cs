@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace LocationVoiture.Models
+namespace EcommerceApp.Models
 {
     public class FavoriteList
     {

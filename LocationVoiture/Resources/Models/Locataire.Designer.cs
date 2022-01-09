@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LocationVoiture.Resources.Models {
+namespace EcommerceApp.Resources.Models {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace LocationVoiture.Resources.Models {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LocationVoiture.Resources.Models.Locataire", typeof(Locataire).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EcommerceApp.Resources.Models.Locataire", typeof(Locataire).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

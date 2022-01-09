@@ -1,4 +1,4 @@
-﻿@model LocationVoiture.Models.Reservation
+﻿@model EcommerceApp.Models.Reservation
 
 @{
     ViewBag.Title = "Create";
@@ -27,7 +27,7 @@
             @if (ViewBag.voiture == null)
             {
                 <div class="form-group">
-                    @LocationVoiture.Resources.Models.ReservationModel.matricule
+                    @EcommerceApp.Resources.Models.ReservationModel.matricule
                     <div class="col-md-10">
                         @Html.DropDownList("id_voiture", null, "--- Voiture ---", htmlAttributes: new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.id_voiture, "", new { @class = "text-danger" })
@@ -46,7 +46,7 @@
 
 
             <div class="form-group">
-                @LocationVoiture.Resources.Models.ReservationModel.paiement
+                @EcommerceApp.Resources.Models.ReservationModel.paiement
                 <div class="col-md-10">
                     @Html.DropDownList("id_paiement", null, "--- Paiement ---", htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.id_paiement, "", new { @class = "text-danger" })
@@ -87,14 +87,14 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value=@LocationVoiture.Resources.most.save class="btn btn-primary" />
+                    <input type="submit" value=@EcommerceApp.Resources.most.save class="btn btn-primary" />
                 </div>
             </div>
         </div>
     }
 
     <div>
-        @Html.ActionLink(LocationVoiture.Resources.most.back, "Index")
+        @Html.ActionLink(EcommerceApp.Resources.most.back, "Index")
     </div>
 
 </div>

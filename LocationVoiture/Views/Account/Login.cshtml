@@ -1,4 +1,4 @@
-﻿@using LocationVoiture.Models
+﻿@using EcommerceApp.Models
 @model LoginViewModel
 @{
     //ViewBag.Title = "Log in";
@@ -17,14 +17,14 @@
                                 <div class="row">
                                     <div class="col">
                                         <center>
-                                            <p style="color:#3692EB;font-size:x-large;font-weight:bold">@LocationVoiture.Resources.Views.Account.Login.welcomeDear</p>
+                                            <p style="color:#3692EB;font-size:x-large;font-weight:bold">@EcommerceApp.Resources.Views.Account.Login.welcomeDear</p>
                                         </center>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <center>
-                                            <span>@LocationVoiture.Resources.Views.Account.Login.msg</span>
+                                            <span>@EcommerceApp.Resources.Views.Account.Login.msg</span>
                                         </center>
                                     </div>
                                 </div>
@@ -63,13 +63,13 @@
                                     <div class="col-md-8 mx-auto">
                                         <center>
                                             <div class="form-group">
-                                                <input type="submit" value="@LocationVoiture.Resources.Views.Account.Login.login" class="btn btn-primary" style="background-color: #3692EB" />
+                                                <input type="submit" value="@EcommerceApp.Resources.Views.Account.Login.login" class="btn btn-primary" style="background-color: #3692EB" />
                                             </div>
                                         </center>
                                     </div>
                                 </div>
                                 <center>
-                                    @Html.ActionLink(LocationVoiture.Resources.Views.Account.Login.register, "Register")
+                                    @Html.ActionLink(EcommerceApp.Resources.Views.Account.Login.register, "Register")
                                 </center>
                                 @* Enable this once you have account confirmation enabled for password reset functionality
             <p>

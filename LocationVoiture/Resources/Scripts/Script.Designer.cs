@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LocationVoiture.Resources.Scripts {
+namespace EcommerceApp.Resources.Scripts {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace LocationVoiture.Resources.Scripts {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LocationVoiture.Resources.Scripts.Script", typeof(Script).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EcommerceApp.Resources.Scripts.Script", typeof(Script).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

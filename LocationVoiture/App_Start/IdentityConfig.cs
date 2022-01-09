@@ -10,9 +10,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using LocationVoiture.Models;
+using EcommerceApp.Models;
 
-namespace LocationVoiture
+namespace EcommerceApp
 {
     public class EmailService : IIdentityMessageService
     {

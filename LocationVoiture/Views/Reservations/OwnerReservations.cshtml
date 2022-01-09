@@ -1,5 +1,5 @@
 ﻿
-@model IEnumerable<LocationVoiture.Models.Reservation>
+@model IEnumerable<EcommerceApp.Models.Reservation>
 
 @{
     Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
@@ -16,14 +16,14 @@
                     @Html.DisplayNameFor(model => model.id_reservation)
                 </th>
                 <th>
-                    @LocationVoiture.Resources.Models.ReservationModel.matricule
+                    @EcommerceApp.Resources.Models.ReservationModel.matricule
                 </th>
 
                 <th>
-                    @LocationVoiture.Resources.Models.ReservationModel.price
+                    @EcommerceApp.Resources.Models.ReservationModel.price
                 </th>
                 <th>
-                    @LocationVoiture.Resources.Models.ReservationModel.tenant
+                    @EcommerceApp.Resources.Models.ReservationModel.tenant
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.date_prise_en_charge)

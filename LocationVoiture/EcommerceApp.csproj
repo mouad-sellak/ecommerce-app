@@ -190,33 +190,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202101131256011_InitialCreate.cs" />
-    <Compile Include="Migrations\202101131256011_InitialCreate.Designer.cs">
-      <DependentUpon>202101131256011_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101151745393_AddColumnToUser-Type.cs" />
-    <Compile Include="Migrations\202101151745393_AddColumnToUser-Type.Designer.cs">
-      <DependentUpon>202101151745393_AddColumnToUser-Type.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102030045208_addForeignKeyToOffer.cs" />
-    <Compile Include="Migrations\202102030045208_addForeignKeyToOffer.Designer.cs">
-      <DependentUpon>202102030045208_addForeignKeyToOffer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102052302343_addFavoriteList.cs" />
-    <Compile Include="Migrations\202102052302343_addFavoriteList.Designer.cs">
-      <DependentUpon>202102052302343_addFavoriteList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102062241449_addBlackList.cs" />
-    <Compile Include="Migrations\202102062241449_addBlackList.Designer.cs">
-      <DependentUpon>202102062241449_addBlackList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102062315134_changeId_blackList.cs" />
-    <Compile Include="Migrations\202102062315134_changeId_blackList.Designer.cs">
-      <DependentUpon>202102062315134_changeId_blackList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102111151506_addBlockUser.cs" />
-    <Compile Include="Migrations\202102111151506_addBlockUser.Designer.cs">
-      <DependentUpon>202102111151506_addBlockUser.cs</DependentUpon>
+    <Compile Include="Migrations\202201091043360_Initial.cs" />
+    <Compile Include="Migrations\202201091043360_Initial.Designer.cs">
+      <DependentUpon>202201091043360_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -412,6 +388,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\LocationVoiture.mdf" />
+    <Content Include="App_Data\LocationVoiture_log.ldf">
+      <DependentUpon>LocationVoiture.mdf</DependentUpon>
+    </Content>
+    <Content Include="bin\LocationVoiture.dll" />
+    <Content Include="bin\LocationVoiture.pdb" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -582,6 +564,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Properties\serviceDependencies.local.json.user" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -686,6 +669,8 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="Properties\serviceDependencies.json" />
+    <Content Include="Properties\serviceDependencies.local.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -874,7 +859,7 @@
     <Content Include="Views\BlackLists\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="bin\bin\fr\" />
     <Folder Include="Uploads\cars\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
@@ -890,26 +875,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101131256011_InitialCreate.resx">
-      <DependentUpon>202101131256011_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101151745393_AddColumnToUser-Type.resx">
-      <DependentUpon>202101151745393_AddColumnToUser-Type.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102030045208_addForeignKeyToOffer.resx">
-      <DependentUpon>202102030045208_addForeignKeyToOffer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102052302343_addFavoriteList.resx">
-      <DependentUpon>202102052302343_addFavoriteList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102062241449_addBlackList.resx">
-      <DependentUpon>202102062241449_addBlackList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102062315134_changeId_blackList.resx">
-      <DependentUpon>202102062315134_changeId_blackList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102111151506_addBlockUser.resx">
-      <DependentUpon>202102111151506_addBlockUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202201091043360_Initial.resx">
+      <DependentUpon>202201091043360_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\Locataire.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

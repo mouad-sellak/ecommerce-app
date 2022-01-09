@@ -1,5 +1,7 @@
+using EcommerceApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
@@ -9,7 +11,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 
 
-namespace LocationVoiture
+namespace EcommerceApp
 {
     public class MvcApplication : System.Web.HttpApplication
     {

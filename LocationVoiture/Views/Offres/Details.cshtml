@@ -1,4 +1,4 @@
-﻿@model LocationVoiture.Models.Offre
+﻿@model EcommerceApp.Models.Offre
 
 @{
     if (User.IsInRole("Owner"))
@@ -62,13 +62,13 @@
                                     @if(!User.IsInRole("Admin"))
                                     {
                                     <a href="@Url.Action("Edit", "Offres", new { id = Model.id_offre  })" class="text-success">
-                                        @LocationVoiture.Resources.Views.Offres.Index.edit
+                                        @EcommerceApp.Resources.Views.Offres.Index.edit
                                     </a>
                                     }
                                 </div>
                                 <div class="form-group">
                                     <a href="~/Offres/Index" class="text-success">
-                                        @LocationVoiture.Resources.Views.Offres.Index.backToList
+                                        @EcommerceApp.Resources.Views.Offres.Index.backToList
                                     </a>
                                 </div>
                             </center>
