@@ -1,15 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\LocationVoiture",
-    "\\LocationVoiture\\App_Data",
-    "\\LocationVoiture\\Controllers",
-    "\\LocationVoiture\\Migrations",
-    "\\LocationVoiture\\Models",
-    "\\LocationVoiture\\Resources\\Views",
-    "\\LocationVoiture\\Resources\\Views\\Voitures",
-    "\\LocationVoiture\\Views\\Voitures"
+    "\\EcommerceApp",
+    "\\EcommerceApp\\App_Data",
+    "\\EcommerceApp\\Controllers",
+    "\\EcommerceApp\\Migrations",
+    "\\EcommerceApp\\Models",
+    "\\EcommerceApp\\Resources\\Views",
+    "\\EcommerceApp\\Resources\\Views\\Products",
+    "\\EcommerceApp\\Views\\Products"
   ],
-  "SelectedNode": "\\LocationVoiture\\Models\\ProductModel.cs",
+  "SelectedNode": "\\EcommerceApp\\Models\\ProductModel.cs",
   "PreviewInSolutionExplorer": false
 }
