@@ -133,7 +133,7 @@
     <value>Matricule</value>
   </data>
   <data name="not_disponible_msg" xml:space="preserve">
-    <value>Cette voiture n'est pas disponible dans ce temps que vous avez été choisis.</value>
+    <value>Cette product n'est pas disponible dans ce temps que vous avez été choisis.</value>
   </data>
   <data name="owner" xml:space="preserve">
     <value>Propriétaire</value>

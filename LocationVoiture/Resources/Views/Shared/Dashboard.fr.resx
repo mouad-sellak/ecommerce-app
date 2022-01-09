@@ -121,7 +121,7 @@
     <value>Liste noire</value>
   </data>
   <data name="car" xml:space="preserve">
-    <value>Voiture</value>
+    <value>Product</value>
   </data>
   <data name="favorite_list" xml:space="preserve">
     <value>Liste des favoris</value>
@@ -148,7 +148,7 @@
     <value>Le nombre de réservations</value>
   </data>
   <data name="nb_voi" xml:space="preserve">
-    <value>Le nombre de voitures</value>
+    <value>Le nombre de products</value>
   </data>
   <data name="owner" xml:space="preserve">
     <value>Propriètaire</value>

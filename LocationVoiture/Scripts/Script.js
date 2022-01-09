@@ -98,21 +98,21 @@ $(document).ready(function () {
     });
 
     $(function () {
-        $("a.delete-link-voiture").click(function () {
+        $("a.delete-link-product").click(function () {
 
             var token = $("[name='__RequestVerificationToken']").val();
 
             console.log(token);
             var checkstr;
             if (Cookies.get('culture') === "fr") {
-                checkstr = confirm('Voullez vous vraiment supprimer cette Voiture?');
+                checkstr = confirm('Voullez vous vraiment supprimer cette Product?');
 
             } else {
                 checkstr = confirm('are you sure you want to delete this?');
             }
             if (checkstr == true) {
                 $.ajax({
-                    url: '/Voitures/Delete/' + $(".delete-link-voiture").attr('data-delete-id'),
+                    url: '/Products/Delete/' + $(".delete-link-product").attr('data-delete-id'),
                     type: "POST",
                     data: {
                         __RequestVerificationToken: token,

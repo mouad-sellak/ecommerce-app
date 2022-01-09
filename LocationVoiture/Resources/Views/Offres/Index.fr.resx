@@ -147,7 +147,7 @@
   <data name="tauxDeRemise" xml:space="preserve">
     <value>Taux de remise</value>
   </data>
-  <data name="voitureDispo" xml:space="preserve">
-    <value>Voitures réservées</value>
+  <data name="productDispo" xml:space="preserve">
+    <value>Products réservées</value>
   </data>
 </root>

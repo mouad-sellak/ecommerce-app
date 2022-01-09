@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="car" xml:space="preserve">
-    <value>Voitures</value>
+    <value>Products</value>
   </data>
   <data name="dashboard" xml:space="preserve">
     <value>Tableau de bord</value>
@@ -136,7 +136,7 @@
     <value>Aucune donnée à affichée</value>
   </data>
   <data name="notification" xml:space="preserve">
-    <value>Cette voiture est commandé par</value>
+    <value>Cette product est commandé par</value>
   </data>
   <data name="profil" xml:space="preserve">
     <value>Profil</value>
