@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EcommerceApp.Models.Voiture>
+﻿@model IEnumerable<EcommerceApp.Models.Product>
 
 @{
     ViewBag.Title = "Home Page";
@@ -64,7 +64,7 @@
                                     </p>
                                     @if (User.IsInRole("Tenant"))
                                     {
-                                        <a href="~/Reservations/Create/@item.id_voiture" class="btn btn-primary">@EcommerceApp.Resources.Views.Home.index.reserve</a>
+                                        <a href="~/Reservations/Create/@item.id_product" class="btn btn-primary">@EcommerceApp.Resources.Views.Home.index.reserve</a>
 
                                     }
                                     else if (ViewBag.name == "")

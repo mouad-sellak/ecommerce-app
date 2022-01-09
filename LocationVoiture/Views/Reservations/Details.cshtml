@@ -37,7 +37,7 @@ else if (User.IsInRole("Admin"))
 
             <dd class="col-md-9">
                 <a href="#" data-toggle="modal" data-target="#owner">
-                    @Html.DisplayFor(model => model.Voiture.ApplicationUser.UserName)
+                    @Html.DisplayFor(model => model.Product.ApplicationUser.UserName)
                 </a>
             </dd>
 
@@ -46,8 +46,8 @@ else if (User.IsInRole("Admin"))
             </dt>
 
             <dd class="col-md-9">
-                <a href="~/Voitures/Details/@Model.Voiture.id_voiture" target="_blank">
-                    @Html.DisplayFor(model => model.Voiture.matricul)
+                <a href="~/Products/Details/@Model.Product.id_product" target="_blank">
+                    @Html.DisplayFor(model => model.Product.matricul)
                 </a>
             </dd>
 
@@ -168,7 +168,7 @@ else if (User.IsInRole("Admin"))
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
-                    @Model.Voiture.ApplicationUser.UserName
+                    @Model.Product.ApplicationUser.UserName
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -181,7 +181,7 @@ else if (User.IsInRole("Admin"))
                     </dt>
 
                     <dd class="col-md-8">
-                        @Html.DisplayFor(model => model.Voiture.ApplicationUser.UserName)
+                        @Html.DisplayFor(model => model.Product.ApplicationUser.UserName)
                     </dd>
 
                     <dt class="col-md-4">
@@ -189,7 +189,7 @@ else if (User.IsInRole("Admin"))
                     </dt>
 
                     <dd class="col-md-8">
-                        @Html.DisplayFor(model => model.Voiture.ApplicationUser.Email)
+                        @Html.DisplayFor(model => model.Product.ApplicationUser.Email)
                     </dd>
 
                     <dt class="col-md-4">
@@ -197,14 +197,14 @@ else if (User.IsInRole("Admin"))
                     </dt>
 
                     <dd class="col-md-8">
-                        @Html.DisplayFor(model => model.Voiture.ApplicationUser.PhoneNumber)
+                        @Html.DisplayFor(model => model.Product.ApplicationUser.PhoneNumber)
                     </dd>
                     <dt class="col-md-4">
                         @EcommerceApp.Resources.Models.Locataire.address
                     </dt>
 
                     <dd class="col-md-8">
-                        @Html.DisplayFor(model => model.Voiture.ApplicationUser.UserAdress)
+                        @Html.DisplayFor(model => model.Product.ApplicationUser.UserAdress)
                     </dd>
                 </dl>
             </div>

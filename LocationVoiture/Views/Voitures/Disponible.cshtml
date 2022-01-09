@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EcommerceApp.Models.Voiture>
+﻿@model IEnumerable<EcommerceApp.Models.Product>
 
 @if (User.IsInRole("Tenant"))
 {
@@ -63,7 +63,7 @@ else if (User.IsInRole("Admin"))
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.id_voiture)
+                            @Html.DisplayFor(modelItem => item.id_product)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.matricul)
@@ -87,12 +87,12 @@ else if (User.IsInRole("Admin"))
                             @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
                         </td>
                         <td>
-                            <a href="@Url.Action("Details", "Voitures", new { id = item.id_voiture })" class="text-success">
+                            <a href="@Url.Action("Details", "Products", new { id = item.id_product })" class="text-success">
                                 <i class="material-icons icon ">
                                     visibility
                                 </i>
                             </a>
-                            <a href="~/Reservations/Create/@item.id_voiture" class="btn btn-success my-4 text-center">Reserve</a>
+                            <a href="~/Reservations/Create/@item.id_product" class="btn btn-success my-4 text-center">Reserve</a>
 
                         </td>
                     </tr>

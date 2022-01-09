@@ -19,6 +19,6 @@ namespace EcommerceApp.Models
         [Display(Name = "add_date", ResourceType = typeof(EcommerceApp.Resources.Models.MarqueModel))]
         public DateTime? date_ajout { get; set; }
 
-        public virtual ICollection<Voiture> Voitures { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

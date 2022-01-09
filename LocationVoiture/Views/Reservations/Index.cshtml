@@ -38,7 +38,7 @@
                     @EcommerceApp.Resources.Models.ReservationModel.price
                 </th>
                 <th>
-                    @*            @Html.DisplayNameFor(model => model.Voiture.UserId)
+                    @*            @Html.DisplayNameFor(model => model.Product.UserId)
                     *@
                     @EcommerceApp.Resources.Models.ReservationModel.owner
                 </th>
@@ -60,13 +60,13 @@
                         @Html.DisplayFor(modelItem => item.id_reservation)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Voiture.matricul)
+                        @Html.DisplayFor(modelItem => item.Product.matricul)
                     </td>
                     <td class="font-weight-bold">
                         @Html.DisplayFor(modelItem => item.prix) DHs
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Voiture.ApplicationUser.UserName)
+                        @Html.DisplayFor(modelItem => item.Product.ApplicationUser.UserName)
                     </td>
 
                     <td>

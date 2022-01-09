@@ -8,7 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EcommerceApp.Resources.Views.Voitures {
+namespace EcommerceApp.Resources.Views.
+    {
     using System;
     
     
@@ -39,7 +40,7 @@ namespace EcommerceApp.Resources.Views.Voitures {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EcommerceApp.Resources.Views.Voitures.Create", typeof(Create).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EcommerceApp.Resources.Views.Products.Create", typeof(Create).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

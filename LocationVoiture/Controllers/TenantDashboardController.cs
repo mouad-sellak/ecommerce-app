@@ -18,7 +18,7 @@ namespace EcommerceApp.Controllers
         public ActionResult Index()
         {
             var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
-            var reservations = db.Reservations.Where(x => x.UserId == user.Id).Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Voiture);
+            var reservations = db.Reservations.Where(x => x.UserId == user.Id).Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Product);
             return View(reservations.ToList());
         }
         // GET: Reservations/Details/5

@@ -18,10 +18,10 @@ namespace EcommerceApp.Models
 
         [ForeignKey("UserId")]
         public virtual ApplicationUser ApplicationUser { get; set; }
-        public int id_voiture { get; set; }
+        public int id_product { get; set; }
 
-        [ForeignKey("id_voiture")]
-        public virtual Voiture Voiture { get; set; }
+        [ForeignKey("id_product")]
+        public virtual Product Product { get; set; }
 
         [Display(Name = "Paiement")]
         public int id_paiement { get; set; }
@@ -53,8 +53,8 @@ namespace EcommerceApp.Models
         {
             ApplicationDbContext db = new ApplicationDbContext();
             double days = (date_retour - date_prise_en_charge).TotalDays + 1;
-            Voiture voiture = db.Voitures.Find(id);
-            string pt = voiture.Prix_total();
+            Product product = db.Products.Find(id);
+            string pt = product.Prix_total();
             double prix = Double.Parse(pt);
             float total = float.Parse(days.ToString()) * float.Parse(prix.ToString());
             return total;

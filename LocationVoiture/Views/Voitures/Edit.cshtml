@@ -1,20 +1,20 @@
-﻿@model EcommerceApp.Models.Voiture
+﻿@model EcommerceApp.Models.Product
 @{
     Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
 }
 
 <div class="m-5">
-    <h2>@EcommerceApp.Resources.Views.Voitures.Edit.edit</h2>
+    <h2>@EcommerceApp.Resources.Views.Products.Edit.edit</h2>
 
-    @using (Html.BeginForm("Edit", "Voitures", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Edit", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>Voiture</h4>
+    <h4>Product</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.id_voiture)
+    @Html.HiddenFor(model => model.id_product)
     @Html.HiddenFor(model => model.UserId)
     @Html.HiddenFor(model => model.date_ajout)
     @Html.HiddenFor(model => model.photo)

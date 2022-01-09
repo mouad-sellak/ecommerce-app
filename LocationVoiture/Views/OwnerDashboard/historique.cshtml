@@ -8,7 +8,7 @@
         <h1>@EcommerceApp.Resources.Views.Shared._OwnerDashboard.history</h1>
     </div>
     <hr />
-    <h4>@EcommerceApp.Resources.Views.Offres.Index.voitureDispo</h4>
+    <h4>@EcommerceApp.Resources.Views.Offres.Index.productDispo</h4>
     @if (Model.reservations.Any())
     {
 
@@ -26,12 +26,12 @@
                                 <div class="card row flex-row flex-wrap m-3 h-100">
                                     <div class="card-header border-0" style="min-height: 200px; width: 250px;background-color:white;
 ">
-                                        <img src="~/Uploads/cars/@Html.DisplayFor(model => item.Voiture.photo)" alt="" class="h-100" style=" width:200px;">
+                                        <img src="~/Uploads/cars/@Html.DisplayFor(model => item.Product.photo)" alt="" class="h-100" style=" width:200px;">
                                     </div>
                                     <div class="card-block my-3" style="        margin-left: 100px;">
                                         <center style="margin-top: 50px;margin-bottom:50px;">
                                             <p class="card-text" style="width: 400px;">
-                                                @EcommerceApp.Resources.Views.Shared._OwnerDashboard.notification<span class="font-weight-bold"> @Html.DisplayFor(modelItem => item.Voiture.ApplicationUser.UserName)</span>,  @EcommerceApp.Resources.Views.Shared._OwnerDashboard.le <span class="font-weight-bold"> @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")</span>
+                                                @EcommerceApp.Resources.Views.Shared._OwnerDashboard.notification<span class="font-weight-bold"> @Html.DisplayFor(modelItem => item.Product.ApplicationUser.UserName)</span>,  @EcommerceApp.Resources.Views.Shared._OwnerDashboard.le <span class="font-weight-bold"> @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")</span>
                                             </p>
                                             <a href="@Url.Action("Details", "Reservations", new { id = item.id_reservation })" class="text-success">
                                                 @EcommerceApp.Resources.Views.Shared._TenantDashboard.details

@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\LocationVoiture",
-    "\\LocationVoiture\\App_Data"
+    "\\LocationProduct",
+    "\\LocationProduct\\App_Data"
   ],
-  "SelectedNode": "\\LocationVoiture\\Scripts",
+  "SelectedNode": "\\LocationProduct\\Scripts",
   "PreviewInSolutionExplorer": false
 }

@@ -22,8 +22,8 @@ namespace EcommerceApp.Controllers
             string name = User.Identity.Name;
             ViewBag.name = name;
 
-            List<Voiture> voitures = db.Voitures.ToList();
-            return View(voitures);
+            List<Product> products = db.Products.ToList();
+            return View(products);
         }
 
         public ActionResult About()

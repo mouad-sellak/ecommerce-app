@@ -31,7 +31,7 @@ namespace EcommerceApp.Models
         [Display(Name = "dateAjout", ResourceType = typeof(EcommerceApp.Resources.Views.Offres.Index))]
         public DateTime date_ajout { get; set; }
 
-        public virtual ICollection<Voiture> Voitures { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
 
     }
 }

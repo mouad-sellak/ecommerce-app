@@ -12,24 +12,24 @@ using EcommerceApp.Models;
 namespace EcommerceApp.Controllers
 {
     [Authorize]
-    public class VoituresController : BaseController
+    public class ProductsController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Voitures
+        // GET: Products
         [Authorize]
         public ActionResult Index()
         {
-            var voitures = db.Voitures.Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre);
-            return View(voitures.ToList());
+            var products = db.Products.Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre);
+            return View(products.ToList());
         }
 
         [Authorize(Roles = "Owner")]
         public ActionResult OwnerCars()
         {
             var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
-            var voitures = db.Voitures.Where(x => x.UserId == user.Id).Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre);
-            return View(voitures.ToList());
+            var products = db.Products.Where(x => x.UserId == user.Id).Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre);
+            return View(products.ToList());
         }
 
         [Authorize]
@@ -38,15 +38,15 @@ namespace EcommerceApp.Controllers
             if (date != null)
                 ViewBag.date = date;
 
-            var voitures = db.Voitures.Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre).ToList();
-            List<Voiture> disponibles = new List<Voiture>();
-            List<Voiture> reserver = new List<Voiture>();
+            var products = db.Products.Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre).ToList();
+            List<Product> disponibles = new List<Product>();
+            List<Product> reserver = new List<Product>();
             DateTime pick_up, date_return;
             if (date != null)
             {
-                foreach (Voiture voiture in voitures)
+                foreach (Product product in products)
                 {
-                    var reservartions = db.Reservations.Where(x => x.id_voiture == voiture.id_voiture).ToList();
+                    var reservartions = db.Reservations.Where(x => x.id_product == product.id_product).ToList();
                     foreach (Reservation res in reservartions)
                     {
 
@@ -55,7 +55,7 @@ namespace EcommerceApp.Controllers
 
                         if (date >= DateTime.Now && date <= date_return && date >= pick_up)
                         {
-                            reserver.Add(voiture);
+                            reserver.Add(product);
                         }
 
                     }
@@ -63,9 +63,9 @@ namespace EcommerceApp.Controllers
 
                 foreach (var res in reserver)
                 {
-                    voitures.Remove(res);
+                    products.Remove(res);
                 }
-                return View(voitures);
+                return View(products);
             }
             else
             {
@@ -75,23 +75,23 @@ namespace EcommerceApp.Controllers
 
         }
 
-        // GET: Voitures/Details/5
+        // GET: Products/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Voiture voiture = db.Voitures.Find(id);
-            if (voiture == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(voiture);
+            return View(product);
         }
 
         [Authorize(Roles = "Owner")]
-        // GET: Voitures/Create
+        // GET: Products/Create
         public ActionResult Create()
         {
             string name = System.Web.HttpContext.Current.User.Identity.Name;
@@ -103,60 +103,60 @@ namespace EcommerceApp.Controllers
         }
 
         [Authorize(Roles = "Owner")]
-        // POST: Voitures/Create
+        // POST: Products/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Voiture voiture, HttpPostedFileBase carImage)
+        public ActionResult Create(Product product, HttpPostedFileBase carImage)
         {
             if (ModelState.IsValid)
             {
                 string name = System.Web.HttpContext.Current.User.Identity.Name;
                 ApplicationUser user = db.Users.Where(x => x.UserName.Equals(name)).FirstOrDefault();
-                voiture.UserId = user.Id;
-                voiture.date_ajout = DateTime.Now;
+                product.UserId = user.Id;
+                product.date_ajout = DateTime.Now;
                 string path = Path.Combine(Server.MapPath("~/Uploads/cars"), carImage.FileName);
                 carImage.SaveAs(path);
-                voiture.photo = carImage.FileName;
-                db.Voitures.Add(voiture);
+                product.photo = carImage.FileName;
+                db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("OwnerCars");
             }
-            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", voiture.UserId);
-            ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele", voiture.id_marque);
-            ViewBag.id_offre = new SelectList(db.Offres, "id_offre", "libele", voiture.id_offre);
-            return View(voiture);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", product.UserId);
+            ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele", product.id_marque);
+            ViewBag.id_offre = new SelectList(db.Offres, "id_offre", "libele", product.id_offre);
+            return View(product);
         }
 
         [Authorize(Roles = "Owner")]
-        // GET: Voitures/Edit/5
+        // GET: Products/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Voiture voiture = db.Voitures.Find(id);
-            if (voiture == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
             string name = System.Web.HttpContext.Current.User.Identity.Name;
             ApplicationUser user = db.Users.Where(x => x.UserName.Equals(name)).FirstOrDefault();
-            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", voiture.UserId);
-            ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele", voiture.id_marque);
-            ViewBag.id_offre = new SelectList(db.Offres.Where(x => x.UserId == user.Id && x.date_expiration > DateTime.Now), "id_offre", "libele", voiture.id_offre);
-            return View(voiture);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", product.UserId);
+            ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele", product.id_marque);
+            ViewBag.id_offre = new SelectList(db.Offres.Where(x => x.UserId == user.Id && x.date_expiration > DateTime.Now), "id_offre", "libele", product.id_offre);
+            return View(product);
         }
 
         [Authorize(Roles = "Owner")]
-        // POST: Voitures/Edit/5
+        // POST: Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Voiture voiture, HttpPostedFileBase carImage)
+        public ActionResult Edit(Product product, HttpPostedFileBase carImage)
         {
             if (ModelState.IsValid)
             {
@@ -164,42 +164,42 @@ namespace EcommerceApp.Controllers
                 {
                     string path = Path.Combine(Server.MapPath("~/Uploads/cars"), carImage.FileName);
                     carImage.SaveAs(path);
-                    voiture.photo = carImage.FileName;
+                    product.photo = carImage.FileName;
                 }
 
-                db.Entry(voiture).State = EntityState.Modified;
+                db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("OwnerCars");
             }
-            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", voiture.UserId);
-            ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele", voiture.id_marque);
-            ViewBag.id_offre = new SelectList(db.Offres, "id_offre", "libele", voiture.id_offre);
-            return View(voiture);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", product.UserId);
+            ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele", product.id_marque);
+            ViewBag.id_offre = new SelectList(db.Offres, "id_offre", "libele", product.id_offre);
+            return View(product);
         }
 
-        // GET: Voitures/Delete/5
+        // GET: Products/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Voiture voiture = db.Voitures.Find(id);
-            if (voiture == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(voiture);
+            return View(product);
         }
 
 
-        // POST: Voitures/Delete/5
+        // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Voiture voiture = db.Voitures.Find(id);
-            db.Voitures.Remove(voiture);
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("OwnerCars");
         }

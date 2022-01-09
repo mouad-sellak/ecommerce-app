@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EcommerceApp.Models.Voiture>
+﻿@model IEnumerable<EcommerceApp.Models.Product>
 
 @{
     Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
@@ -40,7 +40,7 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.id_voiture)
+                        @Html.DisplayFor(modelItem => item.id_product)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.matricul)
@@ -64,19 +64,19 @@
                         @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
                     </td>
                     <td>
-                        <a href="@Url.Action("Details", "Voitures", new { id = item.id_voiture })" class="text-success">
+                        <a href="@Url.Action("Details", "Products", new { id = item.id_product })" class="text-success">
                             <i class="material-icons icon ">
                                 visibility
                             </i>
                         </a>
                         @if (User.IsInRole("Admin") || User.IsInRole("Owner"))
                         {
-                            <a href="@Url.Action("Edit", "Voitures", new { id = item.id_voiture })" class="text-warning">
+                            <a href="@Url.Action("Edit", "Products", new { id = item.id_product })" class="text-warning">
                                 <i class="material-icons icon ">
                                     edit
                                 </i>
                             </a>
-                            <a data-delete-id="@item.id_voiture" class="text-danger delete-link-voiture pointer">
+                            <a data-delete-id="@item.id_product" class="text-danger delete-link-product pointer">
                                 <i class="material-icons icon ">
                                     delete
                                 </i>
@@ -85,7 +85,7 @@
                         }
                         @if (User.IsInRole("Tenant"))
                         {
-                            <a href="~/Reservations/Create/@item.id_voiture">Réserver</a>
+                            <a href="~/Reservations/Create/@item.id_product">Réserver</a>
                         }
 
 

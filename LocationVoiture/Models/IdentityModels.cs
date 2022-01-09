@@ -19,7 +19,7 @@ namespace EcommerceApp.Models
         public Boolean blocked { get; set; }
         public DateTime date_join { get; set; }
         public virtual ICollection<Reclamation> Reclamations { get; set; }
-        public virtual ICollection<Voiture> Voitures { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -41,7 +41,7 @@ namespace EcommerceApp.Models
        public virtual DbSet<Marque> Marques { get; set; }
        public virtual DbSet<Offre> Offres { get; set; }
        public virtual DbSet<Paiement> Paiements { get; set; }
-       public virtual DbSet<Voiture> Voitures { get; set; }
+       public virtual DbSet<Product> Products { get; set; }
        public virtual DbSet<Reservation> Reservations { get; set; }
        public virtual DbSet<FavoriteList> FavoriteLists { get; set; }
         public virtual DbSet<BlackList> BlackLists { get; set; }

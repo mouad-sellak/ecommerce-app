@@ -153,9 +153,9 @@ namespace EcommerceApp.Resources.Views.Offres {
         /// <summary>
         ///   Looks up a localized string similar to Reserved cars.
         /// </summary>
-        public static string voitureDispo {
+        public static string productDispo {
             get {
-                return ResourceManager.GetString("voitureDispo", resourceCulture);
+                return ResourceManager.GetString("productDispo", resourceCulture);
             }
         }
     }

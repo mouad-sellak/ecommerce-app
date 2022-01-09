@@ -21,7 +21,7 @@ namespace EcommerceApp.Controllers
             ViewBag.year = year; 
 
             List<ApplicationUser> users = db.Users.ToList();  
-            List<Voiture> cars = db.Voitures.ToList();
+            List<Product> cars = db.Products.ToList();
             List<Reservation> res = db.Reservations.ToList();
             List<int> owners = new List<int>();
             List<int> tenants = new List<int>();
@@ -51,7 +51,7 @@ namespace EcommerceApp.Controllers
          {
 
              List<ApplicationUser> users = db.Users.ToList();
-             List<Voiture> cars = db.Voitures.ToList();
+             List<Product> cars = db.Products.ToList();
              List<int> owners = new List<int>();
              List<int> tenants = new List<int>();
              List<int> cars_nb = new List<int>();

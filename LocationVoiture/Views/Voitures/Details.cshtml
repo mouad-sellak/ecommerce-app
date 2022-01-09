@@ -1,4 +1,4 @@
-﻿@model EcommerceApp.Models.Voiture
+﻿@model EcommerceApp.Models.Product
 @if (User.IsInRole("Tenant"))
 {
     Layout = "~/Views/Shared/_TenantDashboard.cshtml";
@@ -15,7 +15,7 @@ else if (User.IsInRole("Admin"))
     <h2>Details</h2>
 
     <div>
-        <h4>@EcommerceApp.Resources.Views.Voitures.Create.car</h4>
+        <h4>@EcommerceApp.Resources.Views.Products.Create.car</h4>
         <hr />
         <div class="row">
             <div class="col-md-8">
@@ -118,7 +118,7 @@ else if (User.IsInRole("Admin"))
     {
         <p>
 
-            @Html.ActionLink(EcommerceApp.Resources.Views.Voitures.Edit.edit, "Edit", new { id = Model.id_voiture }) |
+            @Html.ActionLink(EcommerceApp.Resources.Views.Products.Edit.edit, "Edit", new { id = Model.id_product }) |
             @Html.ActionLink(EcommerceApp.Resources.most.back, "OwnerCars")
         </p>
 

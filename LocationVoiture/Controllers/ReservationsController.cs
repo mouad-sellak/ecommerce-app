@@ -21,12 +21,12 @@ namespace EcommerceApp.Controllers
             var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
             if(User.IsInRole("Tenant"))
             {
-                var reservations = db.Reservations.Where(x => x.UserId == user.Id).Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Voiture);
+                var reservations = db.Reservations.Where(x => x.UserId == user.Id).Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Product);
                 return View(reservations.ToList());
             }
             else
             {
-                var reservations = db.Reservations.Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Voiture);
+                var reservations = db.Reservations.Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Product);
                 return View(reservations.ToList());
             }
             
@@ -37,7 +37,7 @@ namespace EcommerceApp.Controllers
         public ActionResult OwnerReservations()
         {
             var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
-            var reservations = db.Reservations.Where(x => x.Voiture.ApplicationUser.Id == user.Id).Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Voiture);
+            var reservations = db.Reservations.Where(x => x.Product.ApplicationUser.Id == user.Id).Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Product);
             return View(reservations.ToList());
         }
 
@@ -61,12 +61,12 @@ namespace EcommerceApp.Controllers
         public ActionResult Create(int? id)
         {
             if (id != null) {
-                var car = db.Voitures.Where(x => x.id_voiture == id).FirstOrDefault();
-                ViewBag.voiture = car;
+                var car = db.Products.Where(x => x.id_product == id).FirstOrDefault();
+                ViewBag.product = car;
             }
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserType");
             ViewBag.id_paiement = new SelectList(db.Paiements, "id_paiement", "libele");
-            ViewBag.id_voiture = new SelectList(db.Voitures, "matricul", "matricul");
+            ViewBag.id_product = new SelectList(db.Products, "matricul", "matricul");
             return View();
         }
 
@@ -79,13 +79,13 @@ namespace EcommerceApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool isDesponible = reserve(reservation.id_voiture, reservation.date_prise_en_charge, reservation.date_retour);
+                bool isDesponible = reserve(reservation.id_product, reservation.date_prise_en_charge, reservation.date_retour);
                 if(isDesponible)
                 {
                     var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
                     reservation.UserId = user.Id;
                     reservation.date_ajout = DateTime.Now;
-                    reservation.prix = reservation.prix_total(reservation.id_voiture);
+                    reservation.prix = reservation.prix_total(reservation.id_product);
                     db.Reservations.Add(reservation);
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -96,7 +96,7 @@ namespace EcommerceApp.Controllers
 
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserType", reservation.UserId);
             ViewBag.id_paiement = new SelectList(db.Paiements, "id_paiement", "libele", reservation.id_paiement);
-            ViewBag.id_voiture = new SelectList(db.Voitures, "id_voiture", "matricul", reservation.id_voiture);
+            ViewBag.id_product = new SelectList(db.Products, "id_product", "matricul", reservation.id_product);
             return View(reservation);
         }
 
@@ -114,7 +114,7 @@ namespace EcommerceApp.Controllers
             }
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserType", reservation.UserId);
             ViewBag.id_paiement = new SelectList(db.Paiements, "id_paiement", "libele", reservation.id_paiement);
-            ViewBag.id_voiture = new SelectList(db.Voitures, "id_voiture", "matricul", reservation.id_voiture);
+            ViewBag.id_product = new SelectList(db.Products, "id_product", "matricul", reservation.id_product);
             return View(reservation);
         }
 
@@ -123,7 +123,7 @@ namespace EcommerceApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_reservation,UserId,id_voiture,id_paiement,date_prise_en_charge,date_retour,lieu_prise_en_charge,remarque,date_ajout")] Reservation reservation)
+        public ActionResult Edit([Bind(Include = "id_reservation,UserId,id_product,id_paiement,date_prise_en_charge,date_retour,lieu_prise_en_charge,remarque,date_ajout")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {
@@ -133,7 +133,7 @@ namespace EcommerceApp.Controllers
             }
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserType", reservation.UserId);
             ViewBag.id_paiement = new SelectList(db.Paiements, "id_paiement", "libele", reservation.id_paiement);
-            ViewBag.id_voiture = new SelectList(db.Voitures, "id_voiture", "matricul", reservation.id_voiture);
+            ViewBag.id_product = new SelectList(db.Products, "id_product", "matricul", reservation.id_product);
             return View(reservation);
         }
 
@@ -172,11 +172,11 @@ namespace EcommerceApp.Controllers
             base.Dispose(disposing);
         }
 
-        public bool reserve(int id_voiture,DateTime pick_up, DateTime return_date)
+        public bool reserve(int id_product,DateTime pick_up, DateTime return_date)
         {
-            List<Voiture> disponibles = new List<Voiture>();
-            List<Voiture> reserver = new List<Voiture>();
-            var reservartions = db.Reservations.Where(x => x.id_voiture == id_voiture).ToList();
+            List<Product> disponibles = new List<Product>();
+            List<Product> reserver = new List<Product>();
+            var reservartions = db.Reservations.Where(x => x.id_product == id_product).ToList();
             foreach (Reservation res in reservartions)
             {
                 bool condition1 = (pick_up < res.date_prise_en_charge && return_date < res.date_prise_en_charge);

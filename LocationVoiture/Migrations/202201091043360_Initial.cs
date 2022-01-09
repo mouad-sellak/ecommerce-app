@@ -95,10 +95,10 @@ namespace EcommerceApp.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
-                "dbo.Voitures",
+                "dbo.Products",
                 c => new
                     {
-                        id_voiture = c.Int(nullable: false, identity: true),
+                        id_product = c.Int(nullable: false, identity: true),
                         UserId = c.String(maxLength: 128),
                         id_marque = c.Int(nullable: false),
                         id_offre = c.Int(),
@@ -112,7 +112,7 @@ namespace EcommerceApp.Migrations
                         km = c.String(),
                         date_ajout = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.id_voiture)
+                .PrimaryKey(t => t.id_product)
                 .ForeignKey("dbo.User", t => t.UserId)
                 .ForeignKey("dbo.Marques", t => t.id_marque, cascadeDelete: true)
                 .ForeignKey("dbo.Offres", t => t.id_offre)
@@ -151,7 +151,7 @@ namespace EcommerceApp.Migrations
                     {
                         id_reservation = c.Int(nullable: false, identity: true),
                         UserId = c.String(maxLength: 128),
-                        id_voiture = c.Int(nullable: false),
+                        id_product = c.Int(nullable: false),
                         id_paiement = c.Int(nullable: false),
                         date_prise_en_charge = c.DateTime(nullable: false),
                         date_retour = c.DateTime(nullable: false),
@@ -163,9 +163,9 @@ namespace EcommerceApp.Migrations
                 .PrimaryKey(t => t.id_reservation)
                 .ForeignKey("dbo.User", t => t.UserId)
                 .ForeignKey("dbo.Paiements", t => t.id_paiement, cascadeDelete: true)
-                .ForeignKey("dbo.Voitures", t => t.id_voiture, cascadeDelete: true)
+                .ForeignKey("dbo.Products", t => t.id_product, cascadeDelete: true)
                 .Index(t => t.UserId)
-                .Index(t => t.id_voiture)
+                .Index(t => t.id_product)
                 .Index(t => t.id_paiement);
             
             CreateTable(
@@ -205,13 +205,13 @@ namespace EcommerceApp.Migrations
             DropForeignKey("dbo.UserRole", "RoleId", "dbo.Role");
             DropForeignKey("dbo.FavoriteLists", "UserId", "dbo.User");
             DropForeignKey("dbo.BlackLists", "UserId", "dbo.User");
-            DropForeignKey("dbo.Reservations", "id_voiture", "dbo.Voitures");
+            DropForeignKey("dbo.Reservations", "id_product", "dbo.Products");
             DropForeignKey("dbo.Reservations", "id_paiement", "dbo.Paiements");
             DropForeignKey("dbo.Reservations", "UserId", "dbo.User");
-            DropForeignKey("dbo.Voitures", "id_offre", "dbo.Offres");
+            DropForeignKey("dbo.Products", "id_offre", "dbo.Offres");
             DropForeignKey("dbo.Offres", "UserId", "dbo.User");
-            DropForeignKey("dbo.Voitures", "id_marque", "dbo.Marques");
-            DropForeignKey("dbo.Voitures", "UserId", "dbo.User");
+            DropForeignKey("dbo.Products", "id_marque", "dbo.Marques");
+            DropForeignKey("dbo.Products", "UserId", "dbo.User");
             DropForeignKey("dbo.UserRole", "UserId", "dbo.User");
             DropForeignKey("dbo.Reclamations", "UserId", "dbo.User");
             DropForeignKey("dbo.UserLogin", "UserId", "dbo.User");
@@ -219,12 +219,12 @@ namespace EcommerceApp.Migrations
             DropIndex("dbo.Role", "RoleNameIndex");
             DropIndex("dbo.FavoriteLists", new[] { "UserId" });
             DropIndex("dbo.Reservations", new[] { "id_paiement" });
-            DropIndex("dbo.Reservations", new[] { "id_voiture" });
+            DropIndex("dbo.Reservations", new[] { "id_product" });
             DropIndex("dbo.Reservations", new[] { "UserId" });
             DropIndex("dbo.Offres", new[] { "UserId" });
-            DropIndex("dbo.Voitures", new[] { "id_offre" });
-            DropIndex("dbo.Voitures", new[] { "id_marque" });
-            DropIndex("dbo.Voitures", new[] { "UserId" });
+            DropIndex("dbo.Products", new[] { "id_offre" });
+            DropIndex("dbo.Products", new[] { "id_marque" });
+            DropIndex("dbo.Products", new[] { "UserId" });
             DropIndex("dbo.UserRole", new[] { "RoleId" });
             DropIndex("dbo.UserRole", new[] { "UserId" });
             DropIndex("dbo.Reclamations", new[] { "UserId" });
@@ -238,7 +238,7 @@ namespace EcommerceApp.Migrations
             DropTable("dbo.Reservations");
             DropTable("dbo.Offres");
             DropTable("dbo.Marques");
-            DropTable("dbo.Voitures");
+            DropTable("dbo.Products");
             DropTable("dbo.UserRole");
             DropTable("dbo.Reclamations");
             DropTable("dbo.UserLogin");
