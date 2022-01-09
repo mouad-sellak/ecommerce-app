@@ -1,9 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\LocationProduct",
-    "\\LocationProduct\\App_Data"
+    "\\LocationVoiture",
+    "\\LocationVoiture\\App_Data",
+    "\\LocationVoiture\\Controllers",
+    "\\LocationVoiture\\Migrations",
+    "\\LocationVoiture\\Models",
+    "\\LocationVoiture\\Resources\\Views",
+    "\\LocationVoiture\\Resources\\Views\\Voitures",
+    "\\LocationVoiture\\Views\\Voitures"
   ],
-  "SelectedNode": "\\LocationProduct\\Scripts",
+  "SelectedNode": "\\LocationVoiture\\Models\\ProductModel.cs",
   "PreviewInSolutionExplorer": false
 }
