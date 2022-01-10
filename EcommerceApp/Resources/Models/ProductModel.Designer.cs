@@ -79,6 +79,15 @@ namespace EcommerceApp.Resources.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Model.
+        /// </summary>
+        public static string category {
+            get {
+                return ResourceManager.GetString("category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Color.
         /// </summary>
         public static string color {
@@ -102,15 +111,6 @@ namespace EcommerceApp.Resources.Models {
         public static string km {
             get {
                 return ResourceManager.GetString("km", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Model.
-        /// </summary>
-        public static string marque {
-            get {
-                return ResourceManager.GetString("marque", resourceCulture);
             }
         }
         

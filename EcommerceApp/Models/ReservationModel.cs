@@ -41,9 +41,9 @@ namespace EcommerceApp.Models
         [Display(Name = "price", ResourceType = typeof(Resources.Models.ReservationModel))]
         public float prix { get; set; }
 
-        [Display(Name = "remarque", ResourceType = typeof(Resources.Models.ReservationModel))]
+        [Display(Name = "recategory", ResourceType = typeof(Resources.Models.ReservationModel))]
         [Column(TypeName = "text")]
-        public string remarque { get; set; }
+        public string recategory { get; set; }
 
         [Display(Name = "date_ajout", ResourceType = typeof(Resources.Models.ReservationModel))]
         public DateTime date_ajout { get; set; } = DateTime.Now;

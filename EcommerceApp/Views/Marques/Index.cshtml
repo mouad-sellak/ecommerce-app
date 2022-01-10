@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EcommerceApp.Models.Marque>
+﻿@model IEnumerable<EcommerceApp.Models.Category>
     @if (User.IsInRole("Owner"))
     {
         Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
@@ -18,7 +18,7 @@
         </p>
         <hr />
     }
-    <table class="table" id="categories">
+    <table class="table" id="reclamations">
         <thead>
             <tr>
                 <th>
@@ -43,19 +43,19 @@
                     <td>
 
 
-                        <a href="@Url.Action("Details", "Marques", new { id = item.id_marque })" class="text-success">
+                        <a href="@Url.Action("Details", "Categories", new { id = item.id_category })" class="text-success">
                             <i class="material-icons icon ">
                                 visibility
                             </i>
                         </a>
                         @if (User.IsInRole("Owner"))
                         {
-                            <a href="@Url.Action("Edit", "Marques", new { id = item.id_marque })" class="text-warning">
+                            <a href="@Url.Action("Edit", "Categories", new { id = item.id_category })" class="text-warning">
                                 <i class="material-icons icon ">
                                     edit
                                 </i>
                             </a>
-                            <a href="@Url.Action("Delete", "Marques", new { id = item.id_marque })" class="text-danger">
+                            <a href="@Url.Action("Delete", "Categories", new { id = item.id_category })" class="text-danger">
                                 <i class="material-icons icon ">
                                     delete
                                 </i>

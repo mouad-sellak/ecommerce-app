@@ -144,9 +144,9 @@ namespace EcommerceApp.Resources.Models {
         /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
-        public static string remarque {
+        public static string recategory {
             get {
-                return ResourceManager.GetString("remarque", resourceCulture);
+                return ResourceManager.GetString("recategory", resourceCulture);
             }
         }
         

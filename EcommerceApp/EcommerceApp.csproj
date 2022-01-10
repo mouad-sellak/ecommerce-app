@@ -176,10 +176,9 @@
     <Compile Include="Controllers\BlackListsController.cs" />
     <Compile Include="Controllers\FavoriteListsController.cs" />
     <Compile Include="Controllers\LocatairesController.cs" />
-    <Compile Include="Controllers\MarquesController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\OffresController.cs" />
     <Compile Include="Controllers\OwnerDashboardController.cs" />
-    <Compile Include="Controllers\PaiementsController.cs" />
     <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\TenantDashboardController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -201,12 +200,11 @@
     <Compile Include="Models\HistoryOwner.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Languages.cs" />
-    <Compile Include="Models\PaiementModel.cs" />
     <Compile Include="Models\Locataire.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MarqueModel.cs" />
-    <Compile Include="Models\OffreModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\OffreModel.cs" />
+    <Compile Include="Models\ReclamationModel.cs" />
     <Compile Include="Models\ReservationModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -39,11 +39,11 @@ else if (User.IsInRole("Admin"))
 
 
                     <dt class="col-md-4">
-                        @Html.DisplayNameFor(model => model.Marque.libele)
+                        @Html.DisplayNameFor(model => model.Category.libele)
                     </dt>
 
                     <dd class="col-md-8">
-                        @Html.DisplayFor(model => model.Marque.libele)
+                        @Html.DisplayFor(model => model.Category.libele)
                     </dd>
 
                     @if (Model.Offre != null && Model.Offre.date_expiration > DateTime.Now)

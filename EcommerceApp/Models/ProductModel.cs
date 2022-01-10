@@ -16,11 +16,11 @@ namespace EcommerceApp.Models
         [ForeignKey("UserId")]
         public virtual ApplicationUser ApplicationUser { get; set; }
 
-        [Display(Name = "marque", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
-        public int id_marque { get; set; }
+        [Display(Name = "category", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
+        public int id_category { get; set; }
 
-        [ForeignKey("id_marque")]
-        public virtual Marque Marque { get; set; }
+        [ForeignKey("id_category")]
+        public virtual Category Category { get; set; }
 
         [Display(Name = "offre", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
         public int? id_offre { get; set; }

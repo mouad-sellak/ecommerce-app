@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EcommerceApp.Models.Category>
+﻿@model IEnumerable<EcommerceApp.Models.Reclamation>
 
 @{
     ViewBag.Title = "Index";
@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.date_ajout)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_Category }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_Category }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_Category })
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_Reclamation }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_Reclamation }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_Reclamation })
         </td>
     </tr>
 }

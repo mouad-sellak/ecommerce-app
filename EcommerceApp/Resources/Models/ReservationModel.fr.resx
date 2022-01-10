@@ -144,8 +144,8 @@
   <data name="price" xml:space="preserve">
     <value>Prix Total</value>
   </data>
-  <data name="remarque" xml:space="preserve">
-    <value>Remarque</value>
+  <data name="recategory" xml:space="preserve">
+    <value>Recategory</value>
   </data>
   <data name="tenant" xml:space="preserve">
     <value>Locataire</value>

@@ -123,7 +123,7 @@ namespace EcommerceApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_reservation,UserId,id_product,id_paiement,date_prise_en_charge,date_retour,lieu_prise_en_charge,remarque,date_ajout")] Reservation reservation)
+        public ActionResult Edit([Bind(Include = "id_reservation,UserId,id_product,id_paiement,date_prise_en_charge,date_retour,lieu_prise_en_charge,recategory,date_ajout")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {

@@ -20,7 +20,7 @@ namespace EcommerceApp.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var products = db.Products.Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre);
+            var products = db.Products.Include(v => v.ApplicationUser).Include(v => v.Category).Include(v => v.Offre);
             return View(products.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace EcommerceApp.Controllers
         public ActionResult OwnerProducts()
         {
             var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
-            var products = db.Products.Where(x => x.UserId == user.Id).Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre);
+            var products = db.Products.Where(x => x.UserId == user.Id).Include(v => v.ApplicationUser).Include(v => v.Category).Include(v => v.Offre);
             return View(products.ToList());
         }
 
@@ -38,7 +38,7 @@ namespace EcommerceApp.Controllers
             if (date != null)
                 ViewBag.date = date;
 
-            var products = db.Products.Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre).ToList();
+            var products = db.Products.Include(v => v.ApplicationUser).Include(v => v.Category).Include(v => v.Offre).ToList();
             List<Product> disponibles = new List<Product>();
             List<Product> reserver = new List<Product>();
             DateTime pick_up, date_return;
@@ -97,7 +97,7 @@ namespace EcommerceApp.Controllers
             string name = System.Web.HttpContext.Current.User.Identity.Name;
             ApplicationUser user = db.Users.Where(x => x.UserName.Equals(name)).FirstOrDefault();
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
-            ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele");
+            ViewBag.id_category = new SelectList(db.Categories, "id_category", "libele");
             ViewBag.id_offre = new SelectList(db.Offres.Where(x => x.UserId == user.Id && x.date_expiration > DateTime.Now), "id_offre", "libele");
             return View();
         }
@@ -124,7 +124,7 @@ namespace EcommerceApp.Controllers
                 return RedirectToAction("OwnerProducts");
             }
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", product.UserId);
-            ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele", product.id_marque);
+            ViewBag.id_category = new SelectList(db.Categories, "id_category", "libele", product.id_category);
             ViewBag.id_offre = new SelectList(db.Offres, "id_offre", "libele", product.id_offre);
             return View(product);
         }
@@ -145,7 +145,7 @@ namespace EcommerceApp.Controllers
             string name = System.Web.HttpContext.Current.User.Identity.Name;
             ApplicationUser user = db.Users.Where(x => x.UserName.Equals(name)).FirstOrDefault();
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", product.UserId);
-            ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele", product.id_marque);
+            ViewBag.id_category = new SelectList(db.Categories, "id_category", "libele", product.id_category);
             ViewBag.id_offre = new SelectList(db.Offres.Where(x => x.UserId == user.Id && x.date_expiration > DateTime.Now), "id_offre", "libele", product.id_offre);
             return View(product);
         }
@@ -172,7 +172,7 @@ namespace EcommerceApp.Controllers
                 return RedirectToAction("OwnerProducts");
             }
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", product.UserId);
-            ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele", product.id_marque);
+            ViewBag.id_category = new SelectList(db.Categories, "id_category", "libele", product.id_category);
             ViewBag.id_offre = new SelectList(db.Offres, "id_offre", "libele", product.id_offre);
             return View(product);
         }

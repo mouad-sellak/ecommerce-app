@@ -44,7 +44,7 @@ else if (User.IsInRole("Admin"))
                         @Html.DisplayNameFor(model => model.matricul)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Marque.libele)
+                        @Html.DisplayNameFor(model => model.Category.libele)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.prix)
@@ -69,7 +69,7 @@ else if (User.IsInRole("Admin"))
                             @Html.DisplayFor(modelItem => item.matricul)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Marque.libele)
+                            @Html.DisplayFor(modelItem => item.Category.libele)
                         </td>
                         <td>
                             <p class="font-weight-bold">

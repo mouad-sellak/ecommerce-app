@@ -130,7 +130,7 @@
     <value>le</value>
   </data>
   <data name="model" xml:space="preserve">
-    <value>Marques</value>
+    <value>Categories</value>
   </data>
   <data name="nothing" xml:space="preserve">
     <value>Aucune donnée à affichée</value>

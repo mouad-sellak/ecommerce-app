@@ -10,107 +10,116 @@ using EcommerceApp.Models;
 
 namespace EcommerceApp.Controllers
 {
-    public class PaiementsController : Controller
+    [Authorize(Roles = "Admin")]
+    public class CategoriesController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Paiements
+        // GET: Categories
         public ActionResult Index()
         {
-            return View(db.Paiements.ToList());
+            return View(db.Categories.ToList());
         }
 
-        // GET: Paiements/Details/5
+        // GET: Categories/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Paiement paiement = db.Paiements.Find(id);
-            if (paiement == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(paiement);
+            return View(category);
         }
 
-        // GET: Paiements/Create
+        [Authorize(Roles = "Admin")]
+        // GET: Categories/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Paiements/Create
+
+        // POST: Categories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_paiement,libele")] Paiement paiement)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Create(Category category)
         {
             if (ModelState.IsValid)
             {
-                db.Paiements.Add(paiement);
+                category.date_ajout = DateTime.Now;
+                db.Categories.Add(category);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(paiement);
+            return View(category);
         }
 
-        // GET: Paiements/Edit/5
+        [Authorize(Roles = "Admin")]
+        // GET: Categories/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Paiement paiement = db.Paiements.Find(id);
-            if (paiement == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(paiement);
+            return View(category);
         }
 
-        // POST: Paiements/Edit/5
+        // POST: Categories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_paiement,libele")] Paiement paiement)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Edit([Bind(Include = "id_category,libele,date_ajout")] Category category)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(paiement).State = EntityState.Modified;
+                db.Entry(category).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(paiement);
+            return View(category);
         }
 
-        // GET: Paiements/Delete/5
+        [Authorize(Roles = "Admin")]
+        // GET: Categories/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Paiement paiement = db.Paiements.Find(id);
-            if (paiement == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(paiement);
+            return View(category);
         }
 
-        // POST: Paiements/Delete/5
+        // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Paiement paiement = db.Paiements.Find(id);
-            db.Paiements.Remove(paiement);
+            Category category = db.Categories.Find(id);
+            db.Categories.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

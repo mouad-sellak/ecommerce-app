@@ -31,10 +31,10 @@
     <div class="row">
         <div class="col-md-6 col-12">
             <div class="form-group">
-                @Html.LabelFor(model => model.id_marque, EcommerceApp.Resources.Views.Shared._OwnerDashboard.model, htmlAttributes: new { @class = "control-label" })
+                @Html.LabelFor(model => model.id_category, EcommerceApp.Resources.Views.Shared._OwnerDashboard.model, htmlAttributes: new { @class = "control-label" })
                 <div>
-                    @Html.DropDownList("id_marque", null,"--Marque--", htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.id_marque, "", new { @class = "text-danger" })
+                    @Html.DropDownList("id_category", null,"--Category--", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.id_category, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-﻿@model EcommerceApp.Models.Marque
+﻿@model EcommerceApp.Models.Category
 @{
     Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
 }
@@ -7,7 +7,7 @@
     <h2>@EcommerceApp.Resources.most.details</h2>
 
     <div>
-        <h4>@EcommerceApp.Resources.Models.MarqueModel.libele</h4>
+        <h4>@EcommerceApp.Resources.Models.CategoryModel.libele</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -31,7 +31,7 @@
     <p>
         @if (User.IsInRole("Owner"))
         {
-            @Html.ActionLink(@EcommerceApp.Resources.most.edit, "Edit", new { id = Model.id_marque })
+            @Html.ActionLink(@EcommerceApp.Resources.most.edit, "Edit", new { id = Model.id_category })
 
         }
         | @Html.ActionLink(@EcommerceApp.Resources.most.back, "Index")

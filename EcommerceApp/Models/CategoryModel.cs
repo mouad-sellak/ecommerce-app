@@ -1,28 +1,24 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EcommerceApp.Models
 {
-   
     public class Category
     {
-        
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id_Category { get; set; }
+        public int id_category { get; set; }
 
-        public string UserId { get; set; }
+        [Display(Name = "libele", ResourceType =typeof(EcommerceApp.Resources.Models.CategoryModel))]
+        public string libele { get; set; }
 
-        [ForeignKey("UserId")]
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        [Display(Name = "add_date", ResourceType = typeof(EcommerceApp.Resources.Models.CategoryModel))]
+        public DateTime? date_ajout { get; set; }
 
-        [Display(Name = "Description")]
-        [Column(TypeName = "text")]
-        public string description { get; set; }
-        public DateTime date_ajout { get; set; }
-
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

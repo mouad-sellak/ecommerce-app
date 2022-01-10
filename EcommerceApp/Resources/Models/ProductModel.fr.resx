@@ -132,8 +132,8 @@
   <data name="km" xml:space="preserve">
     <value>Km</value>
   </data>
-  <data name="marque" xml:space="preserve">
-    <value>Marque</value>
+  <data name="category" xml:space="preserve">
+    <value>Category</value>
   </data>
   <data name="matricul" xml:space="preserve">
     <value>Matricule</value>

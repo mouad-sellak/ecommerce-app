@@ -88,7 +88,7 @@ namespace EcommerceApp.Resources.Views.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Models.
+        ///   Looks up a localized string similar to Categories.
         /// </summary>
         public static string model {
             get {

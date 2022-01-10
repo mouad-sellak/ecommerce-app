@@ -144,7 +144,7 @@
   <data name="price" xml:space="preserve">
     <value>Total Price</value>
   </data>
-  <data name="remarque" xml:space="preserve">
+  <data name="recategory" xml:space="preserve">
     <value>Note</value>
   </data>
   <data name="tenant" xml:space="preserve">
