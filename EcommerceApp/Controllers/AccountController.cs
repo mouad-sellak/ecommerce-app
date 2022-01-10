@@ -211,20 +211,15 @@ namespace EcommerceApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                String type;
-                String typeOwner = "None";
+                String type = "Owner";
+                String typeOwner;
                 ViewBag.UserType = new SelectList(new[] { EcommerceApp.Resources.Views.Account.Register.tenant, EcommerceApp.Resources.Views.Account.Register.owner });
                 ViewBag.TypeOwner = new SelectList(new[] { EcommerceApp.Resources.Views.Account.Register.agence, EcommerceApp.Resources.Views.Account.Register.particulier });
-                if (model.UserType == EcommerceApp.Resources.Views.Account.Register.tenant)
-                    type = "Tenant";
-                else
-                {
-                    type = "Owner";
+     
                     if (model.TypeOwner == EcommerceApp.Resources.Views.Account.Register.agence)
                         typeOwner = "Agency";
                     else
                         typeOwner = "Particular";
-                }
                     
                 var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber=model.UserPhone, UserType=type,UserAdress=model.UserAdress, date_join = DateTime.Now, TypeOwner=typeOwner,blocked=false };
                 var result = await UserManager.CreateAsync(user, model.Password);

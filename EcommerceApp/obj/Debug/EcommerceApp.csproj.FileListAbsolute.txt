@@ -102,7 +102,6 @@ C:\Users\zakaria\Source\Repos\ecommerce-app\EcommerceApp\bin\Microsoft.Owin.Secu
 C:\Users\zakaria\Source\Repos\ecommerce-app\EcommerceApp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\zakaria\Source\Repos\ecommerce-app\EcommerceApp\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\zakaria\Source\Repos\ecommerce-app\EcommerceApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\zakaria\Source\Repos\ecommerce-app\EcommerceApp\obj\Debug\EcommerceApp.Migrations.Initial.resources
 C:\Users\zakaria\Source\Repos\ecommerce-app\EcommerceApp\obj\Debug\EcommerceApp.Resources.Models.Locataire.resources
 C:\Users\zakaria\Source\Repos\ecommerce-app\EcommerceApp\obj\Debug\EcommerceApp.Resources.Models.MarqueModel.resources
 C:\Users\zakaria\Source\Repos\ecommerce-app\EcommerceApp\obj\Debug\EcommerceApp.Resources.Models.ReservationModel.resources
@@ -147,3 +146,5 @@ C:\Users\zakaria\Source\Repos\ecommerce-app\EcommerceApp\obj\Debug\EcommerceApp.
 C:\Users\zakaria\Source\Repos\ecommerce-app\EcommerceApp\obj\Debug\fr\EcommerceApp.resources.dll
 C:\Users\zakaria\Source\Repos\ecommerce-app\EcommerceApp\obj\Debug\EcommerceApp.dll
 C:\Users\zakaria\Source\Repos\ecommerce-app\EcommerceApp\obj\Debug\EcommerceApp.pdb
+C:\Users\zakaria\Source\Repos\ecommerce-app\EcommerceApp\obj\Debug\EcommerceApp.csproj.AssemblyReference.cache
+C:\Users\zakaria\Source\Repos\ecommerce-app\EcommerceApp\obj\Debug\EcommerceApp.Migrations.Initial.resources

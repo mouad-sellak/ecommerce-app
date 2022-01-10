@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace EcommerceApp.Controllers
 {
-    [Authorize(Roles = "Owner")]
+   /* [Authorize(Roles = "Owner")]*/
     public class OwnerDashboardController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();

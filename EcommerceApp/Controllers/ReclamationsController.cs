@@ -10,25 +10,25 @@ using EcommerceApp.Models;
 
 namespace EcommerceApp.Controllers
 {
-    public class CategorysController : Controller
+    public class CategoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Categorys
+        // GET: Categories
         public ActionResult Index()
         {
-            var Categorys = db.Categorys.Include(r => r.ApplicationUser);
-            return View(Categorys.ToList());
+            var Categories = db.Categories.Include(r => r.ApplicationUser);
+            return View(Categories.ToList());
         }
 
-        // GET: Categorys/Details/5
+        // GET: Categories/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category Category = db.Categorys.Find(id);
+            Category Category = db.Categories.Find(id);
             if (Category == null)
             {
                 return HttpNotFound();
@@ -36,14 +36,14 @@ namespace EcommerceApp.Controllers
             return View(Category);
         }
 
-        // GET: Categorys/Create
+        // GET: Categories/Create
         public ActionResult Create()
         {
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
-        // POST: Categorys/Create
+        // POST: Categories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -52,7 +52,7 @@ namespace EcommerceApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Categorys.Add(Category);
+                db.Categories.Add(Category);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -61,14 +61,14 @@ namespace EcommerceApp.Controllers
             return View(Category);
         }
 
-        // GET: Categorys/Edit/5
+        // GET: Categories/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category Category = db.Categorys.Find(id);
+            Category Category = db.Categories.Find(id);
             if (Category == null)
             {
                 return HttpNotFound();
@@ -77,7 +77,7 @@ namespace EcommerceApp.Controllers
             return View(Category);
         }
 
-        // POST: Categorys/Edit/5
+        // POST: Categories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -94,14 +94,14 @@ namespace EcommerceApp.Controllers
             return View(Category);
         }
 
-        // GET: Categorys/Delete/5
+        // GET: Categories/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category Category = db.Categorys.Find(id);
+            Category Category = db.Categories.Find(id);
             if (Category == null)
             {
                 return HttpNotFound();
@@ -109,13 +109,13 @@ namespace EcommerceApp.Controllers
             return View(Category);
         }
 
-        // POST: Categorys/Delete/5
+        // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Category Category = db.Categorys.Find(id);
-            db.Categorys.Remove(Category);
+            Category Category = db.Categories.Find(id);
+            db.Categories.Remove(Category);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

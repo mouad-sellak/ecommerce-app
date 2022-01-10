@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace EcommerceApp.Controllers
 {
     
-    [Authorize(Roles = "Tenant")]
+    
     public class TenantDashboardController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();

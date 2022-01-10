@@ -10,7 +10,7 @@ using EcommerceApp.Models;
 
 namespace EcommerceApp.Controllers
 {
-    [Authorize(Roles = "Ownern,Admin")]
+    /*[Authorize(Roles = "Owner,Admin")]*/
     public class MarquesController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -35,8 +35,8 @@ namespace EcommerceApp.Controllers
             }
             return View(marque);
         }
-
-        [Authorize(Roles = "Owner")]
+/*
+        [Authorize(Roles = "Owner")]*/
         // GET: Marques/Create
         public ActionResult Create()
         {

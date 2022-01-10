@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EcommerceApp.Resources.Views    {
+namespace EcommerceApp.Resources.Views.Products {
     using System;
     
     
@@ -61,16 +61,16 @@ namespace EcommerceApp.Resources.Views    {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Car.
+        ///   Looks up a localized string similar to Product.
         /// </summary>
-        public static string car {
+        public static string product {
             get {
-                return ResourceManager.GetString("car", resourceCulture);
+                return ResourceManager.GetString("product", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add new car.
+        ///   Looks up a localized string similar to Add new Product.
         /// </summary>
         public static string title {
             get {
