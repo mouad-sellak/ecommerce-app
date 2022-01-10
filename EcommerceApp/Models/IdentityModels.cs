@@ -18,7 +18,7 @@ namespace EcommerceApp.Models
 
         public Boolean blocked { get; set; }
         public DateTime date_join { get; set; }
-        public virtual ICollection<Reclamation> Reclamations { get; set; }
+        public virtual ICollection<Category> Categorys { get; set; }
         public virtual ICollection<Product> Products { get; set; }
 
 
@@ -37,7 +37,7 @@ namespace EcommerceApp.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
     }
-       public virtual DbSet<Reclamation> Reclamations { get; set; }
+       public virtual DbSet<Category> Categorys { get; set; }
        public virtual DbSet<Marque> Marques { get; set; }
        public virtual DbSet<Offre> Offres { get; set; }
        public virtual DbSet<Paiement> Paiements { get; set; }

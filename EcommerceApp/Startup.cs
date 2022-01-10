@@ -1,7 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(EcommerceApp.Startup))]
+[assembly: OwinStartupAttribute("EcommerceApp",typeof(EcommerceApp.Startup))]
 namespace EcommerceApp
 {
     public partial class Startup

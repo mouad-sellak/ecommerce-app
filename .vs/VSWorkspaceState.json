@@ -4,12 +4,8 @@
     "\\EcommerceApp",
     "\\EcommerceApp\\App_Data",
     "\\EcommerceApp\\Controllers",
-    "\\EcommerceApp\\Migrations",
-    "\\EcommerceApp\\Models",
-    "\\EcommerceApp\\Resources\\Views",
-    "\\EcommerceApp\\Resources\\Views\\Products",
-    "\\EcommerceApp\\Views\\Products"
+    "\\EcommerceApp\\Properties"
   ],
-  "SelectedNode": "\\EcommerceApp\\Models\\ProductModel.cs",
+  "SelectedNode": "\\EcommerceApp.sln",
   "PreviewInSolutionExplorer": false
 }

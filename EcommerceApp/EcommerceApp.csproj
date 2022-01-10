@@ -206,7 +206,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MarqueModel.cs" />
     <Compile Include="Models\OffreModel.cs" />
-    <Compile Include="Models\ReclamationModel.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\ReservationModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

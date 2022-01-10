@@ -1,4 +1,4 @@
-﻿@model EcommerceApp.Models.Reclamation
+﻿@model EcommerceApp.Models.Category
 
 @{
     ViewBag.Title = "Edit";
@@ -11,10 +11,10 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Reclamation</h4>
+        <h4>Category</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.id_reclamation)
+        @Html.HiddenFor(model => model.id_Category)
 
         <div class="form-group">
             @Html.LabelFor(model => model.UserId, "UserId", htmlAttributes: new { @class = "control-label col-md-2" })

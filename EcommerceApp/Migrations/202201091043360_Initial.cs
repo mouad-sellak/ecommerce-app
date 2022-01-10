@@ -69,15 +69,15 @@ namespace EcommerceApp.Migrations
                 .Index(t => t.UserId);
 
            /* CreateTable(
-                "dbo.Reclamations",
+                "dbo.Categorys",
                 c => new
                 {
-                    id_reclamation = c.Int(nullable: false, identity: true),
+                    id_Category = c.Int(nullable: false, identity: true),
                     UserId = c.String(maxLength: 128),
                     description = c.String(unicode: false, storeType: "text"),
                     date_ajout = c.DateTime(nullable: false),
                 })
-                .PrimaryKey(t => t.id_reclamation)
+                .PrimaryKey(t => t.id_Category)
                 .ForeignKey("dbo.User", t => t.UserId)
                 .Index(t => t.UserId);*/
 
@@ -213,7 +213,7 @@ namespace EcommerceApp.Migrations
             DropForeignKey("dbo.Products", "id_marque", "dbo.Marques");
             DropForeignKey("dbo.Products", "UserId", "dbo.User");
             DropForeignKey("dbo.UserRole", "UserId", "dbo.User");
-            DropForeignKey("dbo.Reclamations", "UserId", "dbo.User");
+            DropForeignKey("dbo.Categorys", "UserId", "dbo.User");
             DropForeignKey("dbo.UserLogin", "UserId", "dbo.User");
             DropForeignKey("dbo.UserClaim", "UserId", "dbo.User");
             DropIndex("dbo.Role", "RoleNameIndex");
@@ -227,7 +227,7 @@ namespace EcommerceApp.Migrations
             DropIndex("dbo.Products", new[] { "UserId" });
             DropIndex("dbo.UserRole", new[] { "RoleId" });
             DropIndex("dbo.UserRole", new[] { "UserId" });
-            DropIndex("dbo.Reclamations", new[] { "UserId" });
+            DropIndex("dbo.Categorys", new[] { "UserId" });
             DropIndex("dbo.UserLogin", new[] { "UserId" });
             DropIndex("dbo.UserClaim", new[] { "UserId" });
             DropIndex("dbo.User", "UserNameIndex");
@@ -240,7 +240,7 @@ namespace EcommerceApp.Migrations
             DropTable("dbo.Marques");
             DropTable("dbo.Products");
             DropTable("dbo.UserRole");
-            DropTable("dbo.Reclamations");
+            DropTable("dbo.Categorys");
             DropTable("dbo.UserLogin");
             DropTable("dbo.UserClaim");
             DropTable("dbo.User");

@@ -10,112 +10,112 @@ using EcommerceApp.Models;
 
 namespace EcommerceApp.Controllers
 {
-    public class ReclamationsController : Controller
+    public class CategorysController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Reclamations
+        // GET: Categorys
         public ActionResult Index()
         {
-            var reclamations = db.Reclamations.Include(r => r.ApplicationUser);
-            return View(reclamations.ToList());
+            var Categorys = db.Categorys.Include(r => r.ApplicationUser);
+            return View(Categorys.ToList());
         }
 
-        // GET: Reclamations/Details/5
+        // GET: Categorys/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reclamation reclamation = db.Reclamations.Find(id);
-            if (reclamation == null)
+            Category Category = db.Categorys.Find(id);
+            if (Category == null)
             {
                 return HttpNotFound();
             }
-            return View(reclamation);
+            return View(Category);
         }
 
-        // GET: Reclamations/Create
+        // GET: Categorys/Create
         public ActionResult Create()
         {
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
-        // POST: Reclamations/Create
+        // POST: Categorys/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_reclamation,UserId,description,date_ajout")] Reclamation reclamation)
+        public ActionResult Create([Bind(Include = "id_Category,UserId,description,date_ajout")] Category Category)
         {
             if (ModelState.IsValid)
             {
-                db.Reclamations.Add(reclamation);
+                db.Categorys.Add(Category);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", reclamation.UserId);
-            return View(reclamation);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", Category.UserId);
+            return View(Category);
         }
 
-        // GET: Reclamations/Edit/5
+        // GET: Categorys/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reclamation reclamation = db.Reclamations.Find(id);
-            if (reclamation == null)
+            Category Category = db.Categorys.Find(id);
+            if (Category == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", reclamation.UserId);
-            return View(reclamation);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", Category.UserId);
+            return View(Category);
         }
 
-        // POST: Reclamations/Edit/5
+        // POST: Categorys/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_reclamation,UserId,description,date_ajout")] Reclamation reclamation)
+        public ActionResult Edit([Bind(Include = "id_Category,UserId,description,date_ajout")] Category Category)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(reclamation).State = EntityState.Modified;
+                db.Entry(Category).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", reclamation.UserId);
-            return View(reclamation);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", Category.UserId);
+            return View(Category);
         }
 
-        // GET: Reclamations/Delete/5
+        // GET: Categorys/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reclamation reclamation = db.Reclamations.Find(id);
-            if (reclamation == null)
+            Category Category = db.Categorys.Find(id);
+            if (Category == null)
             {
                 return HttpNotFound();
             }
-            return View(reclamation);
+            return View(Category);
         }
 
-        // POST: Reclamations/Delete/5
+        // POST: Categorys/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Reclamation reclamation = db.Reclamations.Find(id);
-            db.Reclamations.Remove(reclamation);
+            Category Category = db.Categorys.Find(id);
+            db.Categorys.Remove(Category);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
