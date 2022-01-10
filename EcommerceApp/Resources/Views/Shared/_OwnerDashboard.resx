@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="car" xml:space="preserve">
-    <value>Cars</value>
+  <data name="product" xml:space="preserve">
+    <value>Products</value>
   </data>
   <data name="dashboard" xml:space="preserve">
     <value>Dashboard</value>
@@ -136,7 +136,7 @@
     <value>No data to display</value>
   </data>
   <data name="notification" xml:space="preserve">
-    <value>This car is booked by</value>
+    <value>This product is booked by</value>
   </data>
   <data name="profil" xml:space="preserve">
     <value>Profil</value>

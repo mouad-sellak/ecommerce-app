@@ -148,6 +148,6 @@
     <value>Discount rate</value>
   </data>
   <data name="productDispo" xml:space="preserve">
-    <value>Reserved cars</value>
+    <value>Available products</value>
   </data>
 </root>

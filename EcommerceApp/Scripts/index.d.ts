@@ -2,7 +2,7 @@
  * @fileoverview This file only declares the public portions of the API.
  * It should not define internal pieces such as utils or modifier details.
  *
- * Original definitions by: edcarroll <https://github.com/edcarroll>, ggray <https://github.com/giladgray>, rhysd <https://rhysd.github.io>, joscha <https://github.com/joscha>, seckardt <https://github.com/seckardt>, marcfallows <https://github.com/marcfallows>
+ * Original definitions by: edproductroll <https://github.com/edproductroll>, ggray <https://github.com/giladgray>, rhysd <https://rhysd.github.io>, joscha <https://github.com/joscha>, seckardt <https://github.com/seckardt>, marcfallows <https://github.com/marcfallows>
  */
 
 /**

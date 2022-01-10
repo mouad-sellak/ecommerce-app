@@ -35,17 +35,17 @@
                         <li style="min-height:200px;">
 
 
-                            <div class="card row flex-row flex-wrap m-3 h-100">
-                                <div class="card-header border-0" style="        min-height: 200px; width: 250px;
+                            <div class="productd row flex-row flex-wrap m-3 h-100">
+                                <div class="productd-header border-0" style="        min-height: 200px; width: 250px;
 ">
-                                    <img src="~/Uploads/cars/@Html.DisplayFor(model => item.photo)" alt="" class="h-100" style=" width:250px;">
+                                    <img src="~/Uploads/products/@Html.DisplayFor(model => item.photo)" alt="" class="h-100" style=" width:250px;">
                                 </div>
-                                <div class="card-block my-3" style="margin-left:150px;">
-                                    <h4 class="card-title">
+                                <div class="productd-block my-3" style="margin-left:150px;">
+                                    <h4 class="productd-title">
                                         @Html.DisplayFor(modelItem => item.matricul) ( <span class="text-success font-weight-bold">- @item.Offre.taux_remise%</span>)
 
                                     </h4>
-                                    <p class="card-text">
+                                    <p class="productd-text">
                                         <span class="font-weight-bold">@Html.LabelFor(modelItem => item.prix):</span>
 
                                         <span class="font-weight-bold">

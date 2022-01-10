@@ -26,11 +26,11 @@ namespace EcommerceApp.Controllers
 
             /*--STATISTICS START--*/
             List<ApplicationUser> users = db.Users.ToList();
-            List<Product> cars = db.Products.ToList();
+            List<Product> products = db.Products.ToList();
             List<Reservation> res = db.Reservations.ToList();
             List<int> months = new List<int>();
             List<int> tenants = new List<int>();
-            List<int> cars_nb = new List<int>();
+            List<int> products_nb = new List<int>();
             List<int> res_nb = new List<int>();
 
             List<float> prices = new List<float>();
@@ -38,14 +38,14 @@ namespace EcommerceApp.Controllers
             for (int i = 1; i <= 12; i++)
             {
                 tenants.Add(users.Count(x => x.date_join.Year == year && x.date_join.Month == i && x.Roles.Any(s => s.RoleId == "2")));
-                cars_nb.Add(cars.Count(x => x.date_ajout.Year == year && x.date_ajout.Month == i && x.UserId == user.Id));
+                products_nb.Add(products.Count(x => x.date_ajout.Year == year && x.date_ajout.Month == i && x.UserId == user.Id));
                 res_nb.Add(res.Count(x => x.date_ajout.Year == year && x.date_ajout.Month == i && x.Product.UserId == user.Id));
                 prices.Add(res.Where(x => x.date_ajout.Year == year && x.date_ajout.Month == i && x.Product.UserId == user.Id).Select(x => x.prix).Sum());
                 months.Add(i);
             }
 
             ViewBag.months = months;
-            ViewBag.cars = cars_nb;
+            ViewBag.products = products_nb;
             ViewBag.res = res_nb;
             ViewBag.tenants = tenants;
             ViewBag.prices = prices;

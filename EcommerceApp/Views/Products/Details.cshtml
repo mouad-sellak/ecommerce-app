@@ -15,7 +15,7 @@ else if (User.IsInRole("Admin"))
     <h2>Details</h2>
 
     <div>
-        <h4>@EcommerceApp.Resources.Views.Products.Create.car</h4>
+        <h4>@EcommerceApp.Resources.Views.Products.Create.product</h4>
         <hr />
         <div class="row">
             <div class="col-md-8">
@@ -108,7 +108,7 @@ else if (User.IsInRole("Admin"))
                 </dl>
             </div>
             <div class="col-md-4">
-                <img src="~/Uploads/cars/@Html.DisplayFor(model => model.photo)" class="img-thumbnail h-75 w-100" />
+                <img src="~/Uploads/products/@Html.DisplayFor(model => model.photo)" class="img-thumbnail h-75 w-100" />
 
             </div>
         </div>
@@ -119,7 +119,7 @@ else if (User.IsInRole("Admin"))
         <p>
 
             @Html.ActionLink(EcommerceApp.Resources.Views.Products.Edit.edit, "Edit", new { id = Model.id_product }) |
-            @Html.ActionLink(EcommerceApp.Resources.most.back, "OwnerCars")
+            @Html.ActionLink(EcommerceApp.Resources.most.back, "OwnerProducts")
         </p>
 
     }

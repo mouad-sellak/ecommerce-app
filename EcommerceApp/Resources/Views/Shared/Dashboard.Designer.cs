@@ -70,15 +70,6 @@ namespace EcommerceApp.Resources.Views.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Car.
-        /// </summary>
-        public static string car {
-            get {
-                return ResourceManager.GetString("car", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Favotite list.
         /// </summary>
         public static string favorite_list {
@@ -151,7 +142,7 @@ namespace EcommerceApp.Resources.Views.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number of cars.
+        ///   Looks up a localized string similar to Number of products.
         /// </summary>
         public static string nb_voi {
             get {
@@ -183,6 +174,15 @@ namespace EcommerceApp.Resources.Views.Shared {
         public static string pro {
             get {
                 return ResourceManager.GetString("pro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product.
+        /// </summary>
+        public static string product {
+            get {
+                return ResourceManager.GetString("product", resourceCulture);
             }
         }
         

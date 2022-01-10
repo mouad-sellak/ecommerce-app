@@ -9,9 +9,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>
-                @EcommerceApp.Resources.Views.Account.Register.type
-            </th>
+
             <th>
                 @EcommerceApp.Resources.Views.Account.Register.name
             </th>
@@ -35,9 +33,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ApplicationUser.UserType)
-                </td>
+ 
                 <td>
                     @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
                 </td>

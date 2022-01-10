@@ -133,7 +133,7 @@
     <value>Registration number</value>
   </data>
   <data name="not_disponible_msg" xml:space="preserve">
-    <value>This car is not available at the time tha you chosed.</value>
+    <value>This product is not available at the time tha you chosed.</value>
   </data>
   <data name="owner" xml:space="preserve">
     <value>Owner</value>

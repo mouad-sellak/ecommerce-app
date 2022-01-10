@@ -81,7 +81,7 @@ export default class Popper {
 
     const eventsEnabled = this.options.eventsEnabled;
     if (eventsEnabled) {
-      // setup event listeners, they will take care of update the position in specific situations
+      // setup event listeners, they will take producte of update the position in specific situations
       this.enableEventListeners();
     }
 

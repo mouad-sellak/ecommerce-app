@@ -148,6 +148,6 @@
     <value>Taux de remise</value>
   </data>
   <data name="productDispo" xml:space="preserve">
-    <value>Products réservées</value>
+    <value>Produits disponibles</value>
   </data>
 </root>

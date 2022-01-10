@@ -87,8 +87,8 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.photo, htmlAttributes: new { @class = "control-label" })
                 <div>
-                    <input type="file" name="carImage" id="carImage" class="form-control" />
-                    <img src="~/Uploads/cars/@Html.DisplayFor(model => model.photo)" class="img-thumbnail" style="width:48px; height:48px;" />
+                    <input type="file" name="productImage" id="productImage" class="form-control" />
+                    <img src="~/Uploads/products/@Html.DisplayFor(model => model.photo)" class="img-thumbnail" style="width:48px; height:48px;" />
 
                     @Html.ValidationMessageFor(model => model.photo, "", new { @class = "text-danger" })
                 </div>

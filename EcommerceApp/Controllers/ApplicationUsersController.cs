@@ -19,7 +19,7 @@ namespace EcommerceApp.Controllers
         // GET: ApplicationUsers
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            return View(db.Users.Where(x => x.UserType.Equals("Owner")).ToList());
         }
 
         // GET: ApplicationUsers/Details/5
@@ -35,6 +35,17 @@ namespace EcommerceApp.Controllers
                 return HttpNotFound();
             }
             return View(applicationUser);
+        }
+
+        public ActionResult historique(string id)
+        {
+            HistoryOwner history = new HistoryOwner();
+            var user = db.Users.Find(id);
+            history.reservations = db.Reservations.Where(x => x.Product.ApplicationUser.Id == user.Id).Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Product).ToList<Reservation>();
+            history.offresDisponibles = db.Offres.Where(x => x.UserId == user.Id && x.date_expiration >= DateTime.Now).Include(v => v.ApplicationUser).ToList<Offre>();
+            history.offresExpires = db.Offres.Where(x => x.UserId == user.Id && x.date_expiration < DateTime.Now).Include(v => v.ApplicationUser).ToList<Offre>();
+
+            return View(history);
         }
 
         // GET: ApplicationUsers/Create

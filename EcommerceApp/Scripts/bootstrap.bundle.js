@@ -588,9 +588,9 @@
    * ------------------------------------------------------------------------
    */
 
-  var NAME$2 = 'carousel';
+  var NAME$2 = 'productousel';
   var VERSION$2 = '4.5.3';
-  var DATA_KEY$2 = 'bs.carousel';
+  var DATA_KEY$2 = 'bs.productousel';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
   var JQUERY_NO_CONFLICT$2 = $__default['default'].fn[NAME$2];
@@ -634,22 +634,22 @@
   var EVENT_DRAG_START = "dragstart" + EVENT_KEY$2;
   var EVENT_LOAD_DATA_API$1 = "load" + EVENT_KEY$2 + DATA_API_KEY$2;
   var EVENT_CLICK_DATA_API$2 = "click" + EVENT_KEY$2 + DATA_API_KEY$2;
-  var CLASS_NAME_CAROUSEL = 'carousel';
+  var CLASS_NAME_CAROUSEL = 'productousel';
   var CLASS_NAME_ACTIVE$1 = 'active';
   var CLASS_NAME_SLIDE = 'slide';
-  var CLASS_NAME_RIGHT = 'carousel-item-right';
-  var CLASS_NAME_LEFT = 'carousel-item-left';
-  var CLASS_NAME_NEXT = 'carousel-item-next';
-  var CLASS_NAME_PREV = 'carousel-item-prev';
+  var CLASS_NAME_RIGHT = 'productousel-item-right';
+  var CLASS_NAME_LEFT = 'productousel-item-left';
+  var CLASS_NAME_NEXT = 'productousel-item-next';
+  var CLASS_NAME_PREV = 'productousel-item-prev';
   var CLASS_NAME_POINTER_EVENT = 'pointer-event';
   var SELECTOR_ACTIVE$1 = '.active';
-  var SELECTOR_ACTIVE_ITEM = '.active.carousel-item';
-  var SELECTOR_ITEM = '.carousel-item';
-  var SELECTOR_ITEM_IMG = '.carousel-item img';
-  var SELECTOR_NEXT_PREV = '.carousel-item-next, .carousel-item-prev';
-  var SELECTOR_INDICATORS = '.carousel-indicators';
+  var SELECTOR_ACTIVE_ITEM = '.active.productousel-item';
+  var SELECTOR_ITEM = '.productousel-item';
+  var SELECTOR_ITEM_IMG = '.productousel-item img';
+  var SELECTOR_NEXT_PREV = '.productousel-item-next, .productousel-item-prev';
+  var SELECTOR_INDICATORS = '.productousel-indicators';
   var SELECTOR_DATA_SLIDE = '[data-slide], [data-slide-to]';
-  var SELECTOR_DATA_RIDE = '[data-ride="carousel"]';
+  var SELECTOR_DATA_RIDE = '[data-ride="productousel"]';
   var PointerType = {
     TOUCH: 'touch',
     PEN: 'pen'
@@ -660,8 +660,8 @@
    * ------------------------------------------------------------------------
    */
 
-  var Carousel = /*#__PURE__*/function () {
-    function Carousel(element, config) {
+  var Productousel = /*#__PURE__*/function () {
+    function Productousel(element, config) {
       this._items = null;
       this._interval = null;
       this._activeElement = null;
@@ -680,7 +680,7 @@
     } // Getters
 
 
-    var _proto = Carousel.prototype;
+    var _proto = Productousel.prototype;
 
     // Public
     _proto.next = function next() {
@@ -691,7 +691,7 @@
 
     _proto.nextWhenVisible = function nextWhenVisible() {
       var $element = $__default['default'](this._element); // Don't call next when the page isn't visible
-      // or the carousel or its parent isn't visible
+      // or the productousel or its parent isn't visible
 
       if (!document.hidden && $element.is(':visible') && $element.css('visibility') !== 'hidden') {
         this.next();
@@ -857,9 +857,9 @@
 
         if (_this3._config.pause === 'hover') {
           // If it's a touch-enabled device, mouseenter/leave are fired as
-          // part of the mouse compatibility events on first tap - the carousel
+          // part of the mouse compatibility events on first tap - the productousel
           // would stop cycling until user tapped out of it;
-          // here, we listen for touchend, explicitly pause the carousel
+          // here, we listen for touchend, explicitly pause the productousel
           // (as if it's the second time we tap on it, mouseenter compat event
           // is NOT fired) and after a timeout (to allow for mouse compatibility
           // events to fire) we explicitly restart cycling
@@ -1063,7 +1063,7 @@
     } // Static
     ;
 
-    Carousel._jQueryInterface = function _jQueryInterface(config) {
+    Productousel._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
         var data = $__default['default'](this).data(DATA_KEY$2);
 
@@ -1076,7 +1076,7 @@
         var action = typeof config === 'string' ? config : _config.slide;
 
         if (!data) {
-          data = new Carousel(this, _config);
+          data = new Productousel(this, _config);
           $__default['default'](this).data(DATA_KEY$2, data);
         }
 
@@ -1095,7 +1095,7 @@
       });
     };
 
-    Carousel._dataApiClickHandler = function _dataApiClickHandler(event) {
+    Productousel._dataApiClickHandler = function _dataApiClickHandler(event) {
       var selector = Util.getSelectorFromElement(this);
 
       if (!selector) {
@@ -1116,7 +1116,7 @@
         config.interval = false;
       }
 
-      Carousel._jQueryInterface.call($__default['default'](target), config);
+      Productousel._jQueryInterface.call($__default['default'](target), config);
 
       if (slideIndex) {
         $__default['default'](target).data(DATA_KEY$2).to(slideIndex);
@@ -1125,7 +1125,7 @@
       event.preventDefault();
     };
 
-    _createClass(Carousel, null, [{
+    _createClass(Productousel, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$2;
@@ -1137,7 +1137,7 @@
       }
     }]);
 
-    return Carousel;
+    return Productousel;
   }();
   /**
    * ------------------------------------------------------------------------
@@ -1146,14 +1146,14 @@
    */
 
 
-  $__default['default'](document).on(EVENT_CLICK_DATA_API$2, SELECTOR_DATA_SLIDE, Carousel._dataApiClickHandler);
+  $__default['default'](document).on(EVENT_CLICK_DATA_API$2, SELECTOR_DATA_SLIDE, Productousel._dataApiClickHandler);
   $__default['default'](window).on(EVENT_LOAD_DATA_API$1, function () {
-    var carousels = [].slice.call(document.querySelectorAll(SELECTOR_DATA_RIDE));
+    var productousels = [].slice.call(document.querySelectorAll(SELECTOR_DATA_RIDE));
 
-    for (var i = 0, len = carousels.length; i < len; i++) {
-      var $carousel = $__default['default'](carousels[i]);
+    for (var i = 0, len = productousels.length; i < len; i++) {
+      var $productousel = $__default['default'](productousels[i]);
 
-      Carousel._jQueryInterface.call($carousel, $carousel.data());
+      Productousel._jQueryInterface.call($productousel, $productousel.data());
     }
   });
   /**
@@ -1162,12 +1162,12 @@
    * ------------------------------------------------------------------------
    */
 
-  $__default['default'].fn[NAME$2] = Carousel._jQueryInterface;
-  $__default['default'].fn[NAME$2].Constructor = Carousel;
+  $__default['default'].fn[NAME$2] = Productousel._jQueryInterface;
+  $__default['default'].fn[NAME$2].Constructor = Productousel;
 
   $__default['default'].fn[NAME$2].noConflict = function () {
     $__default['default'].fn[NAME$2] = JQUERY_NO_CONFLICT$2;
-    return Carousel._jQueryInterface;
+    return Productousel._jQueryInterface;
   };
 
   /**
@@ -1646,7 +1646,7 @@
    * @returns {Element} scroll parent
    */
   function getScrollParent(element) {
-    // Return body, `getScroll` will take care to get the correct `scrollTop` from it
+    // Return body, `getScroll` will take producte to get the correct `scrollTop` from it
     if (!element) {
       return document.body;
     }
@@ -3680,7 +3680,7 @@
      * Modifier used to make sure the reference and its popper stay near each other
      * without leaving any gap between the two. Especially useful when the arrow is
      * enabled and you want to ensure that it points to its reference element.
-     * It cares only about the first axis. You can still have poppers with margin
+     * It productes only about the first axis. You can still have poppers with margin
      * between the popper and its reference element.
      * @memberof modifiers
      * @inner
@@ -4048,7 +4048,7 @@
 
       var eventsEnabled = this.options.eventsEnabled;
       if (eventsEnabled) {
-        // setup event listeners, they will take care of update the position in specific situations
+        // setup event listeners, they will take producte of update the position in specific situations
         this.enableEventListeners();
       }
 
@@ -7014,7 +7014,7 @@
 
   exports.Alert = Alert;
   exports.Button = Button;
-  exports.Carousel = Carousel;
+  exports.Productousel = Productousel;
   exports.Collapse = Collapse;
   exports.Dropdown = Dropdown;
   exports.Modal = Modal;

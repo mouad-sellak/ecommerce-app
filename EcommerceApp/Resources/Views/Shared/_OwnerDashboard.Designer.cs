@@ -61,15 +61,6 @@ namespace EcommerceApp.Resources.Views.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cars.
-        /// </summary>
-        public static string car {
-            get {
-                return ResourceManager.GetString("car", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Dashboard.
         /// </summary>
         public static string dashboard {
@@ -115,11 +106,20 @@ namespace EcommerceApp.Resources.Views.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This car is booked by.
+        ///   Looks up a localized string similar to This product is booked by.
         /// </summary>
         public static string notification {
             get {
                 return ResourceManager.GetString("notification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Products.
+        /// </summary>
+        public static string product {
+            get {
+                return ResourceManager.GetString("product", resourceCulture);
             }
         }
         

@@ -106,7 +106,7 @@ namespace EcommerceApp.Resources.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This car is not available at the time tha you chosed..
+        ///   Looks up a localized string similar to This product is not available at the time tha you chosed..
         /// </summary>
         public static string not_disponible_msg {
             get {

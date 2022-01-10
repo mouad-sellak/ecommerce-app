@@ -16,15 +16,15 @@
     <div class="row d-flex m-5">
 
         <div class="col-md-6 col-12">
-            <div class="card card_info h-100">
-                <div class="card-header d-flex justify-content-between">
+            <div class="productd productd_info h-100">
+                <div class="productd-header d-flex justify-content-between">
                     <div>
                         @EcommerceApp.Resources.Views.Shared.Dashboard.nb_client (@ViewBag.year)
                     </div>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text">
+                <div class="productd-body">
+                    <h5 class="productd-title"></h5>
+                    <p class="productd-text">
 
                         <div id="chart_container_tenant">
                             <canvas id="bar_chart_tenant">
@@ -36,15 +36,15 @@
             </div>
         </div>
         <div class="col-md-6 col-12">
-            <div class="card card_info h-100">
-                <div class="card-header d-flex justify-content-between">
+            <div class="productd productd_info h-100">
+                <div class="productd-header d-flex justify-content-between">
                     <div>
                         @EcommerceApp.Resources.Views.Shared.Dashboard.nb_res (@ViewBag.year)
                     </div>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text">
+                <div class="productd-body">
+                    <h5 class="productd-title"></h5>
+                    <p class="productd-text">
 
                         <div id="chart_container_res">
                             <canvas id="bar_chart_res">
@@ -60,18 +60,18 @@
     <div class="row d-flex m-5">
 
         <div class="col-md-6 col-12">
-            <div class="card card_info h-100">
-                <div class="card-header d-flex justify-content-between">
+            <div class="productd productd_info h-100">
+                <div class="productd-header d-flex justify-content-between">
                     <div>
                         @EcommerceApp.Resources.Views.Shared.Dashboard.nb_voi (@ViewBag.year)
                     </div>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text">
+                <div class="productd-body">
+                    <h5 class="productd-title"></h5>
+                    <p class="productd-text">
 
-                        <div id="chart_container_cars">
-                            <canvas id="bar_chart_cars">
+                        <div id="chart_container_products">
+                            <canvas id="bar_chart_products">
                             </canvas>
                         </div>
                     </p>
@@ -89,7 +89,7 @@
     <script>
             var tenants = @Html.Raw(Json.Encode(ViewBag.tenants));
             var owners = @Html.Raw(Json.Encode(ViewBag.owners));
-            var cars = @Html.Raw(Json.Encode(ViewBag.cars));
+            var products = @Html.Raw(Json.Encode(ViewBag.products));
             var res = @Html.Raw(Json.Encode(ViewBag.res));
             var months = @Html.Raw(Json.Encode(ViewBag.months));
 
@@ -135,14 +135,14 @@
 
 
             @* --START --chart for product *@
-            var ctx1 = $("#bar_chart_cars");
+            var ctx1 = $("#bar_chart_products");
             var myChart = new Chart(ctx1, {
                 type: 'bar',
                 data: {
                     labels: months,
                     datasets: [{
-                        label: "@EcommerceApp.Resources.Views.Shared.Dashboard.car",
-                        data: cars,
+                        label: "@EcommerceApp.Resources.Views.Shared.Dashboard.product",
+                        data: products,
                         backgroundColor: 'rgb(40, 62, 118)'
                     },]
                 },

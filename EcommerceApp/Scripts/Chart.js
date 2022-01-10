@@ -7205,7 +7205,7 @@ core_defaults._set('global', {
 
 // The layout service is very self explanatory.  It's responsible for the layout within a chart.
 // Scales, Legends and Plugins all rely on the layout service and can easily register to be placed anywhere they need
-// It is this service's responsibility of carrying out that layout.
+// It is this service's responsibility of productrying out that layout.
 var core_layouts = {
 	defaults: {},
 
@@ -7789,7 +7789,7 @@ var platform_dom$2 = {
 			canvas.style[key] = value;
 		});
 
-		// The canvas render size might have been changed (and thus the state stack discarded),
+		// The canvas render size might have been changed (and thus the state stack disproductded),
 		// we can't use save() and restore() to restore the initial state. So make sure that at
 		// least the canvas context is reset to the default state by setting the canvas width.
 		// https://www.w3.org/TR/2011/WD-html5-20110525/the-canvas-element.html
@@ -8140,8 +8140,8 @@ core_defaults._set('global', {
 		footerAlign: 'left',
 		yPadding: 6,
 		xPadding: 6,
-		caretPadding: 2,
-		caretSize: 5,
+		productetPadding: 2,
+		productetSize: 5,
 		cornerRadius: 6,
 		multiKeyBackground: '#fff',
 		displayColors: true,
@@ -8384,7 +8384,7 @@ function getBaseModel(tooltipOpts) {
 		footerMarginTop: tooltipOpts.footerMarginTop,
 
 		// Appearance
-		caretSize: tooltipOpts.caretSize,
+		productetSize: tooltipOpts.productetSize,
 		cornerRadius: tooltipOpts.cornerRadius,
 		backgroundColor: tooltipOpts.backgroundColor,
 		opacity: 0,
@@ -8502,10 +8502,10 @@ function determineAlignment(tooltip, size) {
 	}
 
 	olf = function(x) {
-		return x + size.width + model.caretSize + model.caretPadding > chart.width;
+		return x + size.width + model.productetSize + model.productetPadding > chart.width;
 	};
 	orf = function(x) {
-		return x - size.width - model.caretSize - model.caretPadding < 0;
+		return x - size.width - model.productetSize - model.productetPadding < 0;
 	};
 	yf = function(y) {
 		return y <= midY ? 'top' : 'bottom';
@@ -8544,13 +8544,13 @@ function getBackgroundPoint(vm, size, alignment, chart) {
 	var x = vm.x;
 	var y = vm.y;
 
-	var caretSize = vm.caretSize;
-	var caretPadding = vm.caretPadding;
+	var productetSize = vm.productetSize;
+	var productetPadding = vm.productetPadding;
 	var cornerRadius = vm.cornerRadius;
 	var xAlign = alignment.xAlign;
 	var yAlign = alignment.yAlign;
-	var paddingAndSize = caretSize + caretPadding;
-	var radiusAndPadding = cornerRadius + caretPadding;
+	var paddingAndSize = productetSize + productetPadding;
+	var radiusAndPadding = cornerRadius + productetPadding;
 
 	if (xAlign === 'right') {
 		x -= size.width;
@@ -8707,8 +8707,8 @@ var exports$4 = core_element.extend({
 			height: existingModel.height
 		};
 		var tooltipPosition = {
-			x: existingModel.caretX,
-			y: existingModel.caretY
+			x: existingModel.productetX,
+			y: existingModel.productetY
 		};
 
 		var i, len;
@@ -8756,7 +8756,7 @@ var exports$4 = core_element.extend({
 			// Initial positioning and colors
 			model.x = tooltipPosition.x;
 			model.y = tooltipPosition.y;
-			model.caretPadding = opts.caretPadding;
+			model.productetPadding = opts.productetPadding;
 			model.labelColors = labelColors;
 			model.labelTextColors = labelTextColors;
 
@@ -8779,9 +8779,9 @@ var exports$4 = core_element.extend({
 		model.width = tooltipSize.width;
 		model.height = tooltipSize.height;
 
-		// Point where the caret on the tooltip points to
-		model.caretX = tooltipPosition.x;
-		model.caretY = tooltipPosition.y;
+		// Point where the productet on the tooltip points to
+		model.productetX = tooltipPosition.x;
+		model.productetY = tooltipPosition.y;
 
 		me._model = model;
 
@@ -8792,18 +8792,18 @@ var exports$4 = core_element.extend({
 		return me;
 	},
 
-	drawCaret: function(tooltipPoint, size) {
+	drawProductet: function(tooltipPoint, size) {
 		var ctx = this._chart.ctx;
 		var vm = this._view;
-		var caretPosition = this.getCaretPosition(tooltipPoint, size, vm);
+		var productetPosition = this.getProductetPosition(tooltipPoint, size, vm);
 
-		ctx.lineTo(caretPosition.x1, caretPosition.y1);
-		ctx.lineTo(caretPosition.x2, caretPosition.y2);
-		ctx.lineTo(caretPosition.x3, caretPosition.y3);
+		ctx.lineTo(productetPosition.x1, productetPosition.y1);
+		ctx.lineTo(productetPosition.x2, productetPosition.y2);
+		ctx.lineTo(productetPosition.x3, productetPosition.y3);
 	},
-	getCaretPosition: function(tooltipPoint, size, vm) {
+	getProductetPosition: function(tooltipPoint, size, vm) {
 		var x1, x2, x3, y1, y2, y3;
-		var caretSize = vm.caretSize;
+		var productetSize = vm.productetSize;
 		var cornerRadius = vm.cornerRadius;
 		var xAlign = vm.xAlign;
 		var yAlign = vm.yAlign;
@@ -8817,40 +8817,40 @@ var exports$4 = core_element.extend({
 
 			if (xAlign === 'left') {
 				x1 = ptX;
-				x2 = x1 - caretSize;
+				x2 = x1 - productetSize;
 				x3 = x1;
 
-				y1 = y2 + caretSize;
-				y3 = y2 - caretSize;
+				y1 = y2 + productetSize;
+				y3 = y2 - productetSize;
 			} else {
 				x1 = ptX + width;
-				x2 = x1 + caretSize;
+				x2 = x1 + productetSize;
 				x3 = x1;
 
-				y1 = y2 - caretSize;
-				y3 = y2 + caretSize;
+				y1 = y2 - productetSize;
+				y3 = y2 + productetSize;
 			}
 		} else {
 			if (xAlign === 'left') {
-				x2 = ptX + cornerRadius + (caretSize);
-				x1 = x2 - caretSize;
-				x3 = x2 + caretSize;
+				x2 = ptX + cornerRadius + (productetSize);
+				x1 = x2 - productetSize;
+				x3 = x2 + productetSize;
 			} else if (xAlign === 'right') {
-				x2 = ptX + width - cornerRadius - caretSize;
-				x1 = x2 - caretSize;
-				x3 = x2 + caretSize;
+				x2 = ptX + width - cornerRadius - productetSize;
+				x1 = x2 - productetSize;
+				x3 = x2 + productetSize;
 			} else {
-				x2 = vm.caretX;
-				x1 = x2 - caretSize;
-				x3 = x2 + caretSize;
+				x2 = vm.productetX;
+				x1 = x2 - productetSize;
+				x3 = x2 + productetSize;
 			}
 			if (yAlign === 'top') {
 				y1 = ptY;
-				y2 = y1 - caretSize;
+				y2 = y1 - productetSize;
 				y3 = y1;
 			} else {
 				y1 = ptY + height;
-				y2 = y1 + caretSize;
+				y2 = y1 + productetSize;
 				y3 = y1;
 				// invert drawing order
 				var tmp = x3;
@@ -9009,22 +9009,22 @@ var exports$4 = core_element.extend({
 		ctx.beginPath();
 		ctx.moveTo(x + radius, y);
 		if (yAlign === 'top') {
-			this.drawCaret(pt, tooltipSize);
+			this.drawProductet(pt, tooltipSize);
 		}
 		ctx.lineTo(x + width - radius, y);
 		ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
 		if (yAlign === 'center' && xAlign === 'right') {
-			this.drawCaret(pt, tooltipSize);
+			this.drawProductet(pt, tooltipSize);
 		}
 		ctx.lineTo(x + width, y + height - radius);
 		ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
 		if (yAlign === 'bottom') {
-			this.drawCaret(pt, tooltipSize);
+			this.drawProductet(pt, tooltipSize);
 		}
 		ctx.lineTo(x + radius, y + height);
 		ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
 		if (yAlign === 'center' && xAlign === 'left') {
-			this.drawCaret(pt, tooltipSize);
+			this.drawProductet(pt, tooltipSize);
 		}
 		ctx.lineTo(x, y + radius);
 		ctx.quadraticCurveTo(x, y, x + radius, y);
@@ -9530,7 +9530,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 				me.scale = scale;
 			}
 		});
-		// clear up discarded scales
+		// clear up disproductded scales
 		helpers$1.each(updated, function(hasUpdated, id) {
 			if (!hasUpdated) {
 				delete scales[id];
@@ -11855,7 +11855,7 @@ var Scale = core_element.extend({
 		if (isNullOrUndef(rawValue)) {
 			return NaN;
 		}
-		// isNaN(object) returns true, so make sure NaN is checking for a number; Discard Infinite values
+		// isNaN(object) returns true, so make sure NaN is checking for a number; Disproductd Infinite values
 		if ((typeof rawValue === 'number' || rawValue instanceof Number) && !isFinite(rawValue)) {
 			return NaN;
 		}

@@ -9,9 +9,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>
-                @EcommerceApp.Resources.Views.Account.Register.type
-            </th>
+
             <th>
                 @EcommerceApp.Resources.Views.Account.Register.name
             </th>
@@ -27,7 +25,6 @@
             <th>
                 @EcommerceApp.Resources.Views.Account.Register.adress
             </th>
-
             <th>Actions</th>
         </tr>
     </thead>
@@ -35,9 +32,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ApplicationUser.UserType)
-                </td>
+    
                 <td>
                     @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
                 </td>
@@ -53,6 +48,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.ApplicationUser.UserAdress)
                 </td>
+              
                 <td>
                     <a href="@Url.Action("Details", "ApplicationUsers", new { id = item.UserId })" class="text-success">
                         <i class="material-icons icon">

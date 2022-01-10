@@ -61,8 +61,8 @@ namespace EcommerceApp.Controllers
         public ActionResult Create(int? id)
         {
             if (id != null) {
-                var car = db.Products.Where(x => x.id_product == id).FirstOrDefault();
-                ViewBag.product = car;
+                var product = db.Products.Where(x => x.id_product == id).FirstOrDefault();
+                ViewBag.product = product;
             }
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserType");
             ViewBag.id_paiement = new SelectList(db.Paiements, "id_paiement", "libele");

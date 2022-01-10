@@ -120,7 +120,7 @@
   <data name="black_list" xml:space="preserve">
     <value>Liste noire</value>
   </data>
-  <data name="car" xml:space="preserve">
+  <data name="product" xml:space="preserve">
     <value>Product</value>
   </data>
   <data name="favorite_list" xml:space="preserve">

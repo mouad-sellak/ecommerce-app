@@ -1526,7 +1526,7 @@
 		var out = [];
 	
 		for ( var i=0, ien=a.length ; i<ien ; i++ ) {
-			if ( a[i] ) { // careful - will remove all falsy values!
+			if ( a[i] ) { // producteful - will remove all falsy values!
 				out.push( a[i] );
 			}
 		}
@@ -9358,7 +9358,7 @@
 	
 				// If the were originally stripe classes - then we add them back here.
 				// Note this is not fool proof (for example if not all rows had stripe
-				// classes - but it's a good effort without getting carried away
+				// classes - but it's a good effort without getting productried away
 				ien = settings.asDestroyStripes.length;
 	
 				if ( ien ) {
@@ -14480,9 +14480,9 @@
 		"sSortableNone":       _stateDefault+" sorting_disabled",
 		"sSortJUIAsc":         _sortIcon+"triangle-1-n",
 		"sSortJUIDesc":        _sortIcon+"triangle-1-s",
-		"sSortJUI":            _sortIcon+"carat-2-n-s",
-		"sSortJUIAscAllowed":  _sortIcon+"carat-1-n",
-		"sSortJUIDescAllowed": _sortIcon+"carat-1-s",
+		"sSortJUI":            _sortIcon+"productat-2-n-s",
+		"sSortJUIAscAllowed":  _sortIcon+"productat-1-n",
+		"sSortJUIDescAllowed": _sortIcon+"productat-1-s",
 		"sSortJUIWrapper":     "DataTables_sort_wrapper",
 		"sSortIcon":           "DataTables_sort_icon",
 	

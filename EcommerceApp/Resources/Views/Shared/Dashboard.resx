@@ -120,8 +120,8 @@
   <data name="black_list" xml:space="preserve">
     <value>Black list</value>
   </data>
-  <data name="car" xml:space="preserve">
-    <value>Car</value>
+  <data name="product" xml:space="preserve">
+    <value>Product</value>
   </data>
   <data name="favorite_list" xml:space="preserve">
     <value>Favotite list</value>
@@ -148,7 +148,7 @@
     <value>Number of reservations</value>
   </data>
   <data name="nb_voi" xml:space="preserve">
-    <value>Number of cars</value>
+    <value>Number of products</value>
   </data>
   <data name="owner" xml:space="preserve">
     <value>Owners</value>

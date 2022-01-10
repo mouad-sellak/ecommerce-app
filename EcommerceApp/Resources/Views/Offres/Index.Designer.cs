@@ -142,20 +142,20 @@ namespace EcommerceApp.Resources.Views.Offres {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Available products.
+        /// </summary>
+        public static string productDispo {
+            get {
+                return ResourceManager.GetString("productDispo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Discount rate.
         /// </summary>
         public static string tauxDeRemise {
             get {
                 return ResourceManager.GetString("tauxDeRemise", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Reserved cars.
-        /// </summary>
-        public static string productDispo {
-            get {
-                return ResourceManager.GetString("productDispo", resourceCulture);
             }
         }
     }

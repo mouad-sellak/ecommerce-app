@@ -25,7 +25,7 @@ namespace EcommerceApp.Controllers
         }
 
         [Authorize(Roles = "Owner")]
-        public ActionResult OwnerCars()
+        public ActionResult OwnerProducts()
         {
             var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
             var products = db.Products.Where(x => x.UserId == user.Id).Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre);
@@ -108,7 +108,7 @@ namespace EcommerceApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Product product, HttpPostedFileBase carImage)
+        public ActionResult Create(Product product, HttpPostedFileBase productImage)
         {
             if (ModelState.IsValid)
             {
@@ -116,12 +116,12 @@ namespace EcommerceApp.Controllers
                 ApplicationUser user = db.Users.Where(x => x.UserName.Equals(name)).FirstOrDefault();
                 product.UserId = user.Id;
                 product.date_ajout = DateTime.Now;
-                string path = Path.Combine(Server.MapPath("~/Uploads/cars"), carImage.FileName);
-                carImage.SaveAs(path);
-                product.photo = carImage.FileName;
+                string path = Path.Combine(Server.MapPath("~/Uploads/products"), productImage.FileName);
+                productImage.SaveAs(path);
+                product.photo = productImage.FileName;
                 db.Products.Add(product);
                 db.SaveChanges();
-                return RedirectToAction("OwnerCars");
+                return RedirectToAction("OwnerProducts");
             }
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", product.UserId);
             ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele", product.id_marque);
@@ -156,20 +156,20 @@ namespace EcommerceApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Product product, HttpPostedFileBase carImage)
+        public ActionResult Edit(Product product, HttpPostedFileBase productImage)
         {
             if (ModelState.IsValid)
             {
-                if (carImage != null)
+                if (productImage != null)
                 {
-                    string path = Path.Combine(Server.MapPath("~/Uploads/cars"), carImage.FileName);
-                    carImage.SaveAs(path);
-                    product.photo = carImage.FileName;
+                    string path = Path.Combine(Server.MapPath("~/Uploads/products"), productImage.FileName);
+                    productImage.SaveAs(path);
+                    product.photo = productImage.FileName;
                 }
 
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("OwnerCars");
+                return RedirectToAction("OwnerProducts");
             }
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", product.UserId);
             ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele", product.id_marque);
@@ -201,7 +201,7 @@ namespace EcommerceApp.Controllers
             Product product = db.Products.Find(id);
             db.Products.Remove(product);
             db.SaveChanges();
-            return RedirectToAction("OwnerCars");
+            return RedirectToAction("OwnerProducts");
         }
 
         protected override void Dispose(bool disposing)

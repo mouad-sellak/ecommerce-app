@@ -10,7 +10,7 @@ using EcommerceApp.Models;
 
 namespace EcommerceApp.Controllers
 {
-    /*[Authorize(Roles = "Owner,Admin")]*/
+    [Authorize(Roles = "Admin")]
     public class MarquesController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -35,8 +35,8 @@ namespace EcommerceApp.Controllers
             }
             return View(marque);
         }
-/*
-        [Authorize(Roles = "Owner")]*/
+
+        [Authorize(Roles = "Admin")]
         // GET: Marques/Create
         public ActionResult Create()
         {
@@ -49,7 +49,7 @@ namespace EcommerceApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(Marque marque)
         {
             if (ModelState.IsValid)
@@ -63,7 +63,7 @@ namespace EcommerceApp.Controllers
             return View(marque);
         }
 
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Admin")]
         // GET: Marques/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -84,7 +84,7 @@ namespace EcommerceApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "id_marque,libele,date_ajout")] Marque marque)
         {
             if (ModelState.IsValid)
@@ -96,7 +96,7 @@ namespace EcommerceApp.Controllers
             return View(marque);
         }
 
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Admin")]
         // GET: Marques/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -115,7 +115,7 @@ namespace EcommerceApp.Controllers
         // POST: Marques/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Marque marque = db.Marques.Find(id);

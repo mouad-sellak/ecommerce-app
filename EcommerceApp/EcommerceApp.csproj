@@ -857,6 +857,7 @@
     <Content Include="Views\BlackLists\Details.cshtml" />
     <Content Include="Views\BlackLists\Edit.cshtml" />
     <Content Include="Views\BlackLists\Index.cshtml" />
+    <Content Include="Views\ApplicationUsers\historique.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\bin\fr\" />

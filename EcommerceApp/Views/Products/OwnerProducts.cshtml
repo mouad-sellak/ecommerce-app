@@ -11,7 +11,7 @@
     </p>
     <hr />
 
-    <table class="table table-striped" id="cars">
+    <table class="table table-striped" id="products">
         <thead>
             <tr>
                 <th>
@@ -58,7 +58,7 @@
                         </p>
                     </td>
                     <td>
-                        <img src="~/Uploads/cars/@Html.DisplayFor(model => item.photo)" class="img-thumbnail" style="width:48px; height:48px;" />
+                        <img src="~/Uploads/products/@Html.DisplayFor(model => item.photo)" class="img-thumbnail" style="width:48px; height:48px;" />
                     </td>
                     <td>
                         @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")

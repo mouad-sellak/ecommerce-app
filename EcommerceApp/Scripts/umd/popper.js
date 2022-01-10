@@ -131,7 +131,7 @@ function getParentNode(element) {
  * @returns {Element} scroll parent
  */
 function getScrollParent(element) {
-  // Return body, `getScroll` will take care to get the correct `scrollTop` from it
+  // Return body, `getScroll` will take producte to get the correct `scrollTop` from it
   if (!element) {
     return document.body;
   }
@@ -2165,7 +2165,7 @@ var modifiers = {
    * Modifier used to make sure the reference and its popper stay near each other
    * without leaving any gap between the two. Especially useful when the arrow is
    * enabled and you want to ensure that it points to its reference element.
-   * It cares only about the first axis. You can still have poppers with margin
+   * It productes only about the first axis. You can still have poppers with margin
    * between the popper and its reference element.
    * @memberof modifiers
    * @inner
@@ -2533,7 +2533,7 @@ var Popper = function () {
 
     var eventsEnabled = this.options.eventsEnabled;
     if (eventsEnabled) {
-      // setup event listeners, they will take care of update the position in specific situations
+      // setup event listeners, they will take producte of update the position in specific situations
       this.enableEventListeners();
     }
 

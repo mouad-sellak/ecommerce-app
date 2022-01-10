@@ -60,7 +60,7 @@ $.extend( true, DataTable.Buttons.defaults, {
 } );
 
 DataTable.ext.buttons.collection.text = function ( dt ) {
-	return dt.i18n('buttons.collection', 'Collection <span class="caret"/>');
+	return dt.i18n('buttons.collection', 'Collection <span class="productet"/>');
 };
 
 

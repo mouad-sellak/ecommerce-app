@@ -9,7 +9,7 @@ import getParentNode from './getParentNode';
  * @returns {Element} scroll parent
  */
 export default function getScrollParent(element) {
-  // Return body, `getScroll` will take care to get the correct `scrollTop` from it
+  // Return body, `getScroll` will take producte to get the correct `scrollTop` from it
   if (!element) {
     return document.body
   }
