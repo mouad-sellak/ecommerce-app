@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Threading;
 using System.Web;
 using EcommerceApp.Models;
+using System.Net;
 
 namespace EcommerceApp.Controllers
 {
@@ -16,13 +17,22 @@ namespace EcommerceApp.Controllers
 
         public ActionResult Index(string lang,string category)
         {
+            List<Product> products;
             if (lang != null)
                 Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(lang);
+            if (category != null)
+            {
+
+                products = db.Products.Where(p => p.Category.libele.Equals(category)).ToList();
+            }
+            else
+            {
+                products = db.Products.ToList();
+            }
 
             string name = User.Identity.Name;
             ViewBag.name = name;
 
-            List<Product> products = db.Products.Where(p => p.Category.libele.Equals(category)).ToList();
             return View(products);
         }
 
@@ -46,6 +56,20 @@ namespace EcommerceApp.Controllers
             return Redirect(Request.UrlReferrer.ToString());
             /* obtient les informations sur l'URL de la précédente requête du client
             qui était liée a la requête actuelle */
+        }
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Product product = db.Products.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
         }
 
         public static List<Category> getCategories()

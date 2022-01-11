@@ -11,10 +11,9 @@
         <h1 class="">
             @EcommerceApp.Resources.Views.Home.index.title
         </h1>
-        <h3>@EcommerceApp.Resources.Views.Home.index.best_offre</h3>
         @if (ViewBag.name == "")
         {
-            <a href="~/Account/Login" class="btn bg-white font-weight-bold w-20 login-btn pointer">@EcommerceApp.Resources.Views.Home.index.login</a>
+            <a href="~/Account/Login" class="btn bg-white font-weight-bold w-15 login-btn pointer">@EcommerceApp.Resources.Views.Home.index.login</a>
 
         }
     </div>
@@ -27,60 +26,59 @@
     <hr />
     <div class="row justify-content-center">
         <div class="col-10">
-            <ul id="listPage" class="text-center">
+            <div id="listPage" class="row">
                 @foreach (var item in Model)
                 {
-                    if (item.Offre != null)
-                    {
-                        <li style="min-height:200px;">
-
-
-                            <div class="productd row flex-row flex-wrap m-3 h-100">
-                                <div class="productd-header border-0" style="        min-height: 200px; width: 250px;
+                    <div class="col-md-6" style="min-height:200px;">
+                        <div class="text-center">
+                        <div class="productd row flex-row  justify-content-center flex-wrap mb-4 mr-4 p-2 pb-3 h-100">
+                            <div class="productd-header border-0  mr-4 " style="min-height: 200px; width: 250px;
 ">
-                                    <img src="~/Uploads/products/@Html.DisplayFor(model => item.photo)" alt="" class="h-100" style=" width:250px;">
-                                </div>
-                                <div class="productd-block my-3" style="margin-left:150px;">
-                                    <h4 class="productd-title">
-                                        @Html.DisplayFor(modelItem => item.title) ( <span class="text-success font-weight-bold">- @item.Offre.taux_remise%</span>)
-
-                                    </h4>
-                                    <p class="productd-text">
-                                        <span class="font-weight-bold">@Html.LabelFor(modelItem => item.prix):</span>
-
-                                        <span class="font-weight-bold">
-                                            @if (item.Offre != null)
-                                            {
-                                                <span class="line-through"> @item.prix DHs</span>
-                                            }
-                                            <span class="text-success">@item.Prix_total() DHs</span>
-                                        </span>
-
-                                        <br />
-                                        <span class="font-weight-bold">@Html.LabelFor(modelItem => item.Category):</span>  @Html.DisplayFor(modelItem => item.Category.libele) <br />
-                                        <span class="font-weight-bold">@Html.LabelFor(modelItem => item.description):</span>  @Html.DisplayFor(modelItem => item.description) <br />
-                                        <span class="font-weight-bold">@Html.LabelFor(modelItem => item.couleur):</span>  @Html.DisplayFor(modelItem => item.couleur) <br />
-
-                                    </p>
-                                    if (ViewBag.name == "")
-                                    {
-                                        <a href="~/Account/Login" class="btn bg-white font-weight-bold w-20 login-btn pointer w-100">@EcommerceApp.Resources.Views.Home.index.not_connect </a>
-
-                                    }
-
-                                </div>
+                                <img src="~/Uploads/products/@Html.DisplayFor(model => item.photo)" alt="" class="h-100" style=" width:250px;">
                             </div>
+                            <div class="productd-block" >
+                                <h4 class="productd-title">
+                                    @Html.DisplayFor(modelItem => item.title)
+                                    @if (item.Offre != null)
+                                    {
+                                        <span class="text-success font-weight-bold">( - @item.Offre.taux_remise                 % )</span>
+                                    }
+                                </h4>
+                                <p class="productd-text">
+                                    <span class="font-weight-bold">@Html.LabelFor(modelItem => item.prix):</span>
 
+                                    <span class="font-weight-bold">
+                                        @if (item.Offre != null)
+                                        {
+                                            <span class="line-through"> @item.prix DHs</span>
+                                        }
+                                        <span class="text-success">@item.Prix_total() DHs</span>
+                                    </span>
 
-                        </li>
-                    }
+                                    <br />
+                                    <span class="font-weight-bold">@Html.LabelFor(modelItem => item.Category):</span>  @Html.DisplayFor(modelItem => item.Category.libele) <br />
+                                    <span class="font-weight-bold">@Html.LabelFor(modelItem => item.description):</span>  @Html.DisplayFor(modelItem => item.description) <br />
+                                    <span class="font-weight-bold">@Html.LabelFor(modelItem => item.location):</span>  @Html.DisplayFor(modelItem => item.location) <br />
+
+                                </p>
+                                <a href="@Url.Action("Details", "Home", new { id = item.id_product })" class="text-         success">
+
+                                    <span class="font-weight-bold">Details</span>
+
+                                </a>
+
+                            </div>
+                        </div>
+
+                        </div>
+                        </div>
                 }
-            </ul>
+            </div>
         </div>
     </div>
 
     <hr />
 </div>
 <div class="myFooter">
-    <h4>&copy; ENSA FES, MERYAM SOUSSI, MERIEM IKHARRAZEN</h4>
+    <h4>&copy; ENSA FES, BOUAMLAT,SELLAK,BOUTLIH</h4>
 </div>

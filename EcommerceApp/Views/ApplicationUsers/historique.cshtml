@@ -7,48 +7,84 @@
     <div class="title ml-5">
         <h1>@EcommerceApp.Resources.Views.Shared._OwnerDashboard.history</h1>
     </div>
+    <hr />
 
     <h4>@EcommerceApp.Resources.Views.Offres.Index.productDispo</h4>
-   
+    @if (Model.productsDisponibles.Any())
+    {
+
+                <div class="text-center row">
+
+                    @foreach (var item in Model.productsDisponibles)
+                    {
+                        if (item != null)
+                        {
+                            <div class="col-md-4">
+                                <div class="productd row flex-row flex-wrap  justify-content-center m-2">
+                                    <div class="productd-block my-3">
+                                        <p class="productd-text" style="width: 350px;">
+                                            @EcommerceApp.Resources.Views.Products.Create.product :
+                                            <span class="text-success font-weight-bold">
+                                                @Html.DisplayFor(modelItem => item.title)
+                                            </span><br />
+                                            <span>
+                                                @Html.DisplayNameFor(modelItem => item.Category.libele):
+                                                @Html.DisplayFor(modelItem => item.Category.libele)
+                                            </span>
+                                        </p>
+                                        <a href="@Url.Action("Details", "Products", new { id = item.id_product })" class="text-success">
+                                            @EcommerceApp.Resources.Views.Shared._OwnerDashboard.details
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+
+                </div>
+    }
+
+    else
+    {
+        <center><span class="font-weight-bold;"> @EcommerceApp.Resources.Views.Shared._OwnerDashboard.nothing</span></center>
+
+    }
+    <hr />
+
     <h4>@EcommerceApp.Resources.Views.Offres.Index.offreDispo</h4>
     @if (Model.offresDisponibles.Any())
     {
 
-        <div class="row justify-content-center">
-            <div class="col-5">
-                <ul class="text-center" style="list-style-type:none;">
+                <div class="text-center row">
 
                     @foreach (var item in Model.offresDisponibles)
                     {
                         if (item != null)
                         {
-                            <li>
-                                <div class="productd row flex-row flex-wrap m-3 h-100">
-                                    <div class="productd-block my-3">
-                                        <p class="productd-text" style="width: 350px;">
-                                            @EcommerceApp.Resources.Views.Offres.Index.tauxDeRemise :
-                                            <span class="text-success font-weight-bold">
-                                                @Html.DisplayFor(modelItem => item.taux_remise)%
-                                            </span><br />
-                                            <span>
-                                                @EcommerceApp.Resources.Views.Offres.Index.dateDexpiration:
-                                                @Convert.ToDateTime(item.date_expiration).ToString("dd/MM/yyyy")
-                                            </span>
-                                        </p>
-                                        <a href="@Url.Action("Details", "Offres", new { id = item.id_offre })" class="text-success">
-                                            @EcommerceApp.Resources.Views.Shared._OwnerDashboard.details
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
+                    <div class="col-md-4">
+                        <div class="productd row flex-row flex-wrap justify-content-center m-2">
+                            <div class="productd-block my-3">
+                                <p class="productd-text" style="width: 350px;">
+                                    @EcommerceApp.Resources.Views.Offres.Index.tauxDeRemise :
+                                    <span class="text-success font-weight-bold">
+                                        @Html.DisplayFor(modelItem => item.taux_remise)%
+                                    </span><br />
+                                    <span>
+                                        @EcommerceApp.Resources.Views.Offres.Index.dateDexpiration:
+                                        @Convert.ToDateTime(item.date_expiration).ToString("dd/MM/yyyy")
+                                    </span>
+                                </p>
+                                <a href="@Url.Action("Details", "Offres", new { id = item.id_offre })" class="text-success">
+                                    @EcommerceApp.Resources.Views.Shared._OwnerDashboard.details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                         }
                     }
+                    
+                </div>
 
-                </ul>
-
-            </div>
-
-        </div>
     }
 
     else
@@ -60,42 +96,35 @@
     <h4>@EcommerceApp.Resources.Views.Offres.Index.offreExpire</h4>
     @if (Model.offresExpires.Any())
     {
-
-        <div class="row justify-content-center">
-            <div class="col-5">
-                <ul class="text-center" style="list-style-type:none;">
+                <div class="text-center row">
 
                     @foreach (var item in Model.offresExpires)
                     {
                         if (item != null)
                         {
-                            <li>
-                                <div class="productd row flex-row flex-wrap m-3 h-100">
-                                    <div class="productd-block my-3">
-                                        <p class="productd-text" style="width: 350px;">
-                                            @EcommerceApp.Resources.Views.Offres.Index.tauxDeRemise :
-                                            <span class="text-success font-weight-bold">
-                                                @Html.DisplayFor(modelItem => item.taux_remise)%
-                                            </span><br />
-                                            <span>
-                                                @EcommerceApp.Resources.Views.Offres.Index.dateDexpiration:
-                                                @Convert.ToDateTime(item.date_expiration).ToString("dd/MM/yyyy")
-                                            </span>
-                                        </p>
-                                        <a href="@Url.Action("Details", "Offres", new { id = item.id_offre })" class="text-success">
-                                            @EcommerceApp.Resources.Views.Shared._OwnerDashboard.details
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
+                    <div class="col-md-4">
+                        <div class="productd row flex-row flex-wrap  justify-content-center m-2">
+                            <div class="productd-block my-3">
+                                <p class="productd-text" style="width: 350px;">
+                                    @EcommerceApp.Resources.Views.Offres.Index.tauxDeRemise :
+                                    <span class="text-success font-weight-bold">
+                                        @Html.DisplayFor(modelItem => item.taux_remise)%
+                                    </span><br />
+                                    <span>
+                                        @EcommerceApp.Resources.Views.Offres.Index.dateDexpiration:
+                                        @Convert.ToDateTime(item.date_expiration).ToString("dd/MM/yyyy")
+                                    </span>
+                                </p>
+                                <a href="@Url.Action("Details", "Offres", new { id = item.id_offre })" class="text-success">
+                                    @EcommerceApp.Resources.Views.Shared._OwnerDashboard.details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                         }
                     }
 
-                </ul>
-
-            </div>
-
-        </div>
+                </div>
     }
 
     else
