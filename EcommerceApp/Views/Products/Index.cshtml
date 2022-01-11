@@ -1,26 +1,12 @@
 ﻿@model IEnumerable<EcommerceApp.Models.Product>
 
-@* Products that will be shown for tenants*@
 
 @{
-    if (User.IsInRole("Tenant"))
-    {
-        Layout = "~/Views/Shared/_TenantDashboard.cshtml";
-
-    }
-    else
-    {
+   
         Layout = "~/Views/Shared/_AdminDashboard.cshtml";
-    }
 }
 
 
-@if (User.IsInRole("Tenant"))
-{
-    <hr />
-    <h4>@EcommerceApp.Resources.Views.Products.Create.product</h4>
-    <hr />
-}
 
 
 
@@ -32,7 +18,7 @@
                 Id
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.matricul)
+                @Html.DisplayNameFor(model => model.title)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Category.libele)
@@ -57,7 +43,7 @@
                     @Html.DisplayFor(modelItem => item.id_product)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.matricul)
+                    @Html.DisplayFor(modelItem => item.title)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Category.libele)
@@ -83,10 +69,16 @@
                             visibility
                         </i>
                     </a>
-                    @if (!User.IsInRole("Admin"))
-                    {
-                        <a href="~/Reservations/Create/@item.id_product" class="btn btn-success my-4 text-center">Reserve</a>
-                    }
+                    <a href="@Url.Action("Edit", "Products", new { id = item.id_product })" class="text-warning">
+                        <i class="material-icons icon ">
+                            edit
+                        </i>
+                    </a>
+                    <a data-delete-id="@item.id_product" class="text-danger delete-link-product pointer">
+                        <i class="material-icons icon ">
+                            delete
+                        </i>
+                    </a>
                 </td>
             </tr>
         }

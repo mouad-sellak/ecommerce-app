@@ -197,8 +197,7 @@ namespace EcommerceApp.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.UserType = new SelectList(new[] { EcommerceApp.Resources.Views.Account.Register.tenant, EcommerceApp.Resources.Views.Account.Register.owner });
-            ViewBag.TypeOwner = new SelectList(new[] { EcommerceApp.Resources.Views.Account.Register.agence, EcommerceApp.Resources.Views.Account.Register.particulier });
+            ViewBag.UserType = new SelectList(new[] { EcommerceApp.Resources.Views.Account.Register.agence, EcommerceApp.Resources.Views.Account.Register.particulier });
             return View();
         }
 
@@ -213,8 +212,7 @@ namespace EcommerceApp.Controllers
             {
                 String type = "Owner";
                 String typeOwner;
-                ViewBag.UserType = new SelectList(new[] { EcommerceApp.Resources.Views.Account.Register.tenant, EcommerceApp.Resources.Views.Account.Register.owner });
-                ViewBag.TypeOwner = new SelectList(new[] { EcommerceApp.Resources.Views.Account.Register.agence, EcommerceApp.Resources.Views.Account.Register.particulier });
+                ViewBag.UserType = new SelectList(new[] { EcommerceApp.Resources.Views.Account.Register.agence, EcommerceApp.Resources.Views.Account.Register.particulier });
      
                     if (model.TypeOwner == EcommerceApp.Resources.Views.Account.Register.agence)
                         typeOwner = "Agency";

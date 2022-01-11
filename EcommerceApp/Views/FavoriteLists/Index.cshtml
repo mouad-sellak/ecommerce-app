@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<EcommerceApp.Models.FavoriteList>
 
 @{
-    //ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminDashboard.cshtml";
 }
 
@@ -60,7 +59,6 @@
                             delete
                         </i>
                     </a>
-                    @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
                 </td>
             </tr>
         }

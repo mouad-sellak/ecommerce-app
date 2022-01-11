@@ -11,7 +11,7 @@ using EcommerceApp.Models;
 
 namespace EcommerceApp.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class ApplicationUsersController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -41,8 +41,8 @@ namespace EcommerceApp.Controllers
         {
             HistoryOwner history = new HistoryOwner();
             var user = db.Users.Find(id);
-            history.reservations = db.Reservations.Where(x => x.Product.ApplicationUser.Id == user.Id).Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Product).ToList<Reservation>();
             history.offresDisponibles = db.Offres.Where(x => x.UserId == user.Id && x.date_expiration >= DateTime.Now).Include(v => v.ApplicationUser).ToList<Offre>();
+            history.productsDisponibles = db.Products.Where(x => x.UserId == user.Id).Include(v => v.ApplicationUser).ToList<Product>();
             history.offresExpires = db.Offres.Where(x => x.UserId == user.Id && x.date_expiration < DateTime.Now).Include(v => v.ApplicationUser).ToList<Offre>();
 
             return View(history);

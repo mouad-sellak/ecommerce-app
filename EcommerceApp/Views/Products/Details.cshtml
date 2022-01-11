@@ -1,9 +1,5 @@
 ﻿@model EcommerceApp.Models.Product
-@if (User.IsInRole("Tenant"))
-{
-    Layout = "~/Views/Shared/_TenantDashboard.cshtml";
-}
-else if (User.IsInRole("Owner"))
+@if(User.IsInRole("Owner"))
 {
     Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
 }
@@ -21,11 +17,11 @@ else if (User.IsInRole("Admin"))
             <div class="col-md-8">
                 <dl class="dl-horizontal row">
                     <dt class="col-md-4">
-                        @EcommerceApp.Resources.Models.ReservationModel.matricule
+                        @EcommerceApp.Resources.Views.Products.Create.product
                     </dt>
 
                     <dd class="col-md-8">
-                        @Html.DisplayFor(model => model.matricul)
+                        @Html.DisplayFor(model => model.title)
                     </dd>
                     <dt class="col-md-4">
                         @EcommerceApp.Resources.most.owner
@@ -57,20 +53,6 @@ else if (User.IsInRole("Admin"))
                         </dd>
                     }
 
-                    <dt class="col-md-4">
-                        @Html.DisplayNameFor(model => model.nb_passagers)
-                    </dt>
-                    <dd class="col-md-8">
-                        @Html.DisplayFor(model => model.nb_passagers)
-                    </dd>
-
-                    <dt class="col-md-4">
-                        @Html.DisplayNameFor(model => model.couleur)
-                    </dt>
-
-                    <dd class="col-md-8">
-                        @Html.DisplayFor(model => model.couleur)
-                    </dd>
 
                     <dt class="col-md-4">
                         @Html.DisplayNameFor(model => model.prix)
@@ -82,19 +64,18 @@ else if (User.IsInRole("Admin"))
 
 
                     <dt class="col-md-4">
-                        @Html.DisplayNameFor(model => model.anne)
+                        @Html.DisplayNameFor(model => model.location)
                     </dt>
 
                     <dd class="col-md-8">
-                        @Html.DisplayFor(model => model.anne)
+                        @Html.DisplayFor(model => model.location)
                     </dd>
 
                     <dt class="col-md-4">
-                        @Html.DisplayNameFor(model => model.km)
+                        @Html.DisplayNameFor(model => model.description)
                     </dt>
-
                     <dd class="col-md-8">
-                        @Html.DisplayFor(model => model.km)
+                        @Html.DisplayFor(model => model.description)
                     </dd>
 
                     <dt class="col-md-4">
@@ -114,22 +95,12 @@ else if (User.IsInRole("Admin"))
         </div>
 
     </div>
-    @if (User.IsInRole("Owner"))
-    {
         <p>
 
             @Html.ActionLink(EcommerceApp.Resources.Views.Products.Edit.edit, "Edit", new { id = Model.id_product }) |
             @Html.ActionLink(EcommerceApp.Resources.most.back, "OwnerProducts")
         </p>
 
-    }
-    else
-    {
-        <p>
-            @Html.ActionLink(EcommerceApp.Resources.most.back, "Index")
-
-        </p>
-    }
 
 </div>
 
@@ -148,7 +119,7 @@ else if (User.IsInRole("Admin"))
             <div class="modal-body">
                 <dl class="dl-horizontal row">
                     <dt class="col-md-4">
-                        @EcommerceApp.Resources.Models.ReservationModel.owner
+                        @EcommerceApp.Resources.most.owner
                     </dt>
 
                     <dd class="col-md-8">
@@ -164,14 +135,14 @@ else if (User.IsInRole("Admin"))
                     </dd>
 
                     <dt class="col-md-4">
-                        @EcommerceApp.Resources.Models.Locataire.phone
+                        @EcommerceApp.Resources.Models.User.phone
                     </dt>
 
                     <dd class="col-md-8">
                         @Html.DisplayFor(model => model.ApplicationUser.PhoneNumber)
                     </dd>
                     <dt class="col-md-4">
-                        @EcommerceApp.Resources.Models.Locataire.address
+                        @EcommerceApp.Resources.Models.User.address
                     </dt>
 
                     <dd class="col-md-8">

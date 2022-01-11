@@ -153,9 +153,6 @@
   <data name="register" xml:space="preserve">
     <value>Register</value>
   </data>
-  <data name="tenant" xml:space="preserve">
-    <value>Tenant</value>
-  </data>
   <data name="type" xml:space="preserve">
     <value>Type</value>
   </data>

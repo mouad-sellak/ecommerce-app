@@ -24,55 +24,12 @@ namespace EcommerceApp.Controllers
             return View(products.ToList());
         }
 
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner,Admin")]
         public ActionResult OwnerProducts()
         {
             var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
             var products = db.Products.Where(x => x.UserId == user.Id).Include(v => v.ApplicationUser).Include(v => v.Category).Include(v => v.Offre);
             return View(products.ToList());
-        }
-
-        [Authorize]
-        public ActionResult Disponible(DateTime? date)
-        {
-            if (date != null)
-                ViewBag.date = date;
-
-            var products = db.Products.Include(v => v.ApplicationUser).Include(v => v.Category).Include(v => v.Offre).ToList();
-            List<Product> disponibles = new List<Product>();
-            List<Product> reserver = new List<Product>();
-            DateTime pick_up, date_return;
-            if (date != null)
-            {
-                foreach (Product product in products)
-                {
-                    var reservartions = db.Reservations.Where(x => x.id_product == product.id_product).ToList();
-                    foreach (Reservation res in reservartions)
-                    {
-
-                        pick_up = res.date_prise_en_charge;
-                        date_return = res.date_retour;
-
-                        if (date >= DateTime.Now && date <= date_return && date >= pick_up)
-                        {
-                            reserver.Add(product);
-                        }
-
-                    }
-                }
-
-                foreach (var res in reserver)
-                {
-                    products.Remove(res);
-                }
-                return View(products);
-            }
-            else
-            {
-                return View();
-
-            }
-
         }
 
         // GET: Products/Details/5
@@ -90,7 +47,7 @@ namespace EcommerceApp.Controllers
             return View(product);
         }
 
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner,Admin")]
         // GET: Products/Create
         public ActionResult Create()
         {
@@ -102,7 +59,7 @@ namespace EcommerceApp.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner,Admin")]
         // POST: Products/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -129,7 +86,7 @@ namespace EcommerceApp.Controllers
             return View(product);
         }
 
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner,Admin")]
         // GET: Products/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -150,7 +107,7 @@ namespace EcommerceApp.Controllers
             return View(product);
         }
 
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner,Admin")]
         // POST: Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.

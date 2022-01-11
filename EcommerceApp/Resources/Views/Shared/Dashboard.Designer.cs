@@ -79,24 +79,6 @@ namespace EcommerceApp.Resources.Views.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tenant.
-        /// </summary>
-        public static string loc {
-            get {
-                return ResourceManager.GetString("loc", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tenants.
-        /// </summary>
-        public static string locataire {
-            get {
-                return ResourceManager.GetString("locataire", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Month.
         /// </summary>
         public static string month {
@@ -120,24 +102,6 @@ namespace EcommerceApp.Resources.Views.Shared {
         public static string nb_client {
             get {
                 return ResourceManager.GetString("nb_client", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Number of Tenant.
-        /// </summary>
-        public static string nb_loc {
-            get {
-                return ResourceManager.GetString("nb_loc", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Number of reservations.
-        /// </summary>
-        public static string nb_res {
-            get {
-                return ResourceManager.GetString("nb_res", resourceCulture);
             }
         }
         

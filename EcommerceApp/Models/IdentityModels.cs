@@ -40,9 +40,7 @@ namespace EcommerceApp.Models
        public virtual DbSet<Reclamation> Reclamations { get; set; }
        public virtual DbSet<Category> Categories { get; set; }
        public virtual DbSet<Offre> Offres { get; set; }
-       public virtual DbSet<Paiement> Paiements { get; set; }
        public virtual DbSet<Product> Products { get; set; }
-       public virtual DbSet<Reservation> Reservations { get; set; }
        public virtual DbSet<FavoriteList> FavoriteLists { get; set; }
         public virtual DbSet<BlackList> BlackLists { get; set; }
 

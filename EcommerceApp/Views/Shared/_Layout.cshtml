@@ -43,21 +43,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
 
+                <li class="nav-item ">
+                    @Html.ActionLink(EcommerceApp.Resources.Views.Shared._Layout.home, "Index", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link nav-text" })
+                </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span id="selected-language">Language</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @*   <a class="dropdown-item" href=" @Html.Action("ChangeLanguage","Home", new { lang = "fr"})"><img src="https://www.countryflags.io/fr/flat/32.png" class="icon-country" /> Français</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="@Html.Action("ChangeLanguage","Home", new { lang = "en"})"><img src="https://www.countryflags.io/us/flat/32.png" class="icon-country" /> Anglais</a>
-                        *@
 
                         @foreach (var i in EcommerceApp.GestionLanguages.AvailableLanguages)
                         {
                             <p class="dropdown-item">
-                                <img src="https://www.countryflags.io/@i.LangCultureName/flat/32.png" class="icon-country" />
+                                <img src="https://www.countryflags.com/wp-content/uploads/@i.imageName-flag-png-large.png" class="icon-country" />
                                 <span class="text-black-50">
                                     @Html.ActionLink(i.LanFullName, "ChangeLanguage", "Home", new { lang = i.LangCultureName }, null)
                                 </span>
@@ -68,9 +67,31 @@
                     </div>
                 </li>
 
-                <li class="nav-item ">
-                    @Html.ActionLink(EcommerceApp.Resources.Views.Shared._Layout.home, "Index", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link nav-text" })
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span id="selected-Category">
+                            @EcommerceApp.Resources.Views.Shared._OwnerDashboard.model
+                        </span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        @foreach (var i in EcommerceApp.Controllers.HomeController.getCategories())
+                        {
+                            <p class="dropdown-item">
+
+                                <span class="text-black-50">
+                                    @Html.ActionLink(i.libele, "Index", "Home",
+                                   new { category = i.libele }, null)
+                                </span>
+                            </p>
+
+                        }
+
+                    </div>
                 </li>
+
+
 
             </ul>
             @Html.Partial("_LoginPartial")

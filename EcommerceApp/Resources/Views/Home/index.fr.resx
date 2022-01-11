@@ -123,16 +123,13 @@
   <data name="login" xml:space="preserve">
     <value>SE CONNECTER</value>
   </data>
-  <data name="not-connect" xml:space="preserve">
-    <value>Connectez vous pour réserver</value>
-  </data>
-  <data name="reserve" xml:space="preserve">
-    <value>Réserver maintenant</value>
+  <data name="not_connect" xml:space="preserve">
+    <value>Connecter</value>
   </data>
   <data name="small-title" xml:space="preserve">
     <value>FAITES VOTRE MEILLEUR CHOIX ICI</value>
   </data>
   <data name="title" xml:space="preserve">
-    <value>LOCATION VOITURE FES</value>
+    <value> Site Ecommerce</value>
   </data>
 </root>

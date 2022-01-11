@@ -10,6 +10,7 @@ using EcommerceApp.Models;
 
 namespace EcommerceApp.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class FavoriteListsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

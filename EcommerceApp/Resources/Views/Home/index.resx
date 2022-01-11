@@ -123,16 +123,13 @@
   <data name="login" xml:space="preserve">
     <value>LOG IN</value>
   </data>
-  <data name="not-connect" xml:space="preserve">
-    <value>Log in to Book</value>
-  </data>
-  <data name="reserve" xml:space="preserve">
-    <value>Book now</value>
+  <data name="not_connect" xml:space="preserve">
+    <value>Connect</value>
   </data>
   <data name="small-title" xml:space="preserve">
     <value>MAKE YOUR BEST CHOISE HERE</value>
   </data>
   <data name="title" xml:space="preserve">
-    <value>CAR RENTAL FES</value>
+    <value>Ecommerce App</value>
   </data>
 </root>

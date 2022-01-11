@@ -70,6 +70,15 @@ namespace EcommerceApp.Resources.Views.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to details.
+        /// </summary>
+        public static string details {
+            get {
+                return ResourceManager.GetString("details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to History.
         /// </summary>
         public static string history {
@@ -106,11 +115,11 @@ namespace EcommerceApp.Resources.Views.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This product is booked by.
+        ///   Looks up a localized string similar to Offers.
         /// </summary>
-        public static string notification {
+        public static string offer {
             get {
-                return ResourceManager.GetString("notification", resourceCulture);
+                return ResourceManager.GetString("offer", resourceCulture);
             }
         }
         
@@ -129,24 +138,6 @@ namespace EcommerceApp.Resources.Views.Shared {
         public static string profil {
             get {
                 return ResourceManager.GetString("profil", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Reservations.
-        /// </summary>
-        public static string reserve {
-            get {
-                return ResourceManager.GetString("reserve", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tenant.
-        /// </summary>
-        public static string tenant {
-            get {
-                return ResourceManager.GetString("tenant", resourceCulture);
             }
         }
     }

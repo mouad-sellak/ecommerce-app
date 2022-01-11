@@ -115,7 +115,7 @@ namespace EcommerceApp.Resources.Views.Account {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome Dear.
+        ///   Looks up a localized string similar to Welcome .
         /// </summary>
         public static string welcomeDear {
             get {

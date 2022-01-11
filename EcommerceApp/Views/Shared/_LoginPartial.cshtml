@@ -14,13 +14,7 @@
         </li>
     }
 
-    else if (User.IsInRole("Tenant"))
-    {
-        <li>
-            @Html.ActionLink(EcommerceApp.Resources.Views.Shared._LoginPartial.hello + " "+ User.Identity.GetUserName() , "Index", "TenantDashboard", routeValues: null, htmlAttributes: new { @class = "nav-link", title = "Manage" })
-        </li>
-    }
-    else if (User.IsInRole("Owner"))
+    else
     {
         @Html.ActionLink(EcommerceApp.Resources.Views.Shared._LoginPartial.hello + " " + User.Identity.GetUserName() , "Index", "OwnerDashboard", routeValues: null, htmlAttributes: new { @class = "nav-link", title = "Manage" })
 

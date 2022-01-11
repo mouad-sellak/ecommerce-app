@@ -13,8 +13,8 @@ namespace EcommerceApp
         // la liste des langues possibles
         public static List<Languages> AvailableLanguages = new List<Languages>
         {
-        new Languages {LanFullName="English", LangCultureName="us"},
-        new Languages {LanFullName="Francais", LangCultureName="fr"},
+        new Languages {LanFullName="English", LangCultureName="us",imageName="france"},
+        new Languages {LanFullName="Francais", LangCultureName="fr",imageName="united-states-of-america"},
         };
         //voir si la langue demandée est autorisée
         public static bool IsLanguageAvailable(string lang)

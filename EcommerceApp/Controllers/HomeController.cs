@@ -14,7 +14,7 @@ namespace EcommerceApp.Controllers
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public ActionResult Index(string lang)
+        public ActionResult Index(string lang,string category)
         {
             if (lang != null)
                 Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(lang);
@@ -22,7 +22,7 @@ namespace EcommerceApp.Controllers
             string name = User.Identity.Name;
             ViewBag.name = name;
 
-            List<Product> products = db.Products.ToList();
+            List<Product> products = db.Products.Where(p => p.Category.libele.Equals(category)).ToList();
             return View(products);
         }
 
@@ -46,6 +46,12 @@ namespace EcommerceApp.Controllers
             return Redirect(Request.UrlReferrer.ToString());
             /* obtient les informations sur l'URL de la précédente requête du client
             qui était liée a la requête actuelle */
+        }
+
+        public static List<Category> getCategories()
+        {
+            ApplicationDbContext DB = new ApplicationDbContext();
+            return DB.Categories.ToList();
         }
     }
 }

@@ -7,55 +7,9 @@
     <div class="title ml-5">
         <h1>@EcommerceApp.Resources.Views.Shared._OwnerDashboard.history</h1>
     </div>
-    <hr />
+
     <h4>@EcommerceApp.Resources.Views.Offres.Index.productDispo</h4>
-    @if (Model.reservations.Any())
-    {
-
-        <div class="row justify-content-center">
-            <div class="col-10">
-                <ul id="listPage" class="text-center" style="list-style-type:none;">
-
-                    @foreach (var item in Model.reservations)
-                    {
-                        if (item != null)
-                        {
-                            <li style="min-height:200px;">
-
-
-                                <div class="productd row flex-row flex-wrap m-3 h-100">
-                                    <div class="productd-header border-0" style="min-height: 200px; width: 250px;background-color:white;
-">
-                                        <img src="~/Uploads/products/@Html.DisplayFor(model => item.Product.photo)" alt="" class="h-100" style=" width:200px;">
-                                    </div>
-                                    <div class="productd-block my-3" style="        margin-left: 100px;">
-                                        <center style="margin-top: 50px;margin-bottom:50px;">
-                                            <p class="productd-text" style="width: 400px;">
-                                                @EcommerceApp.Resources.Views.Shared._OwnerDashboard.notification<span class="font-weight-bold"> @Html.DisplayFor(modelItem => item.Product.ApplicationUser.UserName)</span>,  @EcommerceApp.Resources.Views.Shared._OwnerDashboard.le <span class="font-weight-bold"> @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")</span>
-                                            </p>
-                                            <a href="@Url.Action("Details", "Reservations", new { id = item.id_reservation })" class="text-success">
-                                                @EcommerceApp.Resources.Views.Shared._TenantDashboard.details
-                                            </a>
-                                        </center>
-                                    </div>
-                                </div>
-                            </li>
-                        }
-                    }
-
-                </ul>
-
-            </div>
-
-        </div>
-    }
-
-    else
-    {
-        <center><span class="font-weight-bold;"> @EcommerceApp.Resources.Views.Shared._OwnerDashboard.nothing</span></center>
-
-    }
-    <hr />
+   
     <h4>@EcommerceApp.Resources.Views.Offres.Index.offreDispo</h4>
     @if (Model.offresDisponibles.Any())
     {
@@ -82,7 +36,7 @@
                                             </span>
                                         </p>
                                         <a href="@Url.Action("Details", "Offres", new { id = item.id_offre })" class="text-success">
-                                            @EcommerceApp.Resources.Views.Shared._TenantDashboard.details
+                                            @EcommerceApp.Resources.Views.Shared._OwnerDashboard.details
                                         </a>
                                     </div>
                                 </div>
@@ -129,7 +83,7 @@
                                             </span>
                                         </p>
                                         <a href="@Url.Action("Details", "Offres", new { id = item.id_offre })" class="text-success">
-                                            @EcommerceApp.Resources.Views.Shared._TenantDashboard.details
+                                            @EcommerceApp.Resources.Views.Shared._OwnerDashboard.details
                                         </a>
                                     </div>
                                 </div>

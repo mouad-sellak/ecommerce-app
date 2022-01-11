@@ -129,17 +129,17 @@
   <data name="dispo" xml:space="preserve">
     <value>Disponible</value>
   </data>
-  <data name="km" xml:space="preserve">
-    <value>Km</value>
+  <data name="location" xml:space="preserve">
+    <value>Localisation</value>
   </data>
   <data name="category" xml:space="preserve">
     <value>Category</value>
   </data>
-  <data name="matricul" xml:space="preserve">
-    <value>Matricule</value>
+  <data name="title" xml:space="preserve">
+    <value>Titre</value>
   </data>
-  <data name="nb_passagers" xml:space="preserve">
-    <value>Nombre de passagers</value>
+  <data name="description" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="offre" xml:space="preserve">
     <value>Offre</value>
@@ -148,6 +148,6 @@
     <value>Photo</value>
   </data>
   <data name="prix" xml:space="preserve">
-    <value>Prix (par jour)</value>
+    <value>Prix </value>
   </data>
 </root>

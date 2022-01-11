@@ -7,43 +7,14 @@ using System.Web.Mvc;
 
 namespace EcommerceApp.Controllers
 {
-   /* [Authorize(Roles = "Owner")]*/
+    [Authorize(Roles = "Admin")]
     public class AdminDashboardController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: AdminDashboard
         public ActionResult Index(int? year)
         {
-            if (year == null)
-            {
-                year = DateTime.Now.Year;
-            }
-            ViewBag.year = year; 
-
-            List<ApplicationUser> users = db.Users.ToList();  
-            List<Product> products = db.Products.ToList();
-            List<Reservation> res = db.Reservations.ToList();
-            List<int> owners = new List<int>();
-            List<int> tenants = new List<int>();
-            List<int> months = new List<int>();
-            List<int> products_nb = new List<int>();
-            List<int> res_nb = new List<int>();
-
-            for (int i = 1; i <= 12; i++)
-            {
-                tenants.Add(users.Count(x => x.date_join.Year == year && x.date_join.Month == i && x.Roles.Any(s => s.RoleId == "2")));
-                owners.Add(users.Count(x => x.date_join.Year == year && x.date_join.Month == i && x.Roles.Any(s => s.RoleId == "3")));
-                products_nb.Add(products.Count(x => x.date_ajout.Year == year && x.date_ajout.Month == i));
-                res_nb.Add(res.Count(x => x.date_ajout.Year == year && x.date_ajout.Month == i));
-
-                months.Add(i);
-            }
-
-            ViewBag.months = months;
-            ViewBag.tenants = tenants;
-            ViewBag.products = products_nb;
-            ViewBag.owners = owners;
-            ViewBag.res = res_nb;
+           
             return View();
         }
 

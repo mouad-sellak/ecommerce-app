@@ -79,20 +79,11 @@ namespace EcommerceApp.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log in to Book.
+        ///   Looks up a localized string similar to Connect.
         /// </summary>
         public static string not_connect {
             get {
-                return ResourceManager.GetString("not-connect", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Book now.
-        /// </summary>
-        public static string reserve {
-            get {
-                return ResourceManager.GetString("reserve", resourceCulture);
+                return ResourceManager.GetString("not_connect", resourceCulture);
             }
         }
         
@@ -106,7 +97,7 @@ namespace EcommerceApp.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CAR RENTAL FES.
+        ///   Looks up a localized string similar to Ecommerce App.
         /// </summary>
         public static string title {
             get {

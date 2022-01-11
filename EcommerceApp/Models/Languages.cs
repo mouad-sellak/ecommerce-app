@@ -9,5 +9,6 @@ namespace EcommerceApp.Models
     {
         public string LanFullName { get; set; }
         public string LangCultureName { get; set; }
+        public string imageName { get; internal set; }
     }
 }

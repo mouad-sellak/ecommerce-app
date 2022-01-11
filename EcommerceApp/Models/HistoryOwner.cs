@@ -6,8 +6,8 @@ using System.Web;
 namespace EcommerceApp.Models
 {
     public class HistoryOwner
-    {   
-            public List<Reservation> reservations { get; set; }
+    {
+            public List<Product> productsDisponibles { get; set; }
             public List<Offre> offresDisponibles { get; set; }
             public List<Offre> offresExpires { get; set; }
     }

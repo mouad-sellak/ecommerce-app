@@ -1,10 +1,6 @@
 ﻿@model IEnumerable<EcommerceApp.Models.Product>
 
-@if (User.IsInRole("Tenant"))
-{
-    Layout = "~/Views/Shared/_TenantDashboard.cshtml";
-}
-else if (User.IsInRole("Owner"))
+@if  (User.IsInRole("Owner"))
 {
     Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
 }
@@ -41,7 +37,7 @@ else if (User.IsInRole("Admin"))
                         Id
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.matricul)
+                        @Html.DisplayNameFor(model => model.title)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Category.libele)
@@ -66,7 +62,7 @@ else if (User.IsInRole("Admin"))
                             @Html.DisplayFor(modelItem => item.id_product)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.matricul)
+                            @Html.DisplayFor(modelItem => item.title)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Category.libele)

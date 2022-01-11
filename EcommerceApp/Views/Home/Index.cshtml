@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="productd-block my-3" style="margin-left:150px;">
                                     <h4 class="productd-title">
-                                        @Html.DisplayFor(modelItem => item.matricul) ( <span class="text-success font-weight-bold">- @item.Offre.taux_remise%</span>)
+                                        @Html.DisplayFor(modelItem => item.title) ( <span class="text-success font-weight-bold">- @item.Offre.taux_remise%</span>)
 
                                     </h4>
                                     <p class="productd-text">
@@ -58,16 +58,11 @@
 
                                         <br />
                                         <span class="font-weight-bold">@Html.LabelFor(modelItem => item.Category):</span>  @Html.DisplayFor(modelItem => item.Category.libele) <br />
-                                        <span class="font-weight-bold">@Html.LabelFor(modelItem => item.nb_passagers):</span>  @Html.DisplayFor(modelItem => item.nb_passagers) <br />
+                                        <span class="font-weight-bold">@Html.LabelFor(modelItem => item.description):</span>  @Html.DisplayFor(modelItem => item.description) <br />
                                         <span class="font-weight-bold">@Html.LabelFor(modelItem => item.couleur):</span>  @Html.DisplayFor(modelItem => item.couleur) <br />
 
                                     </p>
-                                    @if (User.IsInRole("Tenant"))
-                                    {
-                                        <a href="~/Reservations/Create/@item.id_product" class="btn btn-primary">@EcommerceApp.Resources.Views.Home.index.reserve</a>
-
-                                    }
-                                    else if (ViewBag.name == "")
+                                    if (ViewBag.name == "")
                                     {
                                         <a href="~/Account/Login" class="btn bg-white font-weight-bold w-20 login-btn pointer w-100">@EcommerceApp.Resources.Views.Home.index.not_connect </a>
 

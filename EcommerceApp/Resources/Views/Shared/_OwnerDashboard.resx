@@ -135,16 +135,13 @@
   <data name="nothing" xml:space="preserve">
     <value>No data to display</value>
   </data>
-  <data name="notification" xml:space="preserve">
-    <value>This product is booked by</value>
-  </data>
   <data name="profil" xml:space="preserve">
     <value>Profil</value>
   </data>
-  <data name="reserve" xml:space="preserve">
-    <value>Reservations</value>
+  <data name="details" xml:space="preserve">
+    <value>details</value>
   </data>
-  <data name="tenant" xml:space="preserve">
-    <value>Tenant</value>
+  <data name="offer" xml:space="preserve">
+    <value>Offers</value>
   </data>
 </root>

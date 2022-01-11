@@ -12,34 +12,36 @@
     }
 
 }
-@if (User.IsInRole("Owner"))
+<div class="m-5">
+    @if (User.IsInRole("Owner"))
 {
-<p>
-    <a href="@Url.Action("Create", "Offres")" class="text-success">
-        @EcommerceApp.Resources.Views.Offres.Index.createNew
-    </a>
-</p>
+    <p>
+        <a href="@Url.Action("Create", "Offres")" class="text-success">
+            @EcommerceApp.Resources.Views.Offres.Index.createNew
+        </a>
+    </p>
+    <hr />
 }
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.libele)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.taux_remise)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.date_expiration)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.date_ajout)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.libele)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.taux_remise)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date_expiration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date_ajout)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -57,11 +59,11 @@
                 <td>
                     @if (User.IsInRole("Owner"))
                     {
-                        <a href="@Url.Action("Edit", "Offres", new { id = item.id_offre })" class="text-success">
-                            <i class="material-icons icon " style="color:yellow">
-                                edit
-                            </i>
-                        </a>
+                    <a href="@Url.Action("Edit", "Offres", new { id = item.id_offre })" class="text-success">
+                        <i class="material-icons icon " style="color:yellow">
+                            edit
+                        </i>
+                    </a>
                     }
                     <a href="@Url.Action("Details", "Offres", new { id = item.id_offre  })" class="text-success">
                         <i class="material-icons icon ">
@@ -70,16 +72,17 @@
                     </a>
                     @if (User.IsInRole("Owner"))
                     {
-                        <a data-delete-id="@item.id_offre" class="text-danger delete-link-offre pointer">
-                            <i class="material-icons icon ">
-                                delete
-                            </i>
-                        </a>
-                        @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
+                    <a data-delete-id="@item.id_offre" class="text-danger delete-link-offre pointer">
+                        <i class="material-icons icon ">
+                            delete
+                        </i>
+                    </a>
+                    @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
                     }
                 </td>
             </tr>
         }
-    </tbody>
+        </tbody>
 
-</table>
+    </table>
+    </div>

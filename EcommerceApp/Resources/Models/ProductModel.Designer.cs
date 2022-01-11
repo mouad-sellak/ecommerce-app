@@ -79,7 +79,7 @@ namespace EcommerceApp.Resources.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Model.
+        ///   Looks up a localized string similar to Category.
         /// </summary>
         public static string category {
             get {
@@ -97,6 +97,15 @@ namespace EcommerceApp.Resources.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string description {
+            get {
+                return ResourceManager.GetString("description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Disponible.
         /// </summary>
         public static string dispo {
@@ -106,29 +115,11 @@ namespace EcommerceApp.Resources.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Km.
+        ///   Looks up a localized string similar to  Location.
         /// </summary>
-        public static string km {
+        public static string location {
             get {
-                return ResourceManager.GetString("km", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Registration number.
-        /// </summary>
-        public static string matricul {
-            get {
-                return ResourceManager.GetString("matricul", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Number of passengers.
-        /// </summary>
-        public static string nb_passagers {
-            get {
-                return ResourceManager.GetString("nb_passagers", resourceCulture);
+                return ResourceManager.GetString("location", resourceCulture);
             }
         }
         
@@ -151,11 +142,20 @@ namespace EcommerceApp.Resources.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price (Per day).
+        ///   Looks up a localized string similar to  Price.
         /// </summary>
         public static string prix {
             get {
                 return ResourceManager.GetString("prix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string title {
+            get {
+                return ResourceManager.GetString("title", resourceCulture);
             }
         }
     }

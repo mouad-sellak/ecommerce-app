@@ -59,15 +59,9 @@
                         </div>
                         <div class="row">
                             <label style="margin-right:20px;margin-left:60px;">@Html.LabelFor(m => m.UserType)</label>
-                            @Html.DropDownList("UserType", null, new { @class = "form-control", id = "usertype" })
+                            @Html.DropDownList("UserType", null, new { @class = "form-control", id = "typeUser" })
                         </div>
 
-                        <div class="row">
-                            <div class="col">
-                                <label style="margin-right:100px;margin-left:200px;"></label>
-                                @Html.DropDownList("TypeOwner", null, new { @class = "form-control", id = "typeOwner",@style= "margin-left:97px;" })
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col-md-6">
                                 @Html.LabelFor(m => m.Password)

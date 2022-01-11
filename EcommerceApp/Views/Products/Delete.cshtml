@@ -1,6 +1,11 @@
 ﻿@model EcommerceApp.Models.Product
-@{
+@if (User.IsInRole("Owner"))
+{
     Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+}
+else if (User.IsInRole("Admin"))
+{
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
 }
 <h2>Delete</h2>
 
@@ -33,21 +38,7 @@
             @Html.DisplayFor(model => model.Offre.libele)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nb_passagers)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nb_passagers)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.couleur)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.couleur)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.prix)
@@ -74,20 +65,21 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.anne)
+            @Html.DisplayNameFor(model => model.location)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.anne)
+            @Html.DisplayFor(model => model.location)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.km)
+            @Html.DisplayNameFor(model => model.description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.km)
+            @Html.DisplayFor(model => model.description)
         </dd>
+
 
         <dt>
             @Html.DisplayNameFor(model => model.date_ajout)

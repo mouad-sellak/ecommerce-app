@@ -314,30 +314,4 @@ $(document).ready(function () {
 
     });
 
-    function hideOnLoad() {
-        $('#typeOwner').hide();
-    }
-    $('#usertype').change(function () {
-        var value = $(this).val();
-        if (Cookies.get('culture') === "fr")
-        {
-            if (value == 'Locataire') {
-                $('#typeOwner').hide();
-            } else if (value == 'Propriétaire') {
-                $('#typeOwner').show();
-            } else {
-                $('#typeOwner').hide();
-            }
-        }
-        else
-        {
-            if (value == 'Tenant') {
-                $('#typeOwner').hide();
-            } else if (value == 'Owner') {
-                $('#typeOwner').show();
-            } else {
-                $('#typeOwner').hide();
-            }
-        }    
-    });
 });

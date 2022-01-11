@@ -169,15 +169,6 @@ namespace EcommerceApp.Resources.Views.Account {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tenant.
-        /// </summary>
-        public static string tenant {
-            get {
-                return ResourceManager.GetString("tenant", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Type.
         /// </summary>
         public static string type {

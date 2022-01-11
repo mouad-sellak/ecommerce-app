@@ -126,12 +126,6 @@
   <data name="favorite_list" xml:space="preserve">
     <value>Favotite list</value>
   </data>
-  <data name="loc" xml:space="preserve">
-    <value>Tenant</value>
-  </data>
-  <data name="locataire" xml:space="preserve">
-    <value>Tenants</value>
-  </data>
   <data name="month" xml:space="preserve">
     <value>Month</value>
   </data>
@@ -140,12 +134,6 @@
   </data>
   <data name="nb_client" xml:space="preserve">
     <value>Number total of client register</value>
-  </data>
-  <data name="nb_loc" xml:space="preserve">
-    <value>Number of Tenant</value>
-  </data>
-  <data name="nb_res" xml:space="preserve">
-    <value>Number of reservations</value>
   </data>
   <data name="nb_voi" xml:space="preserve">
     <value>Number of products</value>

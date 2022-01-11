@@ -47,6 +47,7 @@ namespace EcommerceApp.Controllers
             return View(offre);
         }
 
+        [Authorize(Roles = "Owner")]
         // GET: Offres/Create
         public ActionResult Create()
         {

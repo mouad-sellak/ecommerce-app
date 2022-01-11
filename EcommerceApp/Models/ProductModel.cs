@@ -28,11 +28,11 @@ namespace EcommerceApp.Models
         [ForeignKey("id_offre")]
         public virtual Offre Offre { get; set; }
 
-        [Display(Name = "matricul", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
-        public string matricul { get; set; }
+        [Display(Name = "title", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
+        public string title { get; set; }
 
-        [Display(Name = "nb_passagers", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
-        public int nb_passagers { get; set; }
+        [Display(Name = "description", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
+        public int description { get; set; }
 
         [Display(Name = "color", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
         public string couleur { get; set; }
@@ -46,16 +46,12 @@ namespace EcommerceApp.Models
         [Display(Name = "dispo", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
         public bool disponible { get; set; }
 
-        [Display(Name = "anne", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
-        public int anne { get; set; }
-
-        [Display(Name = "km", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
-        public string km { get; set; }
+        [Display(Name = "location", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
+        public string location { get; set; }
 
         [Display(Name = "add_date", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
         public DateTime date_ajout { get; set; }
 
-        public virtual ICollection<Reservation> Reservations { get; set; }
 
         public string Prix_total()
         {

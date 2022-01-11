@@ -44,19 +44,6 @@ namespace EcommerceApp.Migrations
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex");
             
             CreateTable(
-                "dbo.Reclamations",
-                c => new
-                    {
-                        id_Reclamation = c.Int(nullable: false, identity: true),
-                        UserId = c.String(maxLength: 128),
-                        description = c.String(unicode: false, storeType: "text"),
-                        date_ajout = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.id_Reclamation)
-                .ForeignKey("dbo.User", t => t.UserId)
-                .Index(t => t.UserId);
-            
-            CreateTable(
                 "dbo.UserClaim",
                 c => new
                     {
@@ -89,14 +76,13 @@ namespace EcommerceApp.Migrations
                         UserId = c.String(maxLength: 128),
                         id_category = c.Int(nullable: false),
                         id_offre = c.Int(),
-                        matricul = c.String(),
-                        nb_passagers = c.Int(nullable: false),
+                        title = c.String(),
+                        description = c.String(),
                         couleur = c.String(),
                         prix = c.Single(nullable: false),
                         photo = c.String(),
                         disponible = c.Boolean(nullable: false),
-                        anne = c.Int(nullable: false),
-                        km = c.String(),
+                        location = c.String(),
                         date_ajout = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.id_product)
@@ -133,36 +119,17 @@ namespace EcommerceApp.Migrations
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.Reservations",
+                "dbo.Reclamations",
                 c => new
                     {
-                        id_reservation = c.Int(nullable: false, identity: true),
+                        id_Reclamation = c.Int(nullable: false, identity: true),
                         UserId = c.String(maxLength: 128),
-                        id_product = c.Int(nullable: false),
-                        id_paiement = c.Int(nullable: false),
-                        date_prise_en_charge = c.DateTime(nullable: false),
-                        date_retour = c.DateTime(nullable: false),
-                        lieu_prise_en_charge = c.String(),
-                        prix = c.Single(nullable: false),
-                        recategory = c.String(unicode: false, storeType: "text"),
+                        description = c.String(unicode: false, storeType: "text"),
                         date_ajout = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.id_reservation)
+                .PrimaryKey(t => t.id_Reclamation)
                 .ForeignKey("dbo.User", t => t.UserId)
-                .ForeignKey("dbo.Paiements", t => t.id_paiement, cascadeDelete: true)
-                .ForeignKey("dbo.Products", t => t.id_product, cascadeDelete: true)
-                .Index(t => t.UserId)
-                .Index(t => t.id_product)
-                .Index(t => t.id_paiement);
-            
-            CreateTable(
-                "dbo.Paiements",
-                c => new
-                    {
-                        id_paiement = c.Int(nullable: false, identity: true),
-                        libele = c.String(),
-                    })
-                .PrimaryKey(t => t.id_paiement);
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.UserRole",
@@ -206,43 +173,35 @@ namespace EcommerceApp.Migrations
             DropForeignKey("dbo.FavoriteLists", "UserId", "dbo.User");
             DropForeignKey("dbo.BlackLists", "UserId", "dbo.User");
             DropForeignKey("dbo.UserRole", "UserId", "dbo.User");
-            DropForeignKey("dbo.Reservations", "id_product", "dbo.Products");
-            DropForeignKey("dbo.Reservations", "id_paiement", "dbo.Paiements");
-            DropForeignKey("dbo.Reservations", "UserId", "dbo.User");
+            DropForeignKey("dbo.Reclamations", "UserId", "dbo.User");
             DropForeignKey("dbo.Products", "id_offre", "dbo.Offres");
             DropForeignKey("dbo.Offres", "UserId", "dbo.User");
             DropForeignKey("dbo.Products", "id_category", "dbo.Categories");
             DropForeignKey("dbo.Products", "UserId", "dbo.User");
             DropForeignKey("dbo.UserLogin", "UserId", "dbo.User");
             DropForeignKey("dbo.UserClaim", "UserId", "dbo.User");
-            DropForeignKey("dbo.Reclamations", "UserId", "dbo.User");
             DropIndex("dbo.Role", "RoleNameIndex");
             DropIndex("dbo.FavoriteLists", new[] { "UserId" });
             DropIndex("dbo.UserRole", new[] { "RoleId" });
             DropIndex("dbo.UserRole", new[] { "UserId" });
-            DropIndex("dbo.Reservations", new[] { "id_paiement" });
-            DropIndex("dbo.Reservations", new[] { "id_product" });
-            DropIndex("dbo.Reservations", new[] { "UserId" });
+            DropIndex("dbo.Reclamations", new[] { "UserId" });
             DropIndex("dbo.Offres", new[] { "UserId" });
             DropIndex("dbo.Products", new[] { "id_offre" });
             DropIndex("dbo.Products", new[] { "id_category" });
             DropIndex("dbo.Products", new[] { "UserId" });
             DropIndex("dbo.UserLogin", new[] { "UserId" });
             DropIndex("dbo.UserClaim", new[] { "UserId" });
-            DropIndex("dbo.Reclamations", new[] { "UserId" });
             DropIndex("dbo.User", "UserNameIndex");
             DropIndex("dbo.BlackLists", new[] { "UserId" });
             DropTable("dbo.Role");
             DropTable("dbo.FavoriteLists");
             DropTable("dbo.UserRole");
-            DropTable("dbo.Paiements");
-            DropTable("dbo.Reservations");
+            DropTable("dbo.Reclamations");
             DropTable("dbo.Offres");
             DropTable("dbo.Categories");
             DropTable("dbo.Products");
             DropTable("dbo.UserLogin");
             DropTable("dbo.UserClaim");
-            DropTable("dbo.Reclamations");
             DropTable("dbo.User");
             DropTable("dbo.BlackLists");
         }
