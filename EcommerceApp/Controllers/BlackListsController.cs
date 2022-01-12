@@ -105,30 +105,14 @@ namespace EcommerceApp.Controllers
         }
 
         // GET: BlackLists/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            BlackList blackList = db.BlackLists.Find(id);
-            if (blackList == null)
-            {
-                return HttpNotFound();
-            }
-            return View(blackList);
-        }
-
-        // POST: FavoriteLists/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
             BlackList blackList = db.BlackLists.Find(id);
             db.BlackLists.Remove(blackList);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

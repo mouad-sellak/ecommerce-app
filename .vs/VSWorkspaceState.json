@@ -2,9 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\EcommerceApp",
-    "\\EcommerceApp\\App_Data",
     "\\EcommerceApp\\Controllers",
-    "\\EcommerceApp\\Properties"
+    "\\EcommerceApp\\Models",
+    "\\EcommerceApp\\Resources",
+    "\\EcommerceApp\\Resources\\Models",
+    "\\EcommerceApp\\Views",
+    "\\EcommerceApp\\Views\\AdminDashboard",
+    "\\EcommerceApp\\Views\\Offres",
+    "\\EcommerceApp\\Views\\OwnerDashboard"
   ],
   "SelectedNode": "\\EcommerceApp.sln",
   "PreviewInSolutionExplorer": false

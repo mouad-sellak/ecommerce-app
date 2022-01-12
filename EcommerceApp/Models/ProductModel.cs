@@ -32,10 +32,7 @@ namespace EcommerceApp.Models
         public string title { get; set; }
 
         [Display(Name = "description", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
-        public int description { get; set; }
-
-        [Display(Name = "color", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
-        public string couleur { get; set; }
+        public string description { get; set; }
 
         [Display(Name = "prix", ResourceType = typeof(EcommerceApp.Resources.Models.ProductModel))]
         public float prix { get; set; }

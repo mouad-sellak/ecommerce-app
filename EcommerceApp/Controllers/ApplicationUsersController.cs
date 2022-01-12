@@ -129,7 +129,7 @@ namespace EcommerceApp.Controllers
         }
 
         // POST: ApplicationUsers/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {

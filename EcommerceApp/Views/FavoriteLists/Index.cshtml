@@ -54,7 +54,7 @@
                             visibility
                         </i>
                     </a>
-                    <a data-delete-id="@item.id_favorite" class="text-danger delete-link-favorite pointer">
+                    <a href="@Url.Action("Delete", "FavoriteLists", new { id = item.id_favorite })" class="text-danger delete-link-favorite pointer">
                         <i class="material-icons icon " style="color:grey">
                             delete
                         </i>

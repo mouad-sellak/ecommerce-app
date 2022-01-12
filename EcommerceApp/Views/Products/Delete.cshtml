@@ -3,7 +3,7 @@
 {
     Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
 }
-else if (User.IsInRole("Admin"))
+else
 {
     Layout = "~/Views/Shared/_AdminDashboard.cshtml";
 }
@@ -57,14 +57,6 @@ else if (User.IsInRole("Admin"))
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.disponible)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.disponible)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.location)
         </dt>
 
@@ -91,13 +83,14 @@ else if (User.IsInRole("Admin"))
 
     </dl>
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("DeleteConfirmed", "Products",new { id = Model.id_product } ,FormMethod.Post))
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+<div class="form-actions no-color">
+    
+    <input type="submit" value="Delete" class="btn btn-default" /> |
+    @Html.ActionLink("Back to List", "Index")
+</div>
     }
 </div>

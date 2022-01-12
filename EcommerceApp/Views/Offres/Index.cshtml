@@ -57,28 +57,25 @@
                     @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
                 </td>
                 <td>
-                    @if (User.IsInRole("Owner"))
-                    {
-                    <a href="@Url.Action("Edit", "Offres", new { id = item.id_offre })" class="text-success">
-                        <i class="material-icons icon " style="color:yellow">
-                            edit
-                        </i>
-                    </a>
-                    }
+
+                    
                     <a href="@Url.Action("Details", "Offres", new { id = item.id_offre  })" class="text-success">
                         <i class="material-icons icon ">
                             visibility
                         </i>
                     </a>
-                    @if (User.IsInRole("Owner"))
-                    {
-                    <a data-delete-id="@item.id_offre" class="text-danger delete-link-offre pointer">
+                    <a href="@Url.Action("Edit", "Offres", new { id = item.id_offre })" class="text-success">
+                        <i class="material-icons icon " style="color:yellow">
+                            edit
+                        </i>
+                    </a>
+                    <a href="@Url.Action("Delete", "Offres", new { id = item.id_offre  })" class="text-danger delete-link-offre pointer">
                         <i class="material-icons icon ">
                             delete
                         </i>
                     </a>
                     @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
-                    }
+                    
                 </td>
             </tr>
         }

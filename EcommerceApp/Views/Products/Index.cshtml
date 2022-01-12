@@ -74,7 +74,7 @@
                             edit
                         </i>
                     </a>
-                    <a data-delete-id="@item.id_product" class="text-danger delete-link-product pointer">
+                    <a href="@Url.Action("Delete", "Products", new { id = item.id_product })" class="text-danger delete-link-product pointer">
                         <i class="material-icons icon ">
                             delete
                         </i>

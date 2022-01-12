@@ -105,30 +105,14 @@ namespace EcommerceApp.Controllers
         }
 
         // GET: FavoriteLists/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            FavoriteList favoriteList = db.FavoriteLists.Find(id);
-            if (favoriteList == null)
-            {
-                return HttpNotFound();
-            }
-            return View(favoriteList);
-        }
-
-        // POST: FavoriteLists/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
             FavoriteList favoriteList = db.FavoriteLists.Find(id);
             db.FavoriteLists.Remove(favoriteList);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

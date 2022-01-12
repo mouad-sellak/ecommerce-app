@@ -128,12 +128,12 @@ namespace EcommerceApp.Controllers
         }
 
         // POST: Offres/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int Id)
         {
-            Offre offre = db.Offres.Find(id);
-            db.Offres.Remove(offre);
+            var offr = db.Offres.Find(Id);
+            db.Offres.Remove(offr);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

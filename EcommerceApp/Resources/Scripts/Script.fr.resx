@@ -127,7 +127,7 @@
     <value>Aucune ligne affichée</value>
   </data>
   <data name="sLengthMenu" xml:space="preserve">
-    <value>Afficher _MENU_ lignes</value>
+    <value> _MENU_ </value>
   </data>
   <data name="sProcessing" xml:space="preserve">
     <value>Traitement en cours ...</value>

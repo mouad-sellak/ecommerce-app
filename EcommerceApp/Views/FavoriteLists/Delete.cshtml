@@ -22,7 +22,7 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm("DeleteConfirmed", "FavoriteLists", new { id = Model.id_favorite }, FormMethod.Post)) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

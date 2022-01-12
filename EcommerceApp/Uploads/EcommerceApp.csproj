@@ -175,6 +175,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BlackListsController.cs" />
     <Compile Include="Controllers\FavoriteListsController.cs" />
+    <Compile Include="Controllers\LocatairesController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\OffresController.cs" />
     <Compile Include="Controllers\OwnerDashboardController.cs" />
@@ -182,12 +183,13 @@
     <Compile Include="GestionLanguages.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReclamationsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202201112307183_Initial.cs" />
-    <Compile Include="Migrations\202201112307183_Initial.Designer.cs">
-      <DependentUpon>202201112307183_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202201111027435_Initial.cs" />
+    <Compile Include="Migrations\202201111027435_Initial.Designer.cs">
+      <DependentUpon>202201111027435_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -196,12 +198,38 @@
     <Compile Include="Models\HistoryOwner.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Languages.cs" />
+    <Compile Include="Models\Locataire.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\OffreModel.cs" />
+    <Compile Include="Models\ReclamationModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\Models\CategoryModel.Designer.cs" />
+    <Compile Include="Resources\Models\Locataire.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Locataire.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Locataire.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Locataire.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\MarqueModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarqueModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\ReservationModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReservationModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\ReservationModel.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReservationModel.fr.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Models\ProductModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -212,8 +240,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProductModel.fr.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Models\User.Designer.cs" />
-    <Compile Include="Resources\Models\User.fr.Designer.cs" />
     <Compile Include="Resources\most.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -258,6 +284,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Register.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\ApplicationUsers\Index.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Views\Home\index.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -319,6 +350,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_OwnerDashboard.fr.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Views\Shared\_TenantDashboard.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_TenantDashboard.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Shared\_TenantDashboard.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_TenantDashboard.fr.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Views\Products\Create.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -346,6 +387,8 @@
     <Content Include="App_Data\EcommerceApp_log.ldf">
       <DependentUpon>EcommerceApp.mdf</DependentUpon>
     </Content>
+    <Content Include="bin\EcommerceApp.dll" />
+    <Content Include="bin\EcommerceApp.pdb" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -760,6 +803,7 @@
     <Content Include="Views\Reclamations\Details.cshtml" />
     <Content Include="Views\Reclamations\Edit.cshtml" />
     <Content Include="Views\Reclamations\Index.cshtml" />
+    <Content Include="Views\Shared\_TenantDashboard.cshtml" />
     <Content Include="Views\Shared\_OwnerDashboard.cshtml" />
     <Content Include="Views\OwnerDashboard\Index.cshtml" />
     <Content Include="Views\Marques\Create.cshtml" />
@@ -798,13 +842,9 @@
     <Content Include="Views\BlackLists\Index.cshtml" />
     <Content Include="Views\ApplicationUsers\historique.cshtml" />
     <Content Include="Views\Products\OwnerProducts.cshtml" />
-    <Content Include="Views\Categories\Create.cshtml" />
-    <Content Include="Views\Categories\Delete.cshtml" />
-    <Content Include="Views\Categories\Details.cshtml" />
-    <Content Include="Views\Categories\Edit.cshtml" />
-    <Content Include="Views\Categories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\bin\fr\" />
     <Folder Include="Uploads\cars\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
@@ -820,11 +860,30 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202201112307183_Initial.resx">
-      <DependentUpon>202201112307183_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202201111027435_Initial.resx">
+      <DependentUpon>202201111027435_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Models\CategoryModel.fr.resx" />
-    <EmbeddedResource Include="Resources\Models\CategoryModel.resx" />
+    <EmbeddedResource Include="Resources\Models\Locataire.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Locataire.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Locataire.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Locataire.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\MarqueModel.fr.resx" />
+    <EmbeddedResource Include="Resources\Models\MarqueModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MarqueModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\ReservationModel.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReservationModel.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\ReservationModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReservationModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\ProductModel.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProductModel.fr.Designer.cs</LastGenOutput>
@@ -833,8 +892,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProductModel.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Models\User.fr.resx" />
-    <EmbeddedResource Include="Resources\Models\User.resx" />
     <EmbeddedResource Include="Resources\most.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>most.fr.Designer.cs</LastGenOutput>
@@ -843,9 +900,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>most.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Scripts\Script.fr.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Scripts\Script.fr.resx" />
     <EmbeddedResource Include="Resources\Scripts\Script.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Script.Designer.cs</LastGenOutput>
@@ -873,6 +928,10 @@
     <EmbeddedResource Include="Resources\Views\Account\Register.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Register.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\ApplicationUsers\Index.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Home\index.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -923,6 +982,14 @@
     <EmbeddedResource Include="Resources\Views\Shared\_OwnerDashboard.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>_OwnerDashboard.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Shared\_TenantDashboard.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_TenantDashboard.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Shared\_TenantDashboard.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_TenantDashboard.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Products\Create.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

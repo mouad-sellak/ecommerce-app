@@ -2,8 +2,14 @@
 @model EcommerceApp.Models.Offre
 
 @{
-    //ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+    if (User.IsInRole("Owner"))
+    {
+        Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+    }
 }
 
 

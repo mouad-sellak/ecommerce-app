@@ -55,7 +55,7 @@
                             visibility
                         </i>
                     </a>
-                    <a data-delete-id="@item.id_black" class="text-danger delete-link-black pointer">
+                    <a href="@Url.Action("Delete", "BlackLists", new { id = item.id_black })"class="text-danger delete-link-black pointer">
                         <i class="material-icons icon " style="color:grey">
                             delete
                         </i>

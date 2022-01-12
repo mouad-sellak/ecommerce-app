@@ -22,7 +22,7 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm("DeleteConfirmed", "BlackLists", new { id = Model.id_black }, FormMethod.Post)) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

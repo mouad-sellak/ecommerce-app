@@ -1,4 +1,7 @@
 ﻿
+function hideOnLoad() {
+    $('#typeOwner').hide();
+}
 
 $(document).ready(function () {
     hideOnLoad();
@@ -247,6 +250,11 @@ $(document).ready(function () {
         }
         );
     });
+
+
+
+
+
 
     $(function () {
         $('#table-user tbody').on('click', 'a.add-link-favorite', function () {

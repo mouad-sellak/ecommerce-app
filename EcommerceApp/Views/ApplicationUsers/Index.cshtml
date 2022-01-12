@@ -77,9 +77,9 @@
                         </i>
                     </a>
 
-                    <a data-block-id="@item.Id" data-color="@colorStyle" class="text-danger block-link-user pointer">
-                        <i class="material-icons icon " style="color:@colorStyle;">
-                            block
+                    <a href="@Url.Action("Delete", "ApplicationUsers", new { id = item.Id })" class="text-danger delete-link-product pointer">
+                        <i class="material-icons icon ">
+                            delete
                         </i>
                     </a>
                     @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())

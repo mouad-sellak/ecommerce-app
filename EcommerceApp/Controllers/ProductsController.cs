@@ -108,9 +108,7 @@ namespace EcommerceApp.Controllers
         }
 
         [Authorize(Roles = "Owner,Admin")]
-        // POST: Products/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Product product, HttpPostedFileBase productImage)
@@ -135,6 +133,7 @@ namespace EcommerceApp.Controllers
         }
 
         // GET: Products/Delete/5
+        [Authorize(Roles = "Owner,Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -149,16 +148,16 @@ namespace EcommerceApp.Controllers
             return View(product);
         }
 
-
+        [Authorize(Roles = "Owner,Admin")]
         // POST: Products/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = db.Products.Find(id);
             db.Products.Remove(product);
             db.SaveChanges();
-            return RedirectToAction("OwnerProducts");
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
