@@ -1,4 +1,6 @@
 
 EcommerceApp/App_Data/EcommerceApp.mdf
 EcommerceApp/App_Data/EcommerceApp_log.ldf
+EcommerceApp/bin
+EcommerceApp/obj
 applicationhost.config
