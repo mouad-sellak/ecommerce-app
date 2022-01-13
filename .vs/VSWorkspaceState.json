@@ -4,8 +4,6 @@
     "\\EcommerceApp",
     "\\EcommerceApp\\Controllers",
     "\\EcommerceApp\\Models",
-    "\\EcommerceApp\\Resources",
-    "\\EcommerceApp\\Resources\\Models",
     "\\EcommerceApp\\Views",
     "\\EcommerceApp\\Views\\AdminDashboard",
     "\\EcommerceApp\\Views\\Offres",
