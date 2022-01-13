@@ -57,11 +57,11 @@ $(document).ready(function () {
     if (Cookies.get('culture') === "fr") {
         window.$('.table').DataTable(frensh);
 
-        $("#selected-language").html("<img src='https://www.countryflags.io/fr/flat/32.png' class='icon-country' /> Français");
+        $("#selected-language").html("<img src='https://www.countryflags.com/wp-content/uploads/france-flag-png-large.png' class='icon-country' /> Français");
 
     } else {
         window.$('.table').DataTable();
-        $("#selected-language").html("<img src='https://www.countryflags.io/us/flat/32.png' class='icon-country' /> English");
+        $("#selected-language").html("<img src='https://www.countryflags.com/wp-content/uploads/united-states-of-america-flag-png-large.png' class='icon-country' /> English");
 
 
     }
