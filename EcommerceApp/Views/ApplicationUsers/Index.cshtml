@@ -61,13 +61,13 @@
                 <td>
                     <a data-add-id="@item.Id" class="text-danger add-link-favorite pointer">
                         <i class="material-icons icon " style="color:red">
-                            favorite
+                            recommend
                         </i>
                     </a>
                     @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
                     <a data-add-id="@item.Id" class="text-danger add-link-black pointer">
                         <i class="material-icons icon " style="color:blue">
-                            thumb_down
+                            no_accounts
                         </i>
                     </a>
                     @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
@@ -77,7 +77,7 @@
                         </i>
                     </a>
 
-                    <a href="@Url.Action("Delete", "ApplicationUsers", new { id = item.Id })" class="text-danger delete-link-product pointer">
+                    <a href="@Url.Action("Delete", "ApplicationUsers", new { id = item.Id })" class="text-danger delete-link-user pointer">
                         <i class="material-icons icon ">
                             delete
                         </i>

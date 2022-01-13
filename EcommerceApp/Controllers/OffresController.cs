@@ -119,12 +119,10 @@ namespace EcommerceApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Offre offre = db.Offres.Find(id);
-            if (offre == null)
-            {
-                return HttpNotFound();
-            }
-            return View(offre);
+            var offr = db.Offres.Find(id);
+            db.Offres.Remove(offr);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // POST: Offres/Delete/5
