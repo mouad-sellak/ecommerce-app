@@ -56,7 +56,7 @@
                         @foreach (var i in EcommerceApp.GestionLanguages.AvailableLanguages)
                         {
                             <p class="dropdown-item">
-                                <img src="https://www.countryflags.com/wp-content/uploads/@i.imageName-flag-png-large.png" class="icon-country" />
+                                <img src="https://www.countryflags.com/wp-content/uploads/@i.imageName-flag-png-large.png"class="icon-country" />
                                 <span class="text-black-50">
                                     @Html.ActionLink(i.LanFullName, "ChangeLanguage", "Home", new { lang = i.LangCultureName }, null)
                                 </span>
