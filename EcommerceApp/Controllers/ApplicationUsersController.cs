@@ -122,10 +122,12 @@ namespace EcommerceApp.Controllers
             }
             ApplicationUser applicationUser = db.Users.Find(id);
             if (applicationUser.blocked == true)
-                applicationUser.blocked = false;
-            else
-                applicationUser.blocked = true;
-            db.Entry(applicationUser).State = EntityState.Modified;
+            {
+                BlackList blackList = db.BlackLists.Where(b=>b.UserId==id).First();
+                 db.BlackLists.Remove(blackList);
+            }
+
+            db.Users.Remove(applicationUser);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

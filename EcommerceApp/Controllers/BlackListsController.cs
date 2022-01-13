@@ -37,7 +37,7 @@ namespace EcommerceApp.Controllers
             return View(blackList);
         }
 
-        public ActionResult Create(string id)
+        public ActionResult CreateConfirmed(string id)
         {
             if (id == null)
             {
@@ -55,9 +55,9 @@ namespace EcommerceApp.Controllers
         // POST: FavoriteLists/Create/UserId
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost, ActionName("Create")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateConfirmed(string id)
+        public ActionResult Create(string id)
         {
             BlackList blackList = db.BlackLists.Where(x => x.UserId.Equals(id)).FirstOrDefault();
             if (blackList == null)
@@ -108,6 +108,7 @@ namespace EcommerceApp.Controllers
         public ActionResult Delete(int id)
         {
             BlackList blackList = db.BlackLists.Find(id);
+            db.Users.Find(blackList.UserId).blocked = false;
             db.BlackLists.Remove(blackList);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -143,7 +143,7 @@ namespace EcommerceApp.Controllers
             Product product = db.Products.Find(id);
             db.Products.Remove(product);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
         [Authorize(Roles = "Owner,Admin")]

@@ -108,10 +108,10 @@ $(document).ready(function () {
             console.log(token);
             var checkstr;
             if (Cookies.get('culture') === "fr") {
-                checkstr = confirm('Voullez vous vraiment supprimer cette Product?');
+                checkstr = confirm('Voullez vous vraiment supprimer ce Produit?');
 
             } else {
-                checkstr = confirm('are you sure you want to delete this?');
+                checkstr = confirm('are you sure you want to delete this Product?');
             }
             if (checkstr == true) {
                 $.ajax({
@@ -257,7 +257,7 @@ $(document).ready(function () {
 
 
     $(function () {
-        $('#table-user tbody').on('click', 'a.add-link-favorite', function () {
+        $('a.add-link-favorite').click( function () {
 
             var token = $("[name='__RequestVerificationToken']").val();
             console.log($(this).attr('data-add-id'));

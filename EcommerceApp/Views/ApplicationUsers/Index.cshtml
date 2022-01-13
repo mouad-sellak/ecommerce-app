@@ -61,13 +61,13 @@
                 <td>
                     <a data-add-id="@item.Id" class="text-danger add-link-favorite pointer">
                         <i class="material-icons icon " style="color:red">
-                            recommend
+                            favorite
                         </i>
                     </a>
                     @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
                     <a data-add-id="@item.Id" class="text-danger add-link-black pointer">
                         <i class="material-icons icon " style="color:blue">
-                            no_accounts
+                            thumb_down
                         </i>
                     </a>
                     @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
