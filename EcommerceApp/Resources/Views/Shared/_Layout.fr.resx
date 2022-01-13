@@ -124,13 +124,13 @@
     <value>Acceuil</value>
   </data>
   <data name="language" xml:space="preserve">
-    <value>Language</value>
+    <value>Langue</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>Se connecter</value>
   </data>
   <data name="logoff" xml:space="preserve">
-    <value>Déconnecte</value>
+    <value>Se déconnecter</value>
   </data>
   <data name="register" xml:space="preserve">
     <value>S'inscrire</value>

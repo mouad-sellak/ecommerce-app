@@ -10,22 +10,17 @@
     @if (User.IsInRole("Admin"))
     {
         <li>
-            @Html.ActionLink(EcommerceApp.Resources.Views.Shared._LoginPartial.hello+" " + User.Identity.GetUserName(), "Index", "AdminDashboard", routeValues: null, htmlAttributes: new { @class = "nav-link", title = "Manage" })
+            @Html.ActionLink(User.Identity.GetUserName(), "Index", "AdminDashboard", routeValues: null, htmlAttributes: new { @class = "btn btn-outline-success", @style = "color: white; border-color: white;", title = "Manage" })
         </li>
     }
 
     else
-    {
-        @Html.ActionLink(EcommerceApp.Resources.Views.Shared._LoginPartial.hello + " " + User.Identity.GetUserName() , "Index", "OwnerDashboard", routeValues: null, htmlAttributes: new { @class = "nav-link", title = "Manage" })
+    {                                                                                                                                   
+        @Html.ActionLink(User.Identity.GetUserName() , "Index", "OwnerDashboard", routeValues: null, htmlAttributes: new { @class = "btn btn-outline-dark", @style = "color: white; border-color: white;", title = "Manage" })
 
     }
-@*
-    <li>
-        @Html.ActionLink(User.Identity.GetUserName() + "!", "Index", "AdminDashboard", routeValues: null, htmlAttributes: new { @class = "nav-link", title = "Manage" })
-    </li>
-*@
 
-    <li><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">@EcommerceApp.Resources.Views.Shared._Layout.logoff</a></li>
+    <li class="ml-2"><a class = "btn btn-outline-warning", href="javascript:document.getElementById('logoutForm').submit()", style = "color: white; border-color: white;">@EcommerceApp.Resources.Views.Shared._Layout.logoff</a></li>
 
 
 </ul>
@@ -33,8 +28,8 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink(EcommerceApp.Resources.Views.Shared._Layout.register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
-        <li>@Html.ActionLink(EcommerceApp.Resources.Views.Shared._Layout.login, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+    <ul class="nav navbar-nav navbar-right">                                                                                                                    
+        <li>@Html.ActionLink(EcommerceApp.Resources.Views.Shared._Layout.register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-outline-primary", @style = "color: white; border: none;" })</li>
+        <li>@Html.ActionLink(EcommerceApp.Resources.Views.Shared._Layout.login, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-outline-primary", @style = "color: white; border: none;" })</li>
     </ul>
 }
