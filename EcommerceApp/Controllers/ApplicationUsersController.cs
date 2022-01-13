@@ -121,11 +121,13 @@ namespace EcommerceApp.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ApplicationUser applicationUser = db.Users.Find(id);
-            if (applicationUser == null)
-            {
-                return HttpNotFound();
-            }
-            return View(applicationUser);
+            if (applicationUser.blocked == true)
+                applicationUser.blocked = false;
+            else
+                applicationUser.blocked = true;
+            db.Entry(applicationUser).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // POST: ApplicationUsers/Delete/5

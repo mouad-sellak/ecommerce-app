@@ -105,11 +105,9 @@ namespace EcommerceApp.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Category category = db.Categories.Find(id);
-            if (category == null)
-            {
-                return HttpNotFound();
-            }
-            return View(category);
+            db.Categories.Remove(category);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // POST: Categories/Delete/5

@@ -141,11 +141,9 @@ namespace EcommerceApp.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Product product = db.Products.Find(id);
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
-            return View(product);
+            db.Products.Remove(product);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         [Authorize(Roles = "Owner,Admin")]
