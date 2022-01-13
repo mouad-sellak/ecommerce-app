@@ -86,7 +86,7 @@ namespace EcommerceApp.Controllers
             return View(product);
         }
 
-        [Authorize(Roles = "Owner,Admin")]
+        [Authorize(Roles = "Owner")]
         // GET: Products/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -107,8 +107,7 @@ namespace EcommerceApp.Controllers
             return View(product);
         }
 
-        [Authorize(Roles = "Owner,Admin")]
-       
+        [Authorize(Roles = "Owner")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Product product, HttpPostedFileBase productImage)
@@ -132,25 +131,12 @@ namespace EcommerceApp.Controllers
             return View(product);
         }
 
-        // GET: Products/Delete/5
-        [Authorize(Roles = "Owner,Admin")]
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
 
         [Authorize(Roles = "Owner,Admin")]
         // POST: Products/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id) //there is a link from js
         {
             Product product = db.Products.Find(id);
             db.Products.Remove(product);

@@ -97,7 +97,7 @@ namespace EcommerceApp.Resources.Views.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log off.
+        ///   Looks up a localized string similar to Log out.
         /// </summary>
         public static string logoff {
             get {
