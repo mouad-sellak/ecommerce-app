@@ -82,7 +82,7 @@ $(document).ready(function () {
                 checkstr = confirm('Voullez vous vraiment supprimer cette Offre?');
 
             } else {
-                checkstr = confirm('Are you sure you want to delete this?');
+                checkstr = confirm('Are you sure you want to delete this offer?');
             }
             if (checkstr == true) {
                 $.ajax({
@@ -111,11 +111,11 @@ $(document).ready(function () {
                 checkstr = confirm('Voullez vous vraiment supprimer ce Produit?');
 
             } else {
-                checkstr = confirm('are you sure you want to delete this Product?');
+                checkstr = confirm('Are you sure you want to delete this product?');
             }
             if (checkstr == true) {
                 $.ajax({
-                    url: '/Products/Delete/' + $(".delete-link-product").attr('data-delete-id'),
+                    url: '/Products/DeleteConfirmed/' + $(".delete-link-product").attr('data-delete-id'),
                     type: "POST",
                     data: {
                         __RequestVerificationToken: token,
@@ -124,6 +124,9 @@ $(document).ready(function () {
                         window.reload();
                     }
                 });
+
+                window.location = "Index";
+                window.location.reload();
             }
         }
         );
