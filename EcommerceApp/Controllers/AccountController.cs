@@ -78,7 +78,7 @@ namespace EcommerceApp.Controllers
            var user = UserManager.FindByEmail(model.Email);
             if (user != null)
             {
-                if (db.BlackLists.Where(u => u.UserId.Equals(user.Id)).Count() == 0)
+                if (user.blocked==false)
                 {
                     var result = await SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
                     // This doesn't count login failures towards account lockout

@@ -131,6 +131,19 @@ namespace EcommerceApp.Controllers
             return View(product);
         }
 
+        // GET: Products/Delete/5
+        [Authorize(Roles = "Owner,Admin")]
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
+            db.SaveChanges();
+            return Redirect(Request.UrlReferrer.ToString());
+        }
 
         [Authorize(Roles = "Owner,Admin")]
         // POST: Products/Delete/5
