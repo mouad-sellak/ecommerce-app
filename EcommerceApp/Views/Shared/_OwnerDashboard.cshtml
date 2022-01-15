@@ -4,14 +4,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    span {
+        color: lightcyan;
+        font-size: 18px;
+    }
+</style>
 
 <div class="wrapper d-flex">
-    <div class="sideMenu bg-mattBlackLight">
+    <div class="sideMenu " style="background-color: #080F1A;"  >
         <div class="sidebar">
             <ul class="navbar-nav mt-3">
                 <li class="nav-item">
                     <a href="~/OwnerDashboard" class="nav-link px-2">
-                        <i class="material-icons icon">
+                        <i class="material-icons icon " style="color:aliceblue"  >
                             dashboard
                         </i>
                         <span class="text">@EcommerceApp.Resources.Views.Shared._OwnerDashboard.dashboard</span>
@@ -19,7 +25,7 @@
                 </li>
                 <li>
                     <a href="~/OwnerDashboard/historique" class="nav-link px-2">
-                        <i class="material-icons icon">
+                        <i class="material-icons icon" style="color:aliceblue">
                             history
                         </i>
                         <span class="text">@EcommerceApp.Resources.Views.Shared._OwnerDashboard.history</span>
@@ -28,14 +34,14 @@
 
                 <li class="nav-item">
                     <a href="~/Products/OwnerProducts" class="nav-link px-2">
-                        <i class="material-icons icon">
+                        <i class="material-icons icon" style="color:aliceblue">
                             assignment
                         </i><span class="text">@EcommerceApp.Resources.Views.Shared._OwnerDashboard.product</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="~/Offres/index" class="nav-link px-2">
-                        <i class="material-icons icon">
+                        <i class="material-icons icon" style="color:aliceblue">
                             local_offer
                         </i>
                         <span class="text">@EcommerceApp.Resources.Views.Shared._OwnerDashboard.offer</span>
@@ -43,14 +49,12 @@
                 </li>
                 <li class="nav-item">
                     <a href="~/Account/Edit" class="nav-link px-2">
-                        <i class="material-icons icon">
+                        <i class="material-icons icon" style="color:aliceblue">
                             account_box
                         </i>
                         <span class="text">@EcommerceApp.Resources.Views.Shared._OwnerDashboard.profil</span>
                     </a>
                 </li>
-
-
             </ul>
         </div>
     </div>

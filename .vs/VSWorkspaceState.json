@@ -2,9 +2,6 @@
   "ExpandedNodes": [
     "",
     "\\EcommerceApp",
-    "\\EcommerceApp\\Controllers",
-    "\\EcommerceApp\\Models",
-    "\\EcommerceApp\\Views",
     "\\EcommerceApp\\Views\\AdminDashboard",
     "\\EcommerceApp\\Views\\Offres",
     "\\EcommerceApp\\Views\\OwnerDashboard"

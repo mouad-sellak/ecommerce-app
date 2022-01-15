@@ -133,6 +133,15 @@ namespace EcommerceApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search For a Product.
+        /// </summary>
+        public static string search_pholder {
+            get {
+                return ResourceManager.GetString("search_pholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Users.
         /// </summary>
         public static string users {

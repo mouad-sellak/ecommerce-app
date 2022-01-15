@@ -36,6 +36,28 @@ namespace EcommerceApp.Controllers
             return View(products);
         }
 
+        public ActionResult Offers(string lang, string category)
+        {
+            List<Product> products;
+            if (lang != null)
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(lang);
+            if (category != null)
+            {
+
+                products = db.Products.Where( p => p.Category.libele.Equals(category) ).OrderBy(p=>p.Offre.taux_remise).ThenByDescending(p => p.Offre.taux_remise).ToList();
+            }
+            else
+            {
+                products = (List<Product>)db.Products.OrderBy(p => p.Offre.taux_remise).ThenByDescending(p => p.Offre.taux_remise).ToList();
+            }
+
+            string name = User.Identity.Name;
+            ViewBag.name = name;
+            products.Reverse();
+
+            return View(products);
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

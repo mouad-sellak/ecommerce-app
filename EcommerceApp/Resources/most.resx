@@ -141,6 +141,9 @@
   <data name="search" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="search_pholder" xml:space="preserve">
+    <value>Search For a Product</value>
+  </data>
   <data name="users" xml:space="preserve">
     <value>Users</value>
   </data>

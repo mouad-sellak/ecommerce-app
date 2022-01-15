@@ -11,6 +11,9 @@
     color: white;
 }
 
+.myShadow {
+    box-shadow: 0px 0px 15px black ;
+}
 
 .jumbotron {
     background: #3692EB;

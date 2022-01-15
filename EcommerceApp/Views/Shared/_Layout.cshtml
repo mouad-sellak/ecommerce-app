@@ -19,29 +19,29 @@
 </head>
 <body style="font-family:'Times New Roman';  background-color: lightgray"  >
 
-    <nav class="navbar  navbar-expand-lg navbar-light fixed-top" style="background-color: #6f03fc">
+    <nav class="navbar  navbar-expand-lg navbar-light fixed-top "  style="background-color: #080F1A;"  >
 
 
         @if (User.Identity.IsAuthenticated)
         {
 
             <button class="navbar-toggler sideMenuToggler" type="button">
-                <i class="material-icons icon">
+                <i class="material-icons icon" style="color:white" >
                     dashboard
                 </i>
             </button>
 
         }
-        <a class="navbar-brand nav-text" href="#">
-            <img src="~/Uploads/logo.png" style="width:100px; height:60px;" />
+        <a class="navbar-brand nav-text" href="@Url.Action("Index","Home")">
+            <img src="~/Uploads/logo.png" style="width:90px; height:50px;" />
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon bg-white " ></span>
         </button>
 
         <div class="  collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class=" navbar-nav mr-auto   " style="font-size:20px" >
+            <ul class=" navbar-nav mr-auto   " style="font-size:18px" >
 
                 <li class="nav-item ">
                     @Html.ActionLink(EcommerceApp.Resources.Views.Shared._Layout.home, "Index", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link nav-text  text-white  " })
@@ -51,17 +51,16 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="text-white"  id="selected-language">Language</span>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu  " aria-labelledby="navbarDropdown">
 
                         @foreach (var i in EcommerceApp.GestionLanguages.AvailableLanguages)
                         {
-                            <p class="dropdown-item">
+                            <p class="dropdown-item  ">
                                 <img src="https://www.countryflags.com/wp-content/uploads/@i.imageName-flag-png-large.png"class="icon-country" />
                                 <span class="text-white-50">
                                     @Html.ActionLink(i.LanFullName, "ChangeLanguage", "Home", new { lang = i.LangCultureName }, null)
                                 </span>
                             </p>
-
                         }
 
                     </div>
@@ -79,20 +78,15 @@
                         @foreach (var i in EcommerceApp.Controllers.HomeController.getCategories())
                         {
                             <p class="dropdown-item">
-
                                 <span class="text-black-50">
                                     @Html.ActionLink(i.libele, "Index", "Home",
                                    new { category = i.libele }, null)
                                 </span>
                             </p>
-
                         }
 
                     </div>
                 </li>
-
-
-
             </ul>
             @Html.Partial("_LoginPartial")
 
@@ -108,7 +102,7 @@
         }
     </div>
 
-    <div class="content margin-top" style="padding:25px" >
+    <div class="content margin-top" style="padding-top:25px" >
         @RenderBody()
     </div>
 

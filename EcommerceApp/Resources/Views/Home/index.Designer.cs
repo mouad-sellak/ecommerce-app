@@ -61,7 +61,16 @@ namespace EcommerceApp.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to BEST OFFRE.
+        ///   Looks up a localized string similar to All Products.
+        /// </summary>
+        public static string all_products {
+            get {
+                return ResourceManager.GetString("all_products", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Best Offers.
         /// </summary>
         public static string best_offre {
             get {
