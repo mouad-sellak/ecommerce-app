@@ -6,24 +6,17 @@
 }
 else 
 {
-    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml"; 
 }
 
 @using (Html.BeginForm("Edit", "Account", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    <div class="container">
+    <div class="container ">
         <div class="row">
-            <div class="col-md-6 mx-auto">   
+            <div class="col-md-6 mb-4 mx-auto">   
                 <div class="productd">
-                    <div class="productd-body">
-                        <!--<div class="row">
-                            <div class="col">
-                                <center>
-                                    <img style="width:100px" src="imgs/generaluser.png" />
-                                </center>
-                            </div>
-                            </div>-->
+                    <div class="productd-body myShadow  ">      
                         <div class="row">
                             <div class="col">
                                 <center>
