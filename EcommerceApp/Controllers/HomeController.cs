@@ -30,12 +30,19 @@ namespace EcommerceApp.Controllers
                 products = db.Products.ToList();
             }
 
-            string name = User.Identity.Name;
-            ViewBag.name = name;
-
             return View(products);
         }
+        [HttpPost]
+        public ActionResult Search(string search)
+        {
+            List<Product> products =new List<Product>();
+                products = db.Products.Where(p=> p.title.Contains(search) || p.location.Contains(search)
+                  || p.description.Contains(search) || p.Category.libele.Contains(search)).ToList();
 
+            ViewBag.name = search;
+
+            return View("Index",products);
+        }
         public ActionResult Offers(string lang, string category)
         {
             List<Product> products;
@@ -51,8 +58,6 @@ namespace EcommerceApp.Controllers
                 products = (List<Product>)db.Products.OrderBy(p => p.Offre.taux_remise).ThenByDescending(p => p.Offre.taux_remise).ToList();
             }
 
-            string name = User.Identity.Name;
-            ViewBag.name = name;
             products.Reverse();
 
             return View(products);
