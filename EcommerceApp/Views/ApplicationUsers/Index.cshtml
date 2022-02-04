@@ -1,0 +1,91 @@
+﻿@model IEnumerable<EcommerceApp.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+}
+
+
+<table class="table table-striped" id="table-user">
+        <thead>
+            <tr>
+                <th>
+                    @EcommerceApp.Resources.Views.Account.Register.name
+                </th>
+                <th>
+                    @EcommerceApp.Resources.Views.Account.Register.date_join
+                </th>
+                <th>
+                    @EcommerceApp.Resources.Views.Account.Register.email
+                </th>
+                <th>
+                    @EcommerceApp.Resources.Views.Account.Register.number
+                </th>
+                <th>
+                    @EcommerceApp.Resources.Views.Account.Register.adress
+                </th>
+                <th>
+                    @EcommerceApp.Resources.Views.Shared._OwnerDashboard.history
+                </th>
+                <th width="100">Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                string colorStyle = string.Empty;
+                colorStyle += item.blocked == false ? "red" : "grey";
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Convert.ToDateTime(item.date_join).ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserAdress)
+                </td>
+                <td>
+                    <a href="@Url.Action("historique", "ApplicationUsers", new { id = item.Id })" class="text-success">
+                        Details
+                    </a>
+                </td>
+                <td>
+                    <a data-add-id="@item.Id" class="text-danger add-link-favorite pointer">
+                        <i class="material-icons icon " style="color:red">
+                            favorite
+                        </i>
+                    </a>
+                    @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
+                    <a data-add-id="@item.Id" class="text-danger add-link-black pointer">
+                        <i class="material-icons icon " style="color:blue">
+                            thumb_down
+                        </i>
+                    </a>
+                    @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
+                    <a href="@Url.Action("Details", "ApplicationUsers", new { id = item.Id })" class="text-success">
+                        <i class="material-icons icon">
+                            visibility
+                        </i>
+                    </a>
+
+                    <a href="@Url.Action("Delete", "ApplicationUsers", new { id = item.Id })" class="text-danger delete-link-user pointer">
+                        <i class="material-icons icon ">
+                            delete
+                        </i>
+                    </a>
+                    @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
+                </td>
+            </tr>
+    }
+
+        </tbody>
+</table>

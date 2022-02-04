@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\LocationVoiture",
-    "\\LocationVoiture\\App_Data"
+    "\\EcommerceApp",
+    "\\EcommerceApp\\Views\\AdminDashboard",
+    "\\EcommerceApp\\Views\\Offres",
+    "\\EcommerceApp\\Views\\OwnerDashboard"
   ],
-  "SelectedNode": "\\LocationVoiture\\Scripts",
+  "SelectedNode": "\\EcommerceApp.sln",
   "PreviewInSolutionExplorer": false
 }

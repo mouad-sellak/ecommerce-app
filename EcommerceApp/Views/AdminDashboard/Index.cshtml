@@ -1,0 +1,174 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+}
+
+
+<div class="container mt-3">
+    <h2 class="px-5 py-2 text-center"> @EcommerceApp.Resources.Views.Shared.Dashboard.statitics</h2>
+
+    @using (Html.BeginForm("Index", "AdminDashboard", FormMethod.Get))
+    {
+        <div class="d-flex  justify-content-center">
+            <input type="text" name="year" value="@ViewBag.year" class="form-control" />
+            <input type="submit" value=@EcommerceApp.Resources.most.search class="btn btn-primary ml-2" />
+        </div>
+    }
+    <hr />
+    <div class="row d-flex m-5">
+
+        <div class="col-md-8 col-12">
+            <div class="productd productd_info h-100">
+                <div class="productd-header d-flex justify-content-between">
+                    <div>
+                        @EcommerceApp.Resources.Views.Shared.Dashboard.nb_client (@ViewBag.year)
+                    </div>
+                </div>
+                <div class="productd-body">
+                    <h5 class="productd-title"></h5>
+                    <p class="productd-text">
+
+                        <div id="chart_container_tenant">
+                            <canvas id="bar_chart_tenant">
+                            </canvas>
+                        </div>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row d-flex m-5">
+
+        <div class="col-md-6 col-12">
+            <div class="productd productd_info h-100">
+                <div class="productd-header d-flex justify-content-between">
+                    <div>
+                        @EcommerceApp.Resources.Views.Shared.Dashboard.nb_voi (@ViewBag.year)
+                    </div>
+                </div>
+                <div class="productd-body">
+                    <h5 class="productd-title"></h5>
+                    <p class="productd-text">
+
+                        <div id="chart_container_products">
+                            <canvas id="bar_chart_products">
+                            </canvas>
+                        </div>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+@section chart{
+    <script>
+            var owners = @Html.Raw(Json.Encode(ViewBag.owners));
+            var products = @Html.Raw(Json.Encode(ViewBag.products));
+            var res = @Html.Raw(Json.Encode(ViewBag.res));
+            var months = @Html.Raw(Json.Encode(ViewBag.months));
+            @*-- START -- chart for locataire*@
+            var ctx = $("#bar_chart_tenant");
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [
+                        {
+                            label: "@EcommerceApp.Resources.Views.Shared.Dashboard.pro",
+                            data: owners,
+                        }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: "@EcommerceApp.Resources.Views.Shared.Dashboard.nb"
+                            }
+                        }],
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: "@EcommerceApp.Resources.Views.Shared.Dashboard.month"
+                            }
+                        }]
+                    }
+                }
+            });
+            @* --START --chart for product *@
+            var ctx1 = $("#bar_chart_products");
+            var myChart = new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: "@EcommerceApp.Resources.Views.Shared.Dashboard.product",
+                        data: products,
+                        backgroundColor: 'rgb(40, 62, 118)'
+                    },]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: "@EcommerceApp.Resources.Views.Shared.Dashboard.nb"
+                            }
+                        }],
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString:"@EcommerceApp.Resources.Views.Shared.Dashboard.month"
+                            }
+                        }]
+                    }
+                }
+            });
+            @* --END --chart for product *@
+            @* --START --chart for reservation *@
+            var ctx2 = $("#bar_chart_res");
+            var myChart = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: 'Reservation',
+                        backgroundColor: 'rgb(40, 62, 118)',
+                        data: res,
+                    },]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: "@EcommerceApp.Resources.Views.Shared.Dashboard.nb"
+                            }
+                        }],
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString:"@EcommerceApp.Resources.Views.Shared.Dashboard.month"
+                            }
+                        }]
+                    }
+                }
+            });
+         
+    </script>
+}

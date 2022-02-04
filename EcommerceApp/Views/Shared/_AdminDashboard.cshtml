@@ -1,0 +1,99 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    span {
+        color: lightcyan;
+        font-size: 18px;
+    }
+</style>
+<div class="wrapper d-flex" >
+    <div class="sideMenu " style="background-color: #080F1A;"   >
+        <div class="sidebar">
+            <ul class="navbar-nav mt-3  ">
+                <li class="nav-item   ">
+                    <a href="~/AdminDashboard" class="nav-link px-2  ">
+                        <i class="material-icons icon" style="color:aliceblue">
+                            palette
+                        </i>
+                        <span class="text">@EcommerceApp.Resources.Views.Shared._OwnerDashboard.dashboard</span>
+                    </a> 
+                </li>
+                <li class="nav-item">
+                    <a href="~/ApplicationUsers/Index" class="nav-link px-2">
+                        <i class="material-icons icon" style="color:aliceblue">
+                            person
+                        </i>
+                        <span class="text ">@EcommerceApp.Resources.most.users</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="~/FavoriteLists/Index" class="nav-link px-2">
+                        <i class="material-icons icon" style="color:aliceblue">
+                            favorite
+                        </i>
+                        <span class="text" >@EcommerceApp.Resources.Views.Shared.Dashboard.favorite_list</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="~/BlackLists/Index" class="nav-link px-2">
+                        <i class="material-icons icon" style="color:aliceblue" >
+                            thumb_down
+                        </i>
+                        <span class="text ">@EcommerceApp.Resources.Views.Shared.Dashboard.black_list</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="~/Products/Index" class="nav-link px-2">
+                        <i class="material-icons icon" style="color:aliceblue">
+                            assignment
+                        </i><span class="text ">@EcommerceApp.Resources.Views.Shared._OwnerDashboard.product</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="~/Offres/index" class="nav-link px-2">
+                        <i class="material-icons icon" style="color:aliceblue">
+                            local_offer
+                        </i>
+                        <span class="text ">@EcommerceApp.Resources.Views.Shared._OwnerDashboard.offer</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="~/Categories" class="nav-link px-2">
+                        <i class="material-icons icon" style="color:aliceblue">
+                            library_books
+                        </i>
+                        <span class="text ">@EcommerceApp.Resources.Views.Shared._OwnerDashboard.model</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="~/Account/Edit" class="nav-link px-2">
+                        <i class="material-icons icon" style="color:aliceblue">
+                            account_box
+                        </i>
+                        <span class="text ">@EcommerceApp.Resources.Views.Shared._OwnerDashboard.profil</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <main>
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+        </main>
+    </div>
+</div>
+
+
+
+@section chartSection{
+    @RenderSection("chart", required: false)
+}
+

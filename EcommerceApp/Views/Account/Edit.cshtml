@@ -1,0 +1,91 @@
+﻿@model EcommerceApp.Models.EditViewModel
+
+@if (User.IsInRole("Owner"))
+{
+    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+}
+else 
+{
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml"; 
+}
+
+@using (Html.BeginForm("Edit", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-6 mb-4 mx-auto">   
+                <div class="productd">
+                    <div class="productd-body myShadow  ">      
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <h4 style="color:#3692EB">@EcommerceApp.Resources.Views.Account.Edit.msg</h4>
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    @Html.LabelFor(m => m.UserName)
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @readonly = "readonly" })
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    @Html.LabelFor(m => m.UserPhone)
+                                    @Html.TextBoxFor(m => m.UserPhone, new { @class = "form-control" })
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    @Html.LabelFor(m => m.UserAdress)
+                                    @Html.TextAreaFor(m => m.UserAdress, new { @class = "form-control" })
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    @Html.LabelFor(m => m.Password)
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                </center>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p style="color:red">@ViewBag.info</p>
+                        </div>
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                        <div class="row">
+                            <div class="col">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 mx-auto">
+                                <center>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary" value=@EcommerceApp.Resources.Views.Account.Edit.edit style="background-color: #3692EB" />
+                                    </div>
+                                    <div class="form-group">
+                                        <a href="~/Manage/ChangePassword">@EcommerceApp.Resources.Views.Account.Edit.changePasseword</a>
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

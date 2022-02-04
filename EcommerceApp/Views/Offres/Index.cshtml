@@ -1,0 +1,85 @@
+﻿@model IEnumerable<EcommerceApp.Models.Offre>
+
+@{
+    //ViewBag.Title = "Index";
+    if (User.IsInRole("Owner"))
+    {
+        Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+    }
+
+}
+<div class="m-0">
+    @if (User.IsInRole("Owner"))
+{
+        <button class="btn btn-light" >
+        <a href="@Url.Action("Create", "Offres")" class="text-primary  ">
+            @EcommerceApp.Resources.Views.Offres.Index.createNew
+        </a>
+        </button>
+    <hr />
+}
+    <table class="table table-bordered"s>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.libele)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.taux_remise)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date_expiration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date_ajout)
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.libele)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.taux_remise)
+                </td>
+                <td>
+                    @Convert.ToDateTime(item.date_expiration).ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
+                </td>
+                <td>
+
+                    
+                    <a href="@Url.Action("Details", "Offres", new { id = item.id_offre  })" class="text-primary">
+                        <i class="material-icons icon ">
+                            visibility
+                        </i>
+                    </a>
+                    <a href="@Url.Action("Edit", "Offres", new { id = item.id_offre })" class="text-warning">
+                        <i class="material-icons icon " style="color:yellow">
+                            edit
+                        </i>
+                    </a>
+                    <a href="@Url.Action("Delete", "Offres", new { id = item.id_offre  })" class="text-danger delete-link-offre pointer">
+                        <i class="material-icons icon ">
+                            delete
+                        </i>
+                    </a>
+                    @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
+                    
+                </td>
+            </tr>
+        }
+        </tbody>
+
+    </table>
+    </div>

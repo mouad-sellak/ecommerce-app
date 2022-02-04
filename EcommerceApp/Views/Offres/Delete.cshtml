@@ -1,0 +1,64 @@
+﻿@model EcommerceApp.Models.Offre
+
+@{
+    if (User.IsInRole("Owner"))
+    {
+        Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+    }
+}
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Offre</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.libele)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.libele)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.taux_remise)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.taux_remise)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_expiration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_expiration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_ajout)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_ajout)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("DeleteConfirmed", "Offres", new { Id = Model.id_offre }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-default" /> |
+    @Html.ActionLink("Back to List", "Index")
+</div>
+    }
+</div>

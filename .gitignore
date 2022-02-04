@@ -1,3 +1,5 @@
 
-LocationVoiture/App_Data/LocationVoiture.mdf
-LocationVoiture/App_Data/LocationVoiture_log.ldf
+EcommerceApp/App_Data/EcommerceApp.mdf
+EcommerceApp/App_Data/EcommerceApp_log.ldf
+applicationhost.config
+.suo

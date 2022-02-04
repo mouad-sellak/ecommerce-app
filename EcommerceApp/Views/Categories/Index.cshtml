@@ -1,0 +1,63 @@
+﻿@model IEnumerable<EcommerceApp.Models.Category>
+    @if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+
+    }
+
+<div class="m-5">
+    @if (User.IsInRole("Admin"))
+    {
+        <p>
+            @Html.ActionLink(EcommerceApp.Resources.most.create, "Create")
+        </p>
+        <hr />
+    }
+    <table class="table" id="categories">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.libele)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date_ajout)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.libele)
+                    </td>
+                    <td>
+                        @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+
+
+                        <a href="@Url.Action("Details", "Categories", new { id = item.id_category })" class="text-success">
+                            <i class="material-icons icon ">
+                                visibility
+                            </i>
+                        </a>
+                            <a href="@Url.Action("Edit", "Categories", new { id = item.id_category })" class="text-warning">
+                                <i class="material-icons icon ">
+                                    edit
+                                </i>
+                            </a>
+                            <a href="@Url.Action("Delete", "Categories", new { id = item.id_category })" class="text-danger">
+                                <i class="material-icons icon ">
+                                    delete
+                                </i>
+                            </a>
+                        
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
