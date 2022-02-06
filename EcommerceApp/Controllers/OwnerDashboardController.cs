@@ -16,6 +16,7 @@ namespace EcommerceApp.Controllers
         // GET: Owner
         public ActionResult Index(int? year)
         {
+            ViewData["year"] = year;
             return View();
         }
 

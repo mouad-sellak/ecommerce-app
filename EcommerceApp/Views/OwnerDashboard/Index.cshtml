@@ -70,18 +70,26 @@
             var products = @Html.Raw(Json.Encode(ViewBag.products));
             var res = @Html.Raw(Json.Encode(ViewBag.res));
             var prices = @Html.Raw(Json.Encode(ViewBag.prices));
-            var months = @Html.Raw(Json.Encode(ViewBag.months));
+        var months = @Html.Raw(Json.Encode(ViewBag.months));
+        //console.log(owners, products, res, prices, months);
+        //var months = Utils.months({ count: 12 });
+
 
             @* --START --chart for product *@
             var ctx1 = $("#bar_chart_products");
             var myChart = new Chart(ctx1, {
-                type: 'bar',
+                type: 'line',
                 data: {
-                    labels: months,
+                    labels: [1,2,3,4,5,6,7,8,9,10,11,12],
                     datasets: [{
                         label: "Products",
-                        data: products,
-                        backgroundColor: 'rgb(40, 62, 118)'
+                        data: [5, 2, 3, 4, 1, 2, 7, 3, 9, 1, 11, 2],
+                        backgroundColor: 'rgba(255,165,0,0.3)',
+                                            borderColor: '#2666CF',
+                                            pointStyle: "circle",
+                        pointBackgroundColor: '#2666CF',
+                                            pointRadius: 5,
+                                             pointHoverRadius: 10,
                     },]
                 },
                 options: {
@@ -93,6 +101,7 @@
                             scaleLabel: {
                                 display: true,
                                 labelString: "@EcommerceApp.Resources.Views.Shared.Dashboard.nb"
+
                             }
                         }],
                         xAxes: [{
@@ -105,16 +114,21 @@
                 }
             });
             @* --END --chart for product *@
-          
+
             var ctx2 = $("#bar_chart_prices");
             var myChart = new Chart(ctx2, {
                 type: 'bar',
                 data: {
-                    labels: months,
+                    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                     datasets: [{
-                        label: 'Total',
-                        backgroundColor: 'rgb(40, 62, 118)',
-                        data: prices,
+                        label: "Products",
+                        data: [5000, 2000, 3500, 4300, 1000, 2230, 7000, 5000, 9000, 1000, 1100, 2000],
+                        backgroundColor: '#2666CF',
+                        borderColor: 'rgb(255,135,20)',
+                        pointStyle: "circle",
+                        pointBackgroundColor: 'rgb(0,222,0)',
+                        pointRadius: 5,
+                        pointHoverRadius: 10,
                     },]
                 },
                 options: {

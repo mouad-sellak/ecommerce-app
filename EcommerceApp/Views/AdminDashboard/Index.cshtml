@@ -72,17 +72,22 @@
             var products = @Html.Raw(Json.Encode(ViewBag.products));
             var res = @Html.Raw(Json.Encode(ViewBag.res));
             var months = @Html.Raw(Json.Encode(ViewBag.months));
-            @*-- START -- chart for locataire*@
+
             var ctx = $("#bar_chart_tenant");
             var myChart = new Chart(ctx, {
-                type: 'bar',
+                type: 'line',
                 data: {
-                    labels: months,
-                    datasets: [
-                        {
-                            label: "@EcommerceApp.Resources.Views.Shared.Dashboard.pro",
-                            data: owners,
-                        }]
+                    labels: [1,2,3,4,5,6,7,8,9,10,11,12],
+                    datasets: [{
+                        label: "Clients",
+                        data: [5, 2, 3, 4, 1, 2, 7, 3, 9, 1, 11, 2],
+                        backgroundColor: 'rgba(255,165,0,0.3)',
+                                            borderColor: '#2666CF',
+                                            pointStyle: "circle",
+                        pointBackgroundColor: '#2666CF',
+                                            pointRadius: 5,
+                                             pointHoverRadius: 10,
+                    },]
                 },
                 options: {
                     scales: {
@@ -109,11 +114,16 @@
             var myChart = new Chart(ctx1, {
                 type: 'bar',
                 data: {
-                    labels: months,
+                    labels: [1,2,3,4,5,6,7,8,9,10,11,12],
                     datasets: [{
-                        label: "@EcommerceApp.Resources.Views.Shared.Dashboard.product",
-                        data: products,
-                        backgroundColor: 'rgb(40, 62, 118)'
+                        label: "Products",
+                        data: [5, 2, 3, 4, 1, 2, 7, 3, 9, 1, 11, 2],
+                        backgroundColor: '#2666CF',
+                                            borderColor: '#2666CF',
+                                            pointStyle: "circle",
+                        pointBackgroundColor: '#2666CF',
+                                            pointRadius: 5,
+                                             pointHoverRadius: 10,
                     },]
                 },
                 options: {
@@ -169,6 +179,6 @@
                     }
                 }
             });
-         
+
     </script>
 }
