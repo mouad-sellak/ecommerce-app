@@ -86,7 +86,7 @@ namespace EcommerceApp.Controllers
             return View(product);
         }
 
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner,Admin")]
         // GET: Products/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -107,7 +107,7 @@ namespace EcommerceApp.Controllers
             return View(product);
         }
 
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner,Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Product product, HttpPostedFileBase productImage)
