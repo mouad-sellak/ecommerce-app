@@ -147,38 +147,6 @@
                 }
             });
             @* --END --chart for product *@
-            @* --START --chart for reservation *@
-            var ctx2 = $("#bar_chart_res");
-            var myChart = new Chart(ctx2, {
-                type: 'bar',
-                data: {
-                    labels: months,
-                    datasets: [{
-                        label: 'Reservation',
-                        backgroundColor: 'rgb(40, 62, 118)',
-                        data: res,
-                    },]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            },
-                            scaleLabel: {
-                                display: true,
-                                labelString: "@EcommerceApp.Resources.Views.Shared.Dashboard.nb"
-                            }
-                        }],
-                        xAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString:"@EcommerceApp.Resources.Views.Shared.Dashboard.month"
-                            }
-                        }]
-                    }
-                }
-            });
 
     </script>
 }
