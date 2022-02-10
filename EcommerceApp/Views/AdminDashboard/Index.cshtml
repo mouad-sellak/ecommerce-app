@@ -16,7 +16,7 @@
     <hr />
     <div class="row d-flex m-5">
 
-        <div class="col-md-8 col-12">
+        <div class="col-md-6 col-12">
             <div class="productd productd_info h-100">
                 <div class="productd-header d-flex justify-content-between">
                     <div>
@@ -27,8 +27,8 @@
                     <h5 class="productd-title"></h5>
                     <p class="productd-text">
 
-                        <div id="chart_container_tenant">
-                            <canvas id="bar_chart_tenant">
+                        <div id="chart_container_clients">
+                            <canvas id="bar_chart_clients">
                             </canvas>
                         </div>
                     </p>
@@ -36,9 +36,7 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row d-flex m-5">
 
         <div class="col-md-6 col-12">
             <div class="productd productd_info h-100">
@@ -60,27 +58,24 @@
                 </div>
             </div>
         </div>
-
-
     </div>
+
 </div>
 
 
 @section chart{
     <script>
-            var owners = @Html.Raw(Json.Encode(ViewBag.owners));
-            var products = @Html.Raw(Json.Encode(ViewBag.products));
-            var res = @Html.Raw(Json.Encode(ViewBag.res));
-            var months = @Html.Raw(Json.Encode(ViewBag.months));
+            var users = @Html.Raw(Json.Encode(ViewBag.users));
+            var products = @Html.Raw(Json.Encode(ViewBag.products_Count));
 
-            var ctx = $("#bar_chart_tenant");
+            var ctx = $("#bar_chart_clients");
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: [1,2,3,4,5,6,7,8,9,10,11,12],
                     datasets: [{
                         label: "Clients",
-                        data: [5, 2, 3, 4, 1, 2, 7, 3, 9, 1, 11, 2],
+                        data: users,
                         backgroundColor: 'rgba(255,165,0,0.3)',
                                             borderColor: '#2666CF',
                                             pointStyle: "circle",
@@ -116,8 +111,8 @@
                 data: {
                     labels: [1,2,3,4,5,6,7,8,9,10,11,12],
                     datasets: [{
-                        label: "Products",
-                        data: [5, 2, 3, 4, 1, 2, 7, 3, 9, 1, 11, 2],
+                        label: "Produits",
+                        data: products,
                         backgroundColor: '#2666CF',
                                             borderColor: '#2666CF',
                                             pointStyle: "circle",

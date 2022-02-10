@@ -14,7 +14,13 @@ namespace EcommerceApp.Controllers
         // GET: AdminDashboard
         public ActionResult Index(int? year)
         {
-           
+            ViewBag.year = year;
+            if (year == null) year = DateTime.Now.Year;
+            var products = db.Products.Where(x=>x.date_ajout.Year == year).GroupBy(x => x.date_ajout.Month);
+            var products_Count = products.Select(x => x.Count());
+            var users = db.Users.Where(u=>u.date_join.Year==year).GroupBy(u=>u.date_join.Month).Select(x => x.Count());
+            ViewBag.products_Count = products_Count;
+            ViewBag.users = users;
             return View();
         }
 

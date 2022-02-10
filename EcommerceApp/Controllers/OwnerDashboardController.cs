@@ -16,7 +16,14 @@ namespace EcommerceApp.Controllers
         // GET: Owner
         public ActionResult Index(int? year)
         {
-            ViewData["year"] = year;
+            ViewBag.year = year;
+            if(year==null) year= DateTime.Now.Year;
+            var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
+            var products = db.Products.Where(x => x.UserId == user.Id && x.date_ajout.Year==year).GroupBy(x=>x.date_ajout.Month);
+            var products_Count = products.Select(x=>x.Count());
+            var prices=products.Select(x => new { Amount = x.Sum(b => b.prix) }).Select(p=>((int)p.Amount));
+            ViewBag.products_Count =products_Count; 
+            ViewBag.prices = prices;
             return View();
         }
 
